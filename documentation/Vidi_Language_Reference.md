@@ -1,13 +1,13 @@
 # Vidi Language Reference
 
-@davidberneda v.003 June-2020
+@davidberneda v.004 June-2020
 
 **Important:** 
 DRAFT. EVERYTHING MIGHT CHANGE.
 
 ### General concepts
 
-Vidi is a strict typing, object oriented language that borrows most of its features from existing languages like Java, C#, Delphi / Pascal and others.
+Vidi is a strict typing, object oriented language that *borrows* most of its features from existing languages like Java, C#, Delphi / Pascal and others.
 
 ### Basic data types
 
@@ -29,7 +29,7 @@ Numbers can be expressed in several ways:
 
 #### Text
 
-Double or single quotes can be used to delimite text.
+Double or single quotes can be used to delimit text.
 
 ```
 "Hello"        // Double-quotes
@@ -49,7 +49,7 @@ False
 
 
 
-These data types (numeric, text and booleans) are "value types". They are always copied when assigning variables:
+These data types (numeric, text and booleans) are "*value types*". They are always copied when assigning variables:
 
 ```
 A : Integer := 123
@@ -57,9 +57,9 @@ B : Integer := A
 // A and B are independent
 ```
 
-The rest of types are always assigned by reference.
+The rest of types (objects, arrays and functions) are always assigned by reference.
 
-#### 
+
 
 ### Other data types
 
@@ -79,7 +79,7 @@ Ranges express minimum and maximum values:
 -12..-2
 ```
 
-Ranges can be used in several places, like declaring an array:
+Ranges can be used in several places, like when declaring an array:
 
 `MyArray : Integer[1..10]`
 
@@ -122,11 +122,11 @@ Equality operators:
 
 Parenthesis are used to group expressions:
 
-`(4+2) * 6 - (5/9)* (Abc - Xyz)`
+`(4+2) * 6 - (5/9) * (Abc - Xyz)`
 
 ### Identifiers
 
-Identifiers might begin with an alpha character (a to z) or _ (underline), and then any digit (0 to 9), alpha or underline.
+Identifiers might begin with an alpha character (`a` to `z`) or `_` (underline), and then any digit (`0` to `9`), alpha or underline.
 
 Examples:
 
@@ -149,26 +149,26 @@ A : Integer
 B : Text
 ```
 
-A variable can optionally define a default value (initial value) using the `:=` symbol:
+A variable can optionally define a *default* value (initial value) using the `:=` symbol:
 
-`F : Float := 123.45   // Value Initialization`
+`F : Float := 123.45   // Value initialization`
 
-Variable type can optionally omitted to infer it from the initial value:
+The Variable type can be optionally omitted to infer it from its initial value:
 
 ```
 Data ::= True   // Type inference  (Data is Boolean)
 Planet ::= Earth   // Planet variable is of the same type as Earth value
 ```
 
-Arrays are declared using the [] bracket symbols, and can also be optionally initialized:
+Arrays are declared using the `[]` bracket symbols, and can also be optionally initialized:
 
 ```
 Colors : Text[] := [ "Red", "Blue" ]
 
-Matrix : Float[ 3,3 ]   // Also:  Float[3][3]
+Matrix : Float[ 3,3 ]   // Alternative way: Float[3][3]
 ```
 
-Ranges and expressions can be used to declare array dimensions:
+Ranges and expressions can also be used to declare array dimensions:
 
 `Numbers : Integer[ 1..2*10 ]   // 20 elements`
 
@@ -176,7 +176,7 @@ Ranges and expressions can be used to declare array dimensions:
 
 ### Constants
 
-The `final` keyword is used to define variables that cannot be modified:
+The `final` keyword is used to define variables that cannot be modified (*readonly*):
 
 `final Pi : :=  3.1415`
 
@@ -188,7 +188,7 @@ Structures, records, classes and interfaces are the same thing in Vidi.
 
 ```
 Person {
-	Name : Text
+  Name : Text
 }
 ```
 
@@ -200,16 +200,16 @@ A class can be extended from another class using the `is` keyword:
 
 ```
 Customer is Person {
-    Code : Integer
+  Code : Integer
 }
 ```
 
-In the above example, the `Customer` class derives from `Person` class.
+In the above example, the `Customer` class derives from the  `Person` class.
 `Person` is the ancestor class of `Customer`.
 
 #### Class as parameter
 
-The `Self` keyword (equivalent to `this` or `it` or `base`) represents the class instance.
+The `Self` keyword (equivalent to *this* or *it* or *base* in other languages) represents the class instance itself.
 
 ```
 Foo is Integer {
@@ -223,7 +223,7 @@ Foo is Integer {
 
 ### Methods
 
-Also called routines, procedures or functions.
+Also called *routines*, *procedures* or *functions*.
 
   `Area : Float { return 123 }`
 
@@ -260,7 +260,7 @@ Class1 {
 
 Class2 is Class1 {
   Proc() {
-    Ancestor()
+    Ancestor  // calls Class1.Proc
   }
 }
 ```
@@ -291,7 +291,7 @@ Life {
   
     Plant( Quantity : Integer) {  // method
     
-      Forest is Tree[] {    // subclass inside method
+      Forest is Text[] {    // subclass inside method
       }
       
       MyForest : Forest   // variable
@@ -334,6 +334,14 @@ Classes that have methods with exactly the same name, parameters and return valu
 SomeClass {
   MyMethod( Data : Boolean ):Text { return "abc" }
 }
+
+// This method requires a MyInterface parameter
+Example( Value : MyInterface) {
+  Value.MyMethod(True)
+}
+
+Some1 : SomeClass
+Example(Some1)  // Some1 variable can be considered of MyInterface type
 ```
 
 In the above code, `SomeClass` class is not derived from `MyInterface` but can be used as if it was.
@@ -349,7 +357,7 @@ Imported symbols are only available at the scope after `with`.
 with Module1, Module2, Module3.MyClass
 
 MyClass {
-  with SomeModule
+  with SomeModule  // inner scope with
 
   Test : SomeClass // Class declared inside SomeModule
 }
@@ -369,7 +377,7 @@ Exactly like methods, class parameters can be used when variables are declared t
 
 ```
 Customer(SomeName:Text) is Person {
-   Name:= SomeName
+  Name:= SomeName
 }
 
 Cust1 : Customer("John")
@@ -629,8 +637,6 @@ when Name {
 }
 ```
 
-
-
 Comparison complex expressions can also be used:
 
 ```
@@ -648,6 +654,22 @@ when abc+num {
   else { }
 }
 ```
+
+#### Return
+
+The return statement exits a method, with an optional value if the method is a function
+
+```
+Test {
+  Foo() { return }
+  Bar:Text { return "abc" }
+}
+
+// The return keyword is optional with the last expression of a function 
+Square(X:Float) { X*X }
+```
+
+
 
 ### Recursivity
 
@@ -745,7 +767,7 @@ Shop {
     while
     xor
     with
-    
+
 ### Reserved symbols
 
     { }
