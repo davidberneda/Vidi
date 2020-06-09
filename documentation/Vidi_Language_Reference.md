@@ -1,6 +1,6 @@
 # Vidi Language Reference
 
-@davidberneda v.004 June-2020
+@davidberneda v.005 June-2020
 
 **Important:** 
 DRAFT. EVERYTHING MIGHT CHANGE.
@@ -83,13 +83,22 @@ Ranges can be used in several places, like when declaring an array:
 
 `MyArray : Integer[1..10]`
 
-Or using a range in a `for` loop:
+Or to specify custom `Integer` types to benefit from overflow checking:
+
+```
+Podium is 1..3 {}
+P : Podium := 4  // <-- Error. Overflow
+```
+
+Or to use a range in a `for` loop:
 
 `for Num in 0..1000 { }`
 
 Or in function parameters and result types:
 
 `MyFunction( MyParam : 20..1000): 4..10 { }`
+
+
 
 ### Expressions
 
@@ -103,13 +112,30 @@ Conditional operator:
 
 `2>1 ? True : False   //  Ternary` 
 
+Membership operator:
+
+```
+'A' in 'ABC'
+3 in [1,2,3]
+```
+
+
+
 #### Arithmetic
 
 ```
 2 + 3 - 5 * (6 / -7) // Basic math
-"Hello" + "World" // Text addition
 5 ^ 2   // Power
 10 % 3   // Modulus 
+2 << 4   // Shift left
+32768 >> 4  // Shift right
+
+255 or 0xFF
+128 and 255
+64 xor 32
+not 123
+
+"Hello" + "World" // Text addition
 ```
 
 #### Comparative
@@ -123,6 +149,8 @@ Equality operators:
 Parenthesis are used to group expressions:
 
 `(4+2) * 6 - (5/9) * (Abc - Xyz)`
+
+
 
 ### Identifiers
 
@@ -219,7 +247,73 @@ Foo is Integer {
 }
 ```
 
+#### Sub-classes and sub-methods
 
+Class types and procedures / routines / methods / functions can be nested, unlimited.
+
+```
+Life {
+
+  Tree {    // subclass
+  
+    Plant( Quantity : Integer) {  // method
+    
+      Forest is Text[] {    // subclass inside method
+      }
+      
+      MyForest : Forest   // variable
+    }
+  }
+ 
+}
+```
+
+Declaring a variable of a sub-class type:
+
+`Pine : Life.Tree`
+
+#### Class parameters
+
+Exactly like methods, class parameters can be used when variables are declared to initialize (construct) them.
+
+```
+Customer(SomeName:Text) is Person {
+  Name:= SomeName
+}
+
+Cust1 : Customer("John")
+Cust2 : Customer("Anne") 
+```
+
+#### Generic types
+
+There is no special syntax for generic types.
+Class parameters of type `type` can be used to specialize generic classes.
+
+```
+with Types
+
+List(T:Type) is T[] {}    // Parameter of type: Type
+
+Numbers is List(Float) {}  // List of Float
+```
+
+#### Casting expressions
+
+As there are no pointers, casting is only allowed within types of the same class hierarchy.
+
+```
+Class1 {}
+Class2 is Class1 {}
+
+C2 : Class2
+C1 : Class1 := C2
+
+//  C2_bis : Class2 := C1 // <-- Error. 
+
+C2_bis : Class2 := Class2(C1) // <-- Casting is OK
+
+```
 
 ### Methods
 
@@ -280,30 +374,7 @@ There is no special syntax.
 
 That means the method cannot be called (an error at compile time) and that derived classes must implement (override) it and fill it with content.
 
-### Sub-classes and sub-methods
 
-Class types and procedures / routines / methods / functions can be nested, unlimited.
-
-```
-Life {
-
-  Tree {    // subclass
-  
-    Plant( Quantity : Integer) {  // method
-    
-      Forest is Text[] {    // subclass inside method
-      }
-      
-      MyForest : Forest   // variable
-    }
-  }
- 
-}
-```
-
-Declaring a variable of a sub-class type:
-
-`Pine : Life.Tree`
 
 
 
@@ -367,35 +438,17 @@ MyClass {
 
 ### Element visibility
 
-The hidden keyword prefixing a class, field or method makes it unavailable outside its scope.
-
-`hidden MyClass {}`
-
-### Class parameters
-
-Exactly like methods, class parameters can be used when variables are declared to initialize (construct) them.
+The `hidden` keyword prefixing a class, field or method makes it unavailable outside its scope.
 
 ```
-Customer(SomeName:Text) is Person {
-  Name:= SomeName
+hidden MyClass {
+  hidden MyField : Integer
+  hidden MyFunction : Boolean {}
+  hidden MySubClass {}
 }
-
-Cust1 : Customer("John")
-Cust2 : Customer("Anne") 
 ```
 
-### Generic types
-
-There is no special syntax for generic types.
-Parameters of type `type` can be used to specialize generic classes.
-
-```
-with Types
-
-List(T:Type) is T[] {}    // Parameter of type: Type
-
-Numbers is List(Float) {}  // List of Float
-```
+Unused hidden items will produce an error at compile-time.
 
 ### Type-level shared elements
 
@@ -419,6 +472,8 @@ SetDefault( Value : Text) { Default:=Value }
 
 Colors.SetDefault( "Green" )
 ```
+
+
 
 
 
@@ -457,7 +512,7 @@ Test is OtherClass {
 
 
 
-### Type extensions
+### Strong Typing
 
 Deriving one type from another just for the convenience of strict type checking:
 
@@ -466,6 +521,11 @@ Deriving one type from another just for the convenience of strict type checking:
 
 Year is Integer {}
 Y : Year
+
+Month is Integer {}
+M : Month
+
+Y:=M  // <-- Error. Different types.
 
 Class1 {}
 Class2 is Class1 {}
@@ -572,9 +632,9 @@ b:=c+d
 
 ```
 if a=b
-  foo
+   foo
 else
-  bar
+   bar
 ```
 
 #### While
@@ -779,3 +839,16 @@ Shop {
     ( )
     ..
     ?
+    >
+    >=
+    <
+    <=
+    <>
+    <<
+    >>
+    +
+    -
+    *
+    /
+    %
+    ^
