@@ -1,6 +1,6 @@
 # Vidi Language Reference
 
-@davidberneda v.005 June-2020
+@davidberneda v.006 June-2020
 
 **Important:** 
 DRAFT. EVERYTHING MIGHT CHANGE.
@@ -15,7 +15,7 @@ Vidi is a strict typing, object oriented language that *borrows* most of its fea
 
 Numbers can be expressed in several ways:
 
-```
+```javascript
 123     // Integer
 -456    // Negative
 123.45  // Float
@@ -31,7 +31,7 @@ Numbers can be expressed in several ways:
 
 Double or single quotes can be used to delimit text.
 
-```
+```javascript
 "Hello"        // Double-quotes
 'World'        // Single-quotes
 "How're you?"  // Single quote inside double quotes
@@ -42,7 +42,7 @@ Double or single quotes can be used to delimit text.
 
 #### Booleans
 
-```
+```javascript
 True
 False
 ```
@@ -51,10 +51,12 @@ False
 
 These data types (numeric, text and booleans) are "*value types*". They are always copied when assigning variables:
 
-```
+```javascript
 A : Integer := 123
 B : Integer := A
-// A and B are independent
+
+// A and B are independent. Modifying A does not change B.
+
 ```
 
 The rest of types (objects, arrays and functions) are always assigned by reference.
@@ -65,7 +67,7 @@ The rest of types (objects, arrays and functions) are always assigned by referen
 
 #### Arrays
 
-```
+```javascript
 [ 1, 2, 3 ]  // Simple array
 [ ["a","b"], ["c", "d"] ]  // Array inside array
 ```
@@ -74,7 +76,7 @@ The rest of types (objects, arrays and functions) are always assigned by referen
 
 Ranges express minimum and maximum values:
 
-```
+```javascript
 1..10
 -12..-2
 ```
@@ -85,7 +87,7 @@ Ranges can be used in several places, like when declaring an array:
 
 Or to specify custom `Integer` types to benefit from overflow checking:
 
-```
+```javascript
 Podium is 1..3 {}
 P : Podium := 4  // <-- Error. Overflow
 ```
@@ -114,7 +116,7 @@ Conditional operator:
 
 Membership operator:
 
-```
+```javascript
 'A' in 'ABC'
 3 in [1,2,3]
 ```
@@ -123,7 +125,7 @@ Membership operator:
 
 #### Arithmetic
 
-```
+```javascript
 2 + 3 - 5 * (6 / -7) // Basic math
 5 ^ 2   // Power
 10 % 3   // Modulus 
@@ -158,7 +160,7 @@ Identifiers might begin with an alpha character (`a` to `z`) or `_` (underline),
 
 Examples:
 
-```
+```javascript
 Abc
 X123
 My_Name
@@ -172,7 +174,7 @@ The `:` symbol (colon) is used to separate the variable identifier (variable nam
 
 Simple variables:
 
-```vidi
+```javascript
 A : Integer
 B : Text
 ```
@@ -183,14 +185,14 @@ A variable can optionally define a *default* value (initial value) using the `:=
 
 The Variable type can be optionally omitted to infer it from its initial value:
 
-```
+```javascript
 Data ::= True   // Type inference  (Data is Boolean)
 Planet ::= Earth   // Planet variable is of the same type as Earth value
 ```
 
 Arrays are declared using the `[]` bracket symbols, and can also be optionally initialized:
 
-```
+```javascript
 Colors : Text[] := [ "Red", "Blue" ]
 
 Matrix : Float[ 3,3 ]   // Alternative way: Float[3][3]
@@ -214,7 +216,7 @@ The `final` keyword is used to define variables that cannot be modified (*readon
 
 Structures, records, classes and interfaces are the same thing in Vidi.
 
-```
+```javascript
 Person {
   Name : Text
 }
@@ -226,7 +228,7 @@ Person {
 
 A class can be extended from another class using the `is` keyword:
 
-```
+```javascript
 Customer is Person {
   Code : Integer
 }
@@ -239,7 +241,7 @@ In the above example, the `Customer` class derives from the  `Person` class.
 
 The `Self` keyword (equivalent to *this* or *it* or *base* in other languages) represents the class instance itself.
 
-```
+```javascript
 Foo is Integer {
   Bar() {
     SomeClass.Test(Self)  // Passing ourselves as parameter
@@ -251,7 +253,7 @@ Foo is Integer {
 
 Class types and procedures / routines / methods / functions can be nested, unlimited.
 
-```
+```javascript
 Life {
 
   Tree {    // subclass
@@ -276,7 +278,7 @@ Declaring a variable of a sub-class type:
 
 Exactly like methods, class parameters can be used when variables are declared to initialize (construct) them.
 
-```
+```javascript
 Customer(SomeName:Text) is Person {
   Name:= SomeName
 }
@@ -290,7 +292,7 @@ Cust2 : Customer("Anne")
 There is no special syntax for generic types.
 Class parameters of type `type` can be used to specialize generic classes.
 
-```
+```javascript
 with Types
 
 List(T:Type) is T[] {}    // Parameter of type: Type
@@ -302,7 +304,7 @@ Numbers is List(Float) {}  // List of Float
 
 As there are no pointers, casting is only allowed within types of the same class hierarchy.
 
-```
+```javascript
 Class1 {}
 Class2 is Class1 {}
 
@@ -331,11 +333,35 @@ The `out` keyword in front of a parameter means the parameter must be assigned a
 
 `Parts( Style:Text, out Price:Float ):Boolean { Price:=123 }`
 
+#### Many-Values parameters
+
+The last parameter of a method can be declared with the special `...` prefix, to allow passing an undetermined number of parameters.
+
+This is just syntactic sugar of passing an array without the need of typing the `[ ]` symbols around values.
+
+```javascript
+Print( Values : Data...) { 
+ for Value in Values Console.PutLine(Value)
+}
+
+// Call examples:
+Print
+Print('abc')
+Print(123,'abc',True)  
+
+TypedPrint( Values : Integer... ) {
+ for Value in Values Console.PutLine(Value)
+}
+
+TypedPrint(7,8,9,10,11)  // similar to: [7,8,9,10,11]
+
+```
+
 #### Method Overloads
 
 Routines can have the same name if they have different parameters and/or return values:
 
-```
+```javascript
 Write( Number : Integer) {}
 Write( Number : Float):Integer[] {}
 Write( Number : Text, Other : Boolean) {}
@@ -347,7 +373,7 @@ Write( Number : Text, Other : Boolean) {}
 
 A child class can declare methods with exactly the same name, parameters and return values as its ancestor parent class.
 
-```
+```javascript
 Class1 {
   Proc() {}
 }
@@ -383,7 +409,7 @@ That means the method cannot be called (an error at compile time) and that deriv
 There is no special syntax to declare interfaces.
 Simple classes that have no fields (no variables), and all their methods are abstract, are always considered interfaces.
 
-```
+```javascript
 MyInterface {
    MyMethod( Data : Boolean ):Text {}   // abstract function
 }
@@ -391,7 +417,7 @@ MyInterface {
 
 Classes can be derived from interfaces as usually:
 
-```
+```javascript
 MyClass is MyInterface {   // Deriving from an interface
   MyMethod( Data : Boolean ):Text { return "abc" } // must implement abstract method
 } 
@@ -401,7 +427,7 @@ MyClass is MyInterface {   // Deriving from an interface
 
 Classes that have methods with exactly the same name, parameters and return values of methods of an interface, can be used like instances of that interface.
 
-```
+```javascript
 SomeClass {
   MyMethod( Data : Boolean ):Text { return "abc" }
 }
@@ -424,7 +450,7 @@ The `with` keyword imports (loads) modules located in separate files.
 It can be used anywhere on a file, not only at the top.
 Imported symbols are only available at the scope after `with`.
 
-```
+```javascript
 with Module1, Module2, Module3.MyClass
 
 MyClass {
@@ -440,7 +466,7 @@ MyClass {
 
 The `hidden` keyword prefixing a class, field or method makes it unavailable outside its scope.
 
-```
+```javascript
 hidden MyClass {
   hidden MyField : Integer
   hidden MyFunction : Boolean {}
@@ -455,7 +481,7 @@ Unused hidden items will produce an error at compile-time.
 The `shared` keyword means an element (variable or method) belongs to type-level, not instance-level.
 This is the equivalent of *class variables* in other languages.
 
-```
+```javascript
 Colors {
   shared Default : Text := "Red"
 }
@@ -466,7 +492,7 @@ Colors.Default := "Blue"   // Can be used at type-level, without any instance
 Type-level methods are auto-discovered. There is no special syntax to declare them.
 When a method do not access any non-shared field or non-type level methods, it is considered `shared`.
 
-```
+```javascript
 // Type-level procedure, no shared keyword necessary
 SetDefault( Value : Text) { Default:=Value }
 
@@ -482,7 +508,7 @@ Colors.SetDefault( "Green" )
 There is no special syntax to declare namespaces.
 Classes with no fields and no methods are considered namespaces. 
 
-```
+```javascript
 // Module1
 MyNamespace {
   MyClass {}
@@ -491,7 +517,7 @@ MyNamespace {
 
 Modules with duplicate namespace names can be merged, to aggregate (contribute) new classes to the same namespace
 
-```
+```javascript
 // Module2
 MyNamespace {
   OtherClass {}
@@ -500,7 +526,7 @@ MyNamespace {
 
 The `with` keyword can also be used to reference just only a sub element instead of to everything in the module
 
-```
+```javascript
 // Module3
 with Module1.MyNameSpace,
      Module2.MyNameSpace
@@ -516,7 +542,7 @@ Test is OtherClass {
 
 Deriving one type from another just for the convenience of strict type checking:
 
-```
+```javascript
 // Type alias
 
 Year is Integer {}
@@ -538,7 +564,7 @@ Type discovery and reflection:
 
 The `Type` class provides methods to inspect (reflect) existing types:
 
-```
+```javascript
 if Type.is( C1, Class1 ) ...
 Methods:Method[] := Type.Methods( C1 )
 ```
@@ -550,7 +576,7 @@ Methods:Method[] := Type.Methods( C1 )
 At any scope, including in other modules, types can be extended with new methods.
 So for example we can declare this class:
 
-```
+```javascript
 // Module 1
 MyClass {
 }
@@ -558,7 +584,7 @@ MyClass {
 
 And then, inside the same module or in other external modules, we can declare new methods and subclasses of `MyClass` :
 
-```
+```javascript
 // Module 2
 with Module1
 
@@ -568,7 +594,7 @@ MyClass.MySub { X:Float }  // New extended Sub-class
 
 These new extended elements can then be used as normal, also in different modules
 
-```
+```javascript
 // Module 3
 with Module1, Module2 
 
@@ -604,16 +630,16 @@ Variables and constants can then use the enumeration items:
 
 These enumerations can also be used as dimensions for arrays:
 
-```
+```javascript
 Names : Text[Colors]  // Array of four text items
 Names[Colors.Green] := "I Like Green"
 ```
 
 And the `for in` statement can loop all the enumeration items:
 
-```
+```javascript
 for Color in Colors {
-  Debug.Put(Color)
+  Console.PutLine(Color)
 }
 ```
 
@@ -623,14 +649,14 @@ for Color in Colors {
 
 #### Assignment
 
-```
+```javascript
 a:=b
 b:=c+d
 ```
 
 #### If 
 
-```
+```javascript
 if a=b
    foo
 else
@@ -639,7 +665,7 @@ else
 
 #### While
 
-```
+```javascript
 while a=b {
   if a=0 break else a:= a - 1
 }
@@ -647,7 +673,7 @@ while a=b {
 
 #### Repeat
 
-```
+```javascript
 repeat {
   b:=b+1
 
@@ -664,7 +690,7 @@ The `in` keyword can loop an enumerated type:
 
 Also the `in` keyword can be used to loop an array:
 
-```
+```javascript
 Nums::=[ 6,2,9 ]
 for i in Nums { Output.Write(i) }    // iterate an array
 ```
@@ -688,7 +714,7 @@ It cannot be an already declared variable. Its type is inferred.
 
 Also called *switch*, *select* or *case* in other languages.
 
-```
+```javascript
 Name::="Jane"
 
 when Name {
@@ -699,7 +725,7 @@ when Name {
 
 Comparison complex expressions can also be used:
 
-```
+```javascript
 num ::= 5
 abc ::= 3
 
@@ -719,7 +745,7 @@ when abc+num {
 
 The return statement exits a method, with an optional value if the method is a function
 
-```
+```javascript
 Test {
   Foo() { return }
   Bar:Text { return "abc" }
@@ -733,7 +759,7 @@ Square(X:Float) { X*X }
 
 ### Recursivity
 
-```
+```javascript
 Factorial(x:Integer):Float {
   x=0 ? 1 : x * Factorial(x-1)
 }
@@ -748,7 +774,7 @@ Factorial(5)  // Returns 120
 There are situations where methods should be called but are not yet declared.
 These are handled automatically, no special syntax is necessary.
 
-```
+```javascript
 TestForward() {
     TestInner(False)  // <-- not yet declared
 }
@@ -786,10 +812,10 @@ The compiler will handle property access transparently:
 
 Classes can define a single, unnamed, parameter-less `final` method that will be called when variables get out of scope.
 
-```
+```javascript
 Shop {
   final {
-     Debug.Put( 'Closed!' )
+     Console.PutLine( 'Closed!' )
    }
 }
 ```
