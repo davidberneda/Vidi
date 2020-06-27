@@ -1,6 +1,6 @@
 # Vidi Language Reference
 
-@davidberneda v.006 June-2020
+@davidberneda v.007 June-2020
 
 **Important:** 
 DRAFT. EVERYTHING MIGHT CHANGE.
@@ -83,13 +83,22 @@ Ranges express minimum and maximum values:
 
 Ranges can be used in several places, like when declaring an array:
 
-`MyArray : Integer[1..10]`
+```
+MyArray : Integer[1..10]
+```
 
 Or to specify custom `Integer` types to benefit from overflow checking:
 
 ```javascript
+// A custom Integer class
 Podium is 1..3 {}
+
 P : Podium := 4  // <-- Error. Overflow
+
+// The 'Podium' class can also be used as an array dimension:
+
+MyArray : Integer[Podium]  // same as Integer[1..3]  
+
 ```
 
 Or to use a range in a `for` loop:
