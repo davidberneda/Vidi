@@ -1,0 +1,6 @@
+// Overflow integer
+
+Test17 {
+ BBB:Byte:=256 // ERROR Overflow 256 (maximum is 255)
+}
+

@@ -1,0 +1,22 @@
+with Sort
+
+{
+  Numbers::=[4,8] //,2,0,1,9,3]
+
+  Console.PutLine('Numbers: ',Numbers)  // Numbers: ...
+  Console.PutLine(Numbers.Count)  // 7
+  Console.PutLine(Numbers[0])     // 4
+
+
+  Numbers.Sort  // Ascending
+
+  Console.PutLine('Ascending: ',Numbers)  // Ascending: ...
+
+  Numbers.Sort(False)  // Descending
+
+  Console.PutLine('Descending: ',Numbers) // Ascending: ...
+
+
+}
+
+

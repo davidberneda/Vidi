@@ -1,0 +1,17 @@
+Test {
+  shared A:Integer:=123
+  final B:Integer:=456
+}
+
+{
+  Console.PutLine('Using shared type Test: ' , Test.A) // 123
+
+//  Console.PutLine(Test.B) // <-- this should not compile (B is not shared)
+
+
+  T:Test
+  Console.PutLine('Using instance T: ',T.A) // 123
+  Console.PutLine(T.B) // 456
+
+//  T.B:=789 // <--- error should not compile because B is final (readonly constant)
+}

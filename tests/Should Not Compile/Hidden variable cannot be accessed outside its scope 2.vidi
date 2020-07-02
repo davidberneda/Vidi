@@ -1,0 +1,8 @@
+Test {
+  hidden Name : Text
+}
+
+{
+ T:Test
+ T.Name:='abc'
+}

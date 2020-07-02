@@ -1,0 +1,18 @@
+{
+ with WithTotal.Animals
+
+ Test : SubClass
+ Console.PutLine(Test.Hello) 
+
+ SubSub : SubSubClass
+ SubSub.Foo
+
+ with WithTotal.Plants
+ {
+   Test : SubClass
+   Console.PutLine(Test.Bye) 
+ }
+
+ Console.PutLine(Test.Hello) 
+
+}

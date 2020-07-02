@@ -1,0 +1,46 @@
+Test0 {
+  Bar1() { Console.PutLine('bar1') }
+  Bar2() { 
+//    Console.PutLine(Bar1) 
+  }
+}
+
+Test1 {
+  Foo() { Console.PutLine('1') }
+}
+
+Test2 is Test1 {
+  Foo() { 
+    Ancestor
+    Console.PutLine('2') 
+  }
+}
+
+
+Test5 {
+  Foo:Text { 
+    //Console.PutLine("5")
+    "5" 
+  } // 5
+}
+
+Test6 {
+  Test7 is Test5 {
+    Console.PutLine('Start')
+  }
+}
+
+Test8 is Test6.Test7 {
+  Foo:Text {
+   // Console.PutLine('8 '+ancestor) // 8 5
+    "8" + ancestor
+  }
+}
+
+{
+  T2:Test2
+  T2.Foo
+
+  T8:Test8
+  Console.PutLine(T8.Foo()) // 85
+}

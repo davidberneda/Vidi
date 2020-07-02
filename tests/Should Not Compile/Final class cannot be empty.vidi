@@ -1,0 +1,2 @@
+final Test4 {} // Error final class cannot be abstract
+

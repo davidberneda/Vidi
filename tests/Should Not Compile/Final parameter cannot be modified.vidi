@@ -1,0 +1,14 @@
+// Final Parameter cannot be modified
+
+Test3 {
+  Foo(A:Integer) {
+   A:=123 // ERROR A is final
+   Console.PutLine(A)
+  }
+}
+
+{
+  T:Test3
+  T.Foo(456)
+}
+

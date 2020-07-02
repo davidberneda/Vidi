@@ -1,0 +1,15 @@
+final Test {
+  final A::="The A"
+  final B::="Is "+A
+}
+
+// Test2 is Test {} // ERROR Test is final
+
+{
+  T:Test
+  Console.PutLine(T.B) // "Is The A"
+
+//  t.a:="aa"  // ERROR A is final
+//  Console.PutLine(Test.B)  // ERROR B is not shared
+}
+

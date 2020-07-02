@@ -1,0 +1,21 @@
+Sub() {
+  Console.PutLine('S1')
+  Console.PutLine('S2')
+}
+
+Foo() {
+  Console.PutLine('B')
+  Sub()
+  Console.PutLine('C')
+}
+
+Bar:Text { 
+  "Bar"
+}
+
+{
+  Console.PutLine('A')
+  Foo
+  Console.PutLine(Bar)
+  Console.PutLine('D')
+}

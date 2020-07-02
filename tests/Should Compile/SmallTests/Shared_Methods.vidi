@@ -1,0 +1,51 @@
+Test {
+
+  
+  Foo() { Console.PutLine('I am a shared method') }
+
+  // Also shared
+  Bar() { 
+    Foo()
+  }
+
+  shared X::='X'
+
+  Lee:Text { X } // Also shared
+
+  Y:Integer
+
+  // NOT shared
+  Moon() { 
+    Y:=123
+    Console.PutLine(Y)
+  }
+
+  // Also NOT shared
+  Tri() { Moon }
+
+  Sub {
+    Foo() { Test.Foo }
+    Lee:Text { 
+       Console.PutLine('Sub.Lee') 
+       Test.Lee
+    }
+  }
+}
+
+{
+ Test.Foo
+ Test.Bar 
+ Console.PutLine(Test.Lee)
+
+ // Test.Moon // <-- error, Moon is not shared
+
+ T:Test
+ T.Moon 
+
+ T.Tri
+
+ // TODO: FIX
+ Sub.Foo // <-- should be an error, OK: Test.Sub.Foo
+
+ Console.PutLine(Test.Sub.Lee)
+}

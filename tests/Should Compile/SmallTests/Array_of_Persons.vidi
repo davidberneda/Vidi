@@ -1,0 +1,30 @@
+Person {
+  Name : Text
+}
+
+{
+  x:Float:=123.56
+  Console.PutLine(x)
+  i:Integer:=x.truncate
+Console.PutLine(i)
+  i:=x.round
+Console.PutLine(i)
+
+
+  A:Person
+  A.Name:="A"
+
+  //Console.PutLine(A)
+
+  Console.PutLine(A.Name) // A
+
+  B:Person
+  B.Name:="B"
+
+  C:Person
+  C.Name:="C"
+
+  Persons:Person[]:=[A,B,C]
+
+  Console.PutLine(Persons) // A,B,C
+}

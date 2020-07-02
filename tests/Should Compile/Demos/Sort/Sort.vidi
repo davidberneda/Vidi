@@ -1,0 +1,87 @@
+Comparer is { Lower,Equal,Greater }
+
+Array.Compare(a,b:Integer):Comparer {
+console.putline('entering compare ',a,b)
+
+  if a=b
+     return Comparer.Equal
+  else
+  if Items[a]<Items[b]
+     return Comparer.Lower
+  else
+  if Items[a]>Items[b]
+     return Comparer.Greater
+  else
+     return Comparer.Equal
+}
+
+Array.Swap(a,b:Integer) {
+
+  Console.PutLine('swap')
+
+  Temp::=Items[a]
+  Console.PutLine('temp: ',temp)
+
+  Console.PutLine(a)
+  Console.PutLine(b)
+  Console.PutLine(data(items[a]))
+
+  Items[a]:=Items[b]
+  Console.PutLine(data(items[a]))
+
+  Items[b]:=Temp
+}
+
+Array.Sort(Ascending:Boolean) {
+
+  Comp::= Ascending ? Comparer.Lower : Comparer.Greater
+
+  DoSort(l,r:Integer)
+  {
+  Console.PutLine('dosort l '+l.astext+' r '+r.astext)
+
+    i::=l
+    j::=r
+    x::=(i+j)/2
+
+    while i<j
+    {
+  Console.PutLine('0 i '+i.astext+' j '+j.astext)
+
+      while Compare(i,x)=Comp i:=i+1
+      while Compare(x,j)=Comp j:=j-1
+
+      if i<j
+      {
+
+  Console.PutLine('1 i '+i.astext+' j '+j.astext)
+
+        Swap(i,j)
+
+        if i=x
+           x:=j
+        else
+        if j=x
+           x:=i
+      }
+
+      if i<=j
+      {
+        i:=i+1
+        j:=j-1
+      }
+    }
+
+    if l<j
+       DoSort(l,j)
+
+    if i<r
+       DoSort(i,r)
+  }
+
+  if Count>1
+     DoSort(0,Count-1)
+}
+
+Array.Sort() { Sort(True) }
+

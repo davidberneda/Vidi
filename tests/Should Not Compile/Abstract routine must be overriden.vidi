@@ -1,0 +1,11 @@
+// Abstract Routine must be overriden
+
+// abstract class and method
+Test1 {
+  Foo() {}
+}
+
+Derived is Test1 {
+}
+
+// ERROR Derived class must override abstract method Foo

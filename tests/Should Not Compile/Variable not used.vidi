@@ -1,0 +1,8 @@
+Test {}
+
+{
+ T:Test
+
+ // ERROR: Variable T not used 
+
+}

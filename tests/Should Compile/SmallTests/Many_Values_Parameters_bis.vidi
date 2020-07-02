@@ -1,0 +1,17 @@
+{
+  Print( Values : Data...) { 
+    for Value in Values Console.Put(Value,' ')
+    Console.PutLine
+  }
+
+  // Call examples:
+  Print
+  Print('abc')
+  Print(123,'abc',True)  
+
+  TypedPrint( Values : Integer... ) {
+    for Value in Values Console.PutLine(Value)
+  }
+
+  TypedPrint(7,8,9,10,11)
+}

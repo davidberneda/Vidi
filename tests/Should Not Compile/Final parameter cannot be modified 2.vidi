@@ -1,0 +1,6 @@
+// Final parameter cannot be modified
+
+Test13 {
+  Foo(A:Text) { A:="A" } // ERROR Final parameter A cannot be modified
+}
+

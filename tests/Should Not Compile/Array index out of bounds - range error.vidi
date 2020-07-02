@@ -1,0 +1,14 @@
+// Array index out of bounds
+
+{
+  A:Text[5..7]
+
+  A[5]:="5"
+  A[6]:="6"
+  A[7]:="7"
+
+  Console.PutLine(A[5]) // Correct
+
+  Console.PutLine(A[0]) // ERROR Array index 0 out of bounds (5..7)
+}
+

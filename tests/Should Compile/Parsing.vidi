@@ -1,0 +1,13 @@
+with ast, parse, parse.bee
+
+{
+  P:Parser
+
+  Sample:Text:='abc 123'
+  Console.PutLine(Sample)
+
+  P.Init(Sample)
+  Console.PutLine(P.GetToken)
+  Console.PutLine(P.GetTokenNumber)
+  
+}

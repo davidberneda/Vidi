@@ -1,0 +1,13 @@
+// Hidden variable cannot be accessed outside its scope
+
+Test6 {
+  hidden A:Text
+
+  Foo() { A:="A" } // Correct, in scope
+}
+
+{
+  T:Test6
+  T.A:="B" // ERROR Hidden variable cannot be accessed outside its scope
+}
+

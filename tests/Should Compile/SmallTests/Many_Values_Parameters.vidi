@@ -1,0 +1,34 @@
+// Just one many-values parameter
+
+Foo(D:Data...) {
+  for i in D {
+    Console.Put(i, ', ')
+  }
+
+  Console.PutLine
+}
+
+// Several normal parameters and one many-values parameter
+
+Bar(X:Text,A:Integer,D:Data...) {
+  Console.Put(X, ' ')
+  Console.Put(A, ' ')
+
+  for i in D {
+    Console.Put(i, ' ')
+  }
+
+  Console.PutLine
+}
+
+
+{
+  Foo
+  Foo('w')
+  Foo('w',123,True,4.5,False,"ABC")
+
+  Foo([1,2,3])
+
+  Bar('X',789)
+  Bar('Y',1000,True,'Z',2,7.8)
+}

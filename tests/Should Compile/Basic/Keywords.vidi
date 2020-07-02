@@ -1,0 +1,96 @@
+/* Multiple 
+   line 
+   comments
+*/
+
+/* Comment */
+// Comment
+
+Keywords {
+
+  Console.PutLine('Keywords')
+
+  // Constants (variables that cannot be changed) "const".
+  // Accessible also at type-level (shared between instances)
+
+  final MyConstant ::= 3*5+1
+  final Hello:Text:= 'Hello'
+
+  // Methods that must be implemented in derived classes, mandatory
+
+  MyFunction:Float {}  // abstract because it is empty
+
+  // Methods that cannot be re-implemented (cannot be overriden)
+
+  final MyFinal(abc:Integer) { Console.PutLine(abc) }
+
+  // Items that are only accessible from this class or method (private)
+
+  hidden MyVariable : Boolean := False
+
+  // Code included at some point (includes)
+
+  with Flow, Expressions
+
+  // Parameters that must be changed inside a method (by reference)
+
+  DoWork(out abc:Integer) { abc:=123 }
+
+  // Combining several items
+
+  hidden  {
+    x,y,z : Text
+    MyPrivateMethod() { 
+      x:='x' y:='y' z:='z'
+    }
+  }
+
+
+  // Interfaces (classes with all methods abstract)
+
+  MyInterface {
+    One:Text {}
+    Two:Integer {}
+    Three() {}
+  }
+
+  InterfaceTest is MyInterface {
+    Four:Text
+    One:Text { "Hi" }
+    Two:Integer { 42 }
+    Three() { Four:= One }
+  }
+
+  // Passing interfaces
+
+  SomeMethod( I : MyInterface) {
+    I.Three()
+  }
+
+  My_Interface : InterfaceTest
+  SomeMethod(My_Interface)
+
+  // Self referencing inside a class
+
+  SelfTest {
+    Foo() {}
+    TestProc(Param:SelfTest) { Console.PutLine('TestProc') Param.Foo }
+    Proc123() { TestProc(Self) }
+  }
+
+  // Ancestor keyword to refer parent class
+
+  AncestorTest is SelfTest {
+    Proc123() {
+      Ancestor   // <- calls SelfTest.Proc123
+    }
+     
+    Foo() { Ancestor } // empty / abstract ??
+  }
+
+  // Shared variable (at type-level)
+
+  shared Foo : Integer
+
+  MyVariable:=True // unused ???
+}

@@ -1,0 +1,10 @@
+// Abstract Class cannot be a variable type
+
+Test {
+}
+
+{
+ A,B:Test
+
+ A:=B // ERROR Abstract class Test cannot be instantiated
+}

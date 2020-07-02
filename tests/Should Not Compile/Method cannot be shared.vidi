@@ -1,0 +1,7 @@
+// Method using non-shared variables cannot be (forcely) made shared
+
+Test7 {
+  A:Integer
+  shared Foo() { A:=123 }  // ERROR Method Foo cannot be shared because it used non-shared variables
+}
+

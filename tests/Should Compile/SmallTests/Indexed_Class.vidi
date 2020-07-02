@@ -1,0 +1,30 @@
+Test {
+  indexed A:Integer[2]
+  
+  Foo() { A[1]:=654 }
+
+}
+
+// Extender
+Test.ShowZero() { Console.PutLine(A[0]) }
+
+// Extender
+Test.Bar() {
+  ShowZero()
+}
+
+{
+ T:Test
+ T.Foo
+
+ Console.PutLine(T.A) // 0, 654
+
+ T[0]:=123
+ T[1]:=456
+
+ Console.PutLine(T.A) // 123, 456
+
+ Console.PutLine(T[0]) // 123
+
+ T.Bar // 123
+}

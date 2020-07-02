@@ -1,0 +1,9 @@
+{
+  X:Boolean //:=False
+
+  // TODO: "Error: X is not initialized"
+
+  Y:Integer:=X ? 1 : 2
+
+  Console.Put(Y)   // 2
+}

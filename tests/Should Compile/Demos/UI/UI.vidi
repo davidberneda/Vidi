@@ -1,0 +1,47 @@
+Position {
+  Left,
+  Top : Float
+}
+
+Size {
+  Width,
+  Height : Float
+}
+
+Control {
+  hidden _Parent : Control
+
+  Controls : Control[]
+
+  Parent: Control { _Parent }
+
+  Parent(Value:Control) {
+//    if _Parent<>nil _Parent.Controls.Remove(Self)
+
+    _Parent:=Value
+
+  //  _Parent.Controls.Append(Self) 
+  }
+
+  Position : Position
+  Size : Size
+}
+
+TextControl is Control {
+  Text : Text
+}
+
+Button is TextControl {
+}
+
+Label is TextControl {
+}
+
+List is Control {
+  Items : Text[]
+}
+
+Form is TextControl {
+  Close() {}
+  Show() {}
+}

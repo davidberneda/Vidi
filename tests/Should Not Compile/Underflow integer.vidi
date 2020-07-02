@@ -1,0 +1,6 @@
+// Underflow integer
+
+Test16 {
+ BBB:Byte:=-1 // ERROR Underflow -1 (minimum is 0)
+}
+

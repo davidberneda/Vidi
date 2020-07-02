@@ -1,0 +1,121 @@
+Flow {
+
+  Name::="Jane"
+
+ Test() {
+  Console.PutLine('Flow')
+
+  N::=1
+
+  if 2=3
+  else 
+     while true {
+  
+       if N>6 break
+
+       repeat {
+         N:=N+1
+
+         if N>3 break
+
+       } until true
+
+       N:=N+1
+
+       continue 
+
+       N:=1000
+     }
+
+  // When. Multiple "ifs" (switch, case) 
+ 
+  num ::= 5
+  
+  when num {
+    <3 { num:=123 }
+  
+     4 { } // is equal
+
+     <>6 { Console.PutLine('num is not six') }
+
+    // otherwise
+    else {}
+  }
+  
+  // Works with any type
+
+  when Name {
+    "Jane" { Console.PutLine('Name is Jane') }
+    "Peter" {}
+   // .Length=3 {} // use members "."
+  }
+
+  when 'a'+'b' {
+    "ab" { Console.PutLine('Text ab') }
+  }
+
+  // Loops
+
+  for c in "abc" { Console.PutLine(c) } // foreach character
+
+  for a in 1..10 {} // range
+
+  min::= 123 + 0
+  max::= 126 
+
+  for d in min..1+max {
+
+     f::= d
+
+     Console.PutLine(f)
+
+     if d=max-1 
+        break
+     else
+        continue
+  }
+
+  m:Integer[3] // Initialized to zeroes
+  for n in m { Console.PutLine(n) }
+
+
+  for num::=1 to 3  { Console.PutLine(num) }
+
+  // Custom class ForEach
+
+  Toys {
+    indexed Items : Text[]
+
+  /* TODO
+
+    // Custom foreach for Toys class
+    ForEach {
+      index : Integer
+      Get:Text { Items[index] } 
+      Next:Boolean { 
+        index := index + 1
+        return index < Items.Count
+      }
+      Start() { index:=0 }
+    }
+  */
+
+  }
+
+  // Sample data
+  MyToys : Toys
+  MyToys.Items := ['Mercury', 'Venus', 'Earth']
+
+  // Testing foreach
+
+  for t in MyToys.Items { Console.PutLine(t) } // Using variable Items
+
+  for t in MyToys { Console.PutLine(t) } // Without using variable Items
+ }
+}
+
+{
+  F:Flow
+  F.Test
+  Console.PutLine(F.Name)
+}

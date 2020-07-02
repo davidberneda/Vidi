@@ -1,0 +1,28 @@
+Test {
+  Foo:Float {
+    return 123
+    Console.PutLine('unreachable')
+  }
+  
+  b:Boolean:=False
+
+  Bar:Integer {
+    if b return 1 else return 2
+    Console.PutLine('unreachable')
+  }
+
+  Lee:Text { 
+    "abc"
+    Console.PutLine('unreachable')
+  }
+}
+
+
+{
+  Console.PutLine(Test.Foo) // 123
+  Console.PutLine(Test.Lee) // abc
+
+
+  T:Test
+  Console.PutLine(T.Bar)  // 2
+}

@@ -1,0 +1,15 @@
+// Non shared method cannot be called at type level
+
+Test8 {
+  A:Integer
+  Foo() { A:=123 }  // Foo is using variable A, so its not a shared type-level method
+}
+
+{  
+  Test8.Foo() // ERROR Non-shared method Foo cannot be called at type-level
+ 
+  // CORRECT:
+  T:Test8
+  T.Foo() 
+}
+

@@ -1,0 +1,14 @@
+// Final Routine cannot be overriden
+
+Test4 {
+  final Foo() {
+    Console.PutLine('Foo')
+  }
+}
+
+Test5 is Test4 {
+  Foo() {  // ERROR Final routine Foo cannot be overriden
+    Console.PutLine('Overriden Foo') 
+  }
+}
+

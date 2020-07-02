@@ -1,0 +1,4 @@
+// Duplicate with module usage
+
+with ast, ast  // ERROR Duplicate with module usage
+

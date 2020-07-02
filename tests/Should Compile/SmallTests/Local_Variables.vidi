@@ -1,0 +1,26 @@
+Test {
+  i:Integer:=1
+
+  Foo() {
+    x::=i
+    Console.PutLine(x) // 1
+  }
+
+  Bar() {
+   a::=1
+
+   while a<2 {
+
+     i:Integer:=2
+     Console.PutLine(i) // 2
+
+     Foo()
+     a:=a+1
+   }
+  }
+}
+
+{
+ T:Test
+ T.Bar 
+}

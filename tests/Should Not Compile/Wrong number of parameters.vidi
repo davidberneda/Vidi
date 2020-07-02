@@ -1,0 +1,7 @@
+// Wrong number of parameters
+
+Test9 {
+  Foo(A,B:Integer) {}
+  Bar() { Foo(123) } // ERROR Wrong number of parameters (1 instead of 2)
+}
+

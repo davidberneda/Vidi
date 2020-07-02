@@ -1,0 +1,37 @@
+{
+f::=2e10
+Console.PutLine(f) // 20000000000
+
+ MyNumber is 14..56 {
+  shared a:Text:="x"
+   Show() { Console.PutLine(Self) }
+ }
+
+ M : MyNumber := 15
+ M.Show
+
+ A:Boolean
+ A:=Boolean.False
+ Console.PutLine(A)   // False
+ 
+ B::=Boolean.True
+ Console.PutLine(B)   // True
+
+ Console.PutLine(A=Boolean.False) // True
+ Console.PutLine(B=Boolean.False) // False
+
+
+ C:Byte:=255
+ Console.PutLine(C)  // 255
+
+ D:Byte
+ D:=254 
+ Console.PutLine(D) // 254
+
+
+ BBB:Byte
+// BBB:=-1 // Error Underflow 
+// BBB:=256 // Error Overflow 
+
+ BBB:=123
+}

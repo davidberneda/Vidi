@@ -1,0 +1,138 @@
+Expressions {
+
+  Console.PutLine('Expressions')
+
+ // Unicode names
+ 
+// ???? : Text := '??'
+
+ Hello: Text := '??'
+ 
+// Console.PutLine( ???? )
+
+ Console.PutLine( Hello )
+
+ // Numbers
+
+ zero::=0
+ one::=1
+
+ minusone ::= -1
+ plusone ::= +1
+
+ a::= 1234
+ b::= 456.789
+
+ c::= a+b
+ c:= a-b
+ c:= a*b
+ c := a / b
+
+ d::= Math.Power(c,3)
+ e::= Math.Power(c,4.1)
+
+ expA ::= -1E20
+ expB ::= -5.1e-3
+
+// expC :Integer:= 2e10
+  expC:Float:=2e10
+
+ f::= ( (a + b -c ) * (d/e) ) - b
+
+ g:Float:= -123.45e6
+
+ g:= g--e
+
+ hexa ::= 0x123AB // base 16 hexadecimal
+
+ bin ::= 0b11001110110 // binary bits
+
+ octa ::= 0c765  // octal base 8
+
+ // Thousand separator ? 1_000_000 ?
+
+ // Truncating and Rounding floats
+ // Ceil and Floor 
+
+ a:= not a
+
+ c:= a xor 345
+
+  // Binary not and or xor shift
+
+// a:= 2.shiftleft(3)
+// a:= 16.shiftright(2)
+
+ a:= Math.Modulo(345,12)  // modulus
+
+ Console.PutLine(a) // 9
+
+ // NaN -Infinity Epsilon
+
+v1::=255 or 0xFF
+v2::=128 and 255
+v3::=64 xor 32
+v4::=not 123
+
+ // Logical
+
+ Boolean_A:Boolean:=True
+ Boolean_B:Boolean:=False
+
+ Boolean_C::=True
+ Boolean_D::=False
+
+ h::= 1 = 1
+ i::= 2 > 1
+
+ h:= not h
+ i:= ( 3>=2 ) and ( 5<9.1)
+ h:= i or h
+ i:= i xor false
+ h:= true or false
+ i:= false xor true
+
+ h := true and not false
+ i := false or not false
+
+ h := not true
+ i := not false
+
+ // Text
+
+ text1 ::= "abc"
+ text2 ::= 'ab"c'
+ text3 ::= "x" + "y"
+ text4 ::= 'zzzz'
+
+ j::= 'abc' + "def'gh"
+ k::= "klm" + 'no"pq'
+
+ m ::= "xx"<>"yy"
+
+  Console.PutLine(m)
+
+ // Conversions
+
+// a:= "123".asinteger
+// b:= '45.6'.asfloat
+
+// j:= 123.456e5.astext
+
+// h:= "True".asboolean
+// h:= 0.asboolean
+
+// a:= true.asinteger
+
+ p::= 23 < 12 ? "a" : "b"
+ Console.PutLine(p)
+
+ Caption :Text := (5*4).AsText
+ Console.PutLine(Caption)
+
+}
+
+{
+ e:Expressions
+  Console.PutLine(e.m)
+}

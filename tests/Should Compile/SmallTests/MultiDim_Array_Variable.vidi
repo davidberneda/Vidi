@@ -1,0 +1,42 @@
+{
+  // Equivalent
+
+  a:Integer[2][3]
+  b:Integer[2,3]
+
+  a[1,2]:=123
+  Console.PutLine(a) // 0,0,0,0,0,123
+
+  b[1,2]:=123
+
+  Console.PutLine(a[1,2]) // 123
+  Console.PutLine(b[1,2]) // 123 
+
+  Console.PutLine(a[1,2]=b[1,2]) // True
+
+  a[2,2]:=456
+  Console.PutLine(a[2,2]) // 456
+
+  c::=b
+  Console.PutLine('C: ',c[1,2]) // C: 123
+ 
+  b[1,2]:=789
+  Console.PutLine(b[1,2]) // 789
+  Console.PutLine(c[1,2]) // 789 (C is a reference to B) 
+
+  d:Text[2..3]:=["A","B"]
+  Console.PutLine(d)  // A, B  
+
+  d[3]:='C'
+  Console.PutLine(d) // A,C
+
+  temp::=d[2]
+
+  Console.PutLine(temp) // A
+
+  d[2]:=d[3]
+  d[3]:=temp
+
+  Console.PutLine(d) // C,A
+
+}

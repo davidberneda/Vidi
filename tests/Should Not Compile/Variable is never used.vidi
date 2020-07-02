@@ -1,0 +1,7 @@
+Test5 {
+}
+
+{
+ T5:Test5 // T5 is never used
+}
+

@@ -1,0 +1,9 @@
+Test {
+  Foo() {} // abstract
+
+  final Foo2() { 
+    Console.PutLine('123')
+  }
+
+  final Foo3() {}  // <-- Error. Final method cannot be empty (abstract)
+}

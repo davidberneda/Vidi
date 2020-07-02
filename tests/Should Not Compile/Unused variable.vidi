@@ -1,0 +1,8 @@
+// Unused variable
+
+Test10 {
+  hidden A:Text
+}
+
+// ERROR Unused variable A in Test class
+

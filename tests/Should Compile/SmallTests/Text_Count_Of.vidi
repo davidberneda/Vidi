@@ -1,0 +1,18 @@
+Text.CountOf(C:Character):Integer {
+
+  result:Integer
+
+  for i in Characters
+      if i=C 
+         result:=result+1
+
+  return result
+}
+
+{
+ S::='hello'
+ 
+ N::=S.CountOf('a')
+
+ Console.PutLine(N) // 0
+}

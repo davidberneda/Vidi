@@ -1,0 +1,18 @@
+Test {
+  final Foo3() {
+    Console.PutLine('Foo3')
+  }
+}
+
+Test2 is Test {
+
+  // It is mandatory to override Foo
+  Foo() {
+    Console.PutLine('Hello')
+  }
+
+  // ERROR ! Foo3 is final, cannot be overriden
+  Foo3() { 
+     Console.PutLine('456') 
+  } 
+}

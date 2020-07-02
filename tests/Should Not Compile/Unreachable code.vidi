@@ -1,0 +1,8 @@
+// Unreachable code
+
+Test15 {
+  Foo() {
+    return
+    Console.PutLine('Unreachable') // ERROR Unreachable code
+  }
+}

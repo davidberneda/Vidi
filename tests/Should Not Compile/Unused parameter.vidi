@@ -1,0 +1,5 @@
+// Unused parameter
+
+Test11 {
+  Foo(A:Integer) { Console.PutLine('') } // ERROR Unused parameter A
+}

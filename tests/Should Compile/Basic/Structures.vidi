@@ -1,0 +1,261 @@
+Structures {
+
+  Console.PutLine('Structures')
+
+  Class {
+
+    Hello, World : Text
+
+    Num : Integer
+ 
+    SimpleMethod() {}
+    SimpleFunction:Text { "abc" }
+
+    Overload(N:Integer) { Num:=N }
+    Overload() { Overload(123) }
+
+    Parameters(A:Integer, B:Float[], out C:Boolean) {
+      C:= 3+B[0]<=4+A
+    }
+
+    SubClass {
+      xyz : Float := 123.456 
+
+      Method123() {
+
+        NestedMethod() {
+
+          NestedClass {
+            Foo() { Console.PutLine('Nested') }
+          }
+
+          n:NestedClass
+          n.Foo
+        }
+        
+        xyz:=789 // outer scope access
+        
+        NestedMethod() // nested call
+      }
+    }
+    
+    sub:SubClass
+
+  }
+  
+  // Inheritance
+  
+  Derived is Class {
+    SimpleMethod() { Console.PutLine('simple method') }
+  }
+  
+  // Class Instance
+  
+  deri:Derived
+  
+  // Member access
+  
+  Console.PutLine('Derived')
+
+  deri.sub.Method123()
+  Console.PutLine('Derived call to sub class variable')
+
+  // Numeric types
+
+  Positive is Integer {
+  //  0..Integer.Maximum 
+  }
+
+  MyPositive:Positive := 123
+
+  // Type aliases
+  
+  Years is Integer {}
+
+  // Structure record
+  
+  Person {
+     Name, Surname : Text
+     Birth : Date
+     Age : Years
+  }
+
+  // Generic classes
+
+  with ast
+
+  Generic(T:Type) is Type {
+    Variable:T
+    B:T[10]
+    Func123:T { Variable }
+  }
+  
+  Specialized is Generic(Integer) {
+    a:Integer { 
+       // TODO: Generics !!    Func123 + 1 
+    }
+  }
+
+  s:Specialized
+  //s.Variable := 123  
+  b::= s.a
+
+  // Parameterized Class
+
+  ClassWithParam(T:Text) {
+     S:Text := T
+     Console.Put(S)
+  }
+
+  TestParam is ClassWithParam('xyz') {}
+
+  w:TestParam
+  w.S.append("abc")
+
+  // ww:ClassWithParam("asdf")
+
+  // Virtual methods
+
+  Class_A {
+    Proc1() {}
+  }
+
+  Class_B is Class_A {
+    Proc1() {
+      Ancestor.Proc1() // virtual override, call ancestor 
+    }
+  }
+
+  // This It Me Self
+  
+  TestThis {
+     Foo(Value:TestThis) {}
+     Bar() { Foo(Self) }
+  }
+
+  // Metaclasses
+
+  //MyClass : Class_A.Type := Class_B
+
+  //foo:Class_A:= MyClass() // foo is Class_B
+  
+  // Extenders
+
+  Derived.SomeProc() {
+  }
+
+  // Extender Function
+  Integer.Foo:Float {
+    Self + 12.34
+  }
+
+  TestExtender() {
+    xx::=789
+    yy::= xx.Foo
+    Console.PutLine(yy)
+  }
+
+  // Extender Types
+  //Derived.AnotherSub {
+  //}
+
+  // Lambdas, anonymous methods
+  
+  FunctionType is (A:Boolean):Text {}
+
+  FooBar(Method:FunctionType):Text {
+    Method(True)
+  }
+
+  F:FunctionType
+/*
+  TODO   := {
+    A ? "abc" : "xyz"
+  }
+*/
+
+  s2::=FooBar(F) // syntaxis 1
+
+  // syntaxis 2
+  s3::=FooBar( F
+/* TODO
+         { 
+           if A return 'Yes' else return 'No' 
+         }
+*/
+        )
+
+  // Single line functions
+
+  Area(width, height:Float):Float { width*height }
+
+  // Constants
+
+  final Pi ::= 3.14159265
+
+  final Nums:Integer[] := [6,2,8,100]
+
+  // initialize classes:
+//  final John : Person := { Name:= 'John'  Age:=23 }
+
+  // Enumerations
+
+  Colors is { Red,Blue,Green,Yellow,White,Black }
+
+  Color::=Colors.Red
+
+  Blue::=Colors.Blue
+
+  when Color { Colors.Red {} <>Blue{} } 
+
+  // Property accessors
+
+  Temperature {
+    Celsius : Float
+
+    // Property getter
+    Fahrenheit:Float {
+      32 + (Celsius * 1.8)
+    }
+
+    // Property setter
+    Fahrenheit(Value:Float) {
+      Celsius := (Value-32) / 1.8
+    }
+
+  }
+
+  // Recursivity
+
+  Error(S:Text):Integer {}
+
+  Factorial(x:Float):Float {
+    x<0 ? Error('Negative!') : x=0 ? 1 : x*Factorial(x-1)
+  }
+
+  // Public private etc visibility
+  
+  hidden 
+    MyPrivateVariable : Text:='Private'
+
+  Test() {
+    Console.PutLine(MyPrivateVariable)
+  }
+  
+  // Forward declarations
+
+  TestForward() {
+    // TestInner(False)  // <-- forward (TODO)
+  }
+ 
+  TestInner(Work:Boolean) {
+    if Work
+       TestForward
+  }
+
+  TestInner(True)
+
+}
+
+AnotherClass { // just a test
+}

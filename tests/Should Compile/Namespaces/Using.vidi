@@ -1,0 +1,9 @@
+with Both
+
+{
+  A : Class_One
+  A.SomeData:='aaa'
+
+  B : Two
+  B.XYZ:=1.23 
+}

@@ -1,0 +1,113 @@
+Arrays {
+
+  Console.PutLine('Arrays')
+
+  Dynamic : Integer[]  //  Array of Integer, not fixed size
+
+  // Array as a class
+  a is Integer[] {
+
+     DoTest:Integer {
+        Count * 2  // Count is an Array field
+     }
+  }
+
+  a2 is Integer[123] {  }
+
+  range1 is 9..11 {}
+
+  a3:Integer[range1]
+
+//  aa : Array(Integer) // Generic Variable
+
+//  aaa is Array(Integer) {}  // Generic Class of Array
+
+  b:Integer[10] // Simple single-dimension, from 0 to 9
+
+  bb:Integer[2,3]  // Two dimensional 0..1 , 0..2
+
+  bbb:Integer[2-1,3*8]  // Sizes as expressions
+
+  bbbb:Integer[2..7]  // Custom Low and High bounds
+
+  bbbbb:Integer[(1+1)..(2+5)]  // Bounds as expressions
+
+  // The next line should fail at parse-time due to: 1+1..2+5
+  //fail:Integer[1+1..2+5]
+
+
+
+  c:Float[3..7]
+
+  cc:Float[10][3..7]   // multi-dimensional (matrix)
+
+  ThreeSeven is Float[4..7] {}
+
+  cc2:ThreeSeven[10] // Another way to define cc
+
+  Console.PutLine("Test")
+
+  cc[3,5] := 123  // Setting a matrix cell at row 3, column 5
+
+  final Five::=5
+
+  Console.PutLine(Five)
+
+  ccc:Text[Five]  // Using constant as array size, from: 0 to: Five-1
+
+  d:a
+  d.Count:= 100  // Resizing the array from 0 to 99
+
+  d[99]:= 123  // Setting an element of the array
+
+  nn::= d.DoTest()
+
+  e::=d.Count   // Count returns size of the array
+  f::=d[99]      // Getting element
+
+  g:Text[2,3]
+  h:Boolean[][]
+
+  d.Append(456)  // Append to the end of the array
+  d.delete(0)   // Remove element at 0 index
+
+
+  // d.sort()      // Demos\Sort
+
+  d.insert(5,789)  // Add a new element at 5th index position
+
+  i::=d
+
+  min::=5 max::=8
+  n:a[min..max]
+
+
+  // Sub arrays using .. ranges
+
+  Big : Integer[] := [ 1,2,3,4,5 ]
+  Small ::= Big[ 2..3 ] // [ 3,4 ]
+  
+  // Partial ranges, array slicing
+  // Big[..2]  Big[3..] 
+
+  // Appending type compatible arrays
+
+  Big := Big + Small
+
+  // Text arrays, initialization
+
+  Texts_0 ::= []
+
+  Texts_1 ::= ['a','b']
+
+  Texts_2:Text[]:= ['a','b']
+
+  Texts_3:Text[2]:= ['a','b']
+
+  Texts_4:Text[]:=Texts_3
+
+  Texts_5:Text[]:=Texts_2+Texts_3
+
+  Texts_6:Text[]:= [ ['a','b'], ['c','d'] ]
+}
+

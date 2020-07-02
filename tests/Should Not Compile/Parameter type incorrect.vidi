@@ -1,0 +1,7 @@
+// Parameter type incorrect
+
+Test12 {
+  Foo(A:Text) {}
+  Bar() { Foo(123) } // ERROR Parameter type Integer incorrect: Text
+}
+
