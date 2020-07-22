@@ -1,6 +1,6 @@
 # Vidi Language Reference
 
-@davidberneda v.007 June-2020
+@davidberneda v.008 July-2020
 
 **Important:** 
 DRAFT. EVERYTHING MIGHT CHANGE.
@@ -8,6 +8,12 @@ DRAFT. EVERYTHING MIGHT CHANGE.
 ### General concepts
 
 Vidi is a strict typing, object oriented language that *borrows* most of its features from existing languages like Java, C#, Delphi / Pascal and others.
+
+It is *case-insensitive* by default. That means for example `Game` is considered equal to `gAmE`, but it can also be set to be case-sensitive.
+
+#### Comments in code
+
+The following examples contain *comments* as a single-line of text beginning with: `//`
 
 ### Basic data types
 
@@ -17,12 +23,16 @@ Numbers can be expressed in several ways:
 
 ```javascript
 123     // Integer
--456    // Negative
-123.45  // Float
-123e2   // Exponent
-0xFF    // Hexadecimal
-0b11011 // Binary
-0c217   // Octal
+-4567   // Negative
+12.345  // Float
+
+4e2   // Exponent
+
+// Other bases:
+
+0xFF    // Hexadecimal base 16
+0b11011 // Binary base 2
+0c217   // Octal base 8
 ```
 
 
@@ -35,7 +45,7 @@ Double or single quotes can be used to delimit text.
 "Hello"        // Double-quotes
 'World'        // Single-quotes
 "How're you?"  // Single quote inside double quotes
-'Say "abc" !'   // Double quotes inside single quotes
+'Say "abc" !'  // Double quotes inside single quotes
 ```
 
 
@@ -46,20 +56,6 @@ Double or single quotes can be used to delimit text.
 True
 False
 ```
-
-
-
-These data types (numeric, text and booleans) are "*value types*". They are always copied when assigning variables:
-
-```javascript
-A : Integer := 123
-B : Integer := A
-
-// A and B are independent. Modifying A does not change B.
-
-```
-
-The rest of types (objects, arrays and functions) are always assigned by reference.
 
 
 
@@ -77,7 +73,7 @@ The rest of types (objects, arrays and functions) are always assigned by referen
 Ranges express minimum and maximum values:
 
 ```javascript
-1..10
+1..10  // from 1 to 10
 -12..-2
 ```
 
@@ -109,6 +105,18 @@ Or in function parameters and result types:
 
 `MyFunction( MyParam : 20..1000): 4..10 { }`
 
+Ranges can also be returned from functions:
+
+```
+Months : Range { 1..12 }
+```
+
+A range can also be used as a type of an array:
+
+```
+Podiums is 1..3[10] {}  // An array of 10 integer values, each value from 1 to 3
+```
+
 
 
 ### Expressions
@@ -121,13 +129,13 @@ Boolean operators:
 
 Conditional operator:
 
-`2>1 ? True : False   //  Ternary` 
+`2 > 1 ? True : False   //  Ternary` 
 
 Membership operator:
 
 ```javascript
-'A' in 'ABC'
-3 in [1,2,3]
+'A' in 'ABC'  // True
+5 in [1,2,3]  // False
 ```
 
 
@@ -136,10 +144,6 @@ Membership operator:
 
 ```javascript
 2 + 3 - 5 * (6 / -7) // Basic math
-5 ^ 2   // Power
-10 % 3   // Modulus 
-2 << 4   // Shift left
-32768 >> 4  // Shift right
 
 255 or 0xFF
 128 and 255
@@ -147,6 +151,15 @@ Membership operator:
 not 123
 
 "Hello" + "World" // Text addition
+
+// Other mathematical expressions using classes instead of symbols:
+
+Math.Power(5,2)   // 5 elevated to 2 is: 25
+Math.Modulo(10,3) // 10 modulo 3 is: 1
+
+BinaryShift.Left(2,4)   // 2 << 4 is: 32
+BinaryShift.Right(32768,4)  // 32768 >> 4 is: 2048
+
 ```
 
 #### Comparative
@@ -157,7 +170,7 @@ Equality operators:
 
 #### Grouping
 
-Parenthesis are used to group expressions:
+Parenthesis are used to group expressions and indicate precedence:
 
 `(4+2) * 6 - (5/9) * (Abc - Xyz)`
 
@@ -173,6 +186,8 @@ Examples:
 Abc
 X123
 My_Name
+_Test4
+_4Z
 ```
 
 
@@ -192,7 +207,7 @@ A variable can optionally define a *default* value (initial value) using the `:=
 
 `F : Float := 123.45   // Value initialization`
 
-The Variable type can be optionally omitted to infer it from its initial value:
+Variable type can be optionally omitted to infer it from its initial value:
 
 ```javascript
 Data ::= True   // Type inference  (Data is Boolean)
@@ -209,7 +224,30 @@ Matrix : Float[ 3,3 ]   // Alternative way: Float[3][3]
 
 Ranges and expressions can also be used to declare array dimensions:
 
-`Numbers : Integer[ 1..2*10 ]   // 20 elements`
+`Numbers : Integer[ 1..2*10 ]   // 20 elements, from 1 to 20`
+
+
+
+### Copying and referencing
+
+These data types (numeric, text and booleans) are "*value types*". They are always copied when assigning variables:
+
+```javascript
+A : Integer := 123
+B : Integer := A
+
+// A and B are independent. Modifying A does not change B.
+
+```
+
+The rest of types (objects, arrays and functions) are always assigned by reference.
+
+```javascript
+A : Person
+B : Person := A
+
+// A and B point to the same Person variable. Modifying one, changes the other.
+```
 
 
 
@@ -246,6 +284,20 @@ Customer is Person {
 In the above example, the `Customer` class derives from the  `Person` class.
 `Person` is the ancestor class of `Customer`.
 
+
+
+#### Everything is a class
+
+The `sys` module contains most basic classes. The `SomeThing` class is the root of any other class.
+
+Literal numbers, texts, arrays, etc are classes. Types and routines are classes too. Everything is `SomeThing`.
+
+```
+SomeThing {}
+```
+
+
+
 #### Class as parameter
 
 The `Self` keyword (equivalent to *this* or *it* or *base* in other languages) represents the class instance itself.
@@ -272,20 +324,20 @@ Life {
       Forest is Text[] {    // subclass inside method
       }
       
-      MyForest : Forest   // variable
+      MyForest : Forest   // variable of Plant class
     }
   }
  
 }
 ```
 
-Declaring a variable of a sub-class type:
+Declaring a variable of a sub-class type using the `.` symbol:
 
 `Pine : Life.Tree`
 
 #### Class parameters
 
-Exactly like methods, class parameters can be used when variables are declared to initialize (construct) them.
+Exactly like methods, class parameters can be used when variables are declared, to initialize (construct) them.
 
 ```javascript
 Customer(SomeName:Text) is Person {
@@ -299,7 +351,7 @@ Cust2 : Customer("Anne")
 #### Generic types
 
 There is no special syntax for generic types.
-Class parameters of type `type` can be used to specialize generic classes.
+Class parameters of type `Type` can be used to specialize generic classes.
 
 ```javascript
 with Types
@@ -334,13 +386,43 @@ Also called *routines*, *procedures* or *functions*.
 
 #### Parameters
 
-All parameters to a method are passed by default by value (as constants).
+All parameters to a method are passed by default as constants and cannot be modified.
 
-`Make( Wheels : Integer ) {}`
+```javascript
+Make( Wheels : Integer ) {
+ // Wheels parameter cannot be changed
+}
+```
 
 The `out` keyword in front of a parameter means the parameter must be assigned a value:
 
-`Parts( Style:Text, out Price:Float ):Boolean { Price:=123 }`
+```javascript
+Parts( Style:Text, out Price:Float ):Boolean { 
+  Price:=123  // <-- Price must be assigned
+}
+```
+
+The "Tuples" concept (returning more than one value) is done using records:
+
+```javascript
+Format { Size:Integer Name:Text }  // <-- The tuple
+
+// Routine returning the tuple:
+MyFunction:Format { 
+  Result:Format 
+  Result.Size := 123
+  Result.Name := 'abc'
+  
+  return result
+    
+  // Future releases might allow:  return 123, 'abc'
+}
+
+// Calling the routine and obtaining the tuple X:
+X ::= MyFunction 
+```
+
+
 
 #### Many-Values parameters
 
@@ -659,8 +741,8 @@ for Color in Colors {
 #### Assignment
 
 ```javascript
-a:=b
-b:=c+d
+a := b
+b := c + d
 ```
 
 #### If 
@@ -693,20 +775,12 @@ repeat {
 
 #### For
 
-The `in` keyword can loop an enumerated type:
+A simple loop without any counter variable:
 
-`for c in Colors {}`
-
-Also the `in` keyword can be used to loop an array:
-
-```javascript
-Nums::=[ 6,2,9 ]
-for i in Nums { Output.Write(i) }    // iterate an array
 ```
-
-A Text expression is an array of characters so it can be also iterated:
-
-`for c in "abc" {} // foreach character`
+for 1 to 10 {}
+for a..b {}
+```
 
 An integer range:
 
@@ -716,8 +790,25 @@ Traditional loop using the `to` keyword:
 
 `for x:=a to b {}`
 
-The counter variable cannot be reused or accessed outside the `for` block.
+The optional counter variable cannot be reused or accessed outside the `for` block.
 It cannot be an already declared variable. Its type is inferred.
+
+The `in` keyword can loop an enumerated type:
+
+`for c in Colors {}`
+
+The `in` keyword can also be used to loop an array:
+
+```javascript
+Nums::=[ 6,2,9 ]
+for i in Nums { Output.Write(i) }    // iterate an array
+```
+
+A `Text` expression is an array of characters so it can also be iterated:
+
+`for c in "abc" {} // for each character`
+
+
 
 #### When
 
@@ -760,7 +851,7 @@ Test {
   Bar:Text { return "abc" }
 }
 
-// The return keyword is optional with the last expression of a function 
+// The return keyword is optional at the last expression of a function:
 Square(X:Float) { X*X }
 ```
 
@@ -781,13 +872,16 @@ Factorial(5)  // Returns 120
 ### Forward declarations
 
 There are situations where methods should be called but are not yet declared.
-These are handled automatically, no special syntax is necessary.
+These are handled automatically, no special syntax is necessary. (Note: Not yet developed)
 
 ```javascript
+TestInner(Work:Boolean) {} // <-- empty placeholder
+
 TestForward() {
     TestInner(False)  // <-- not yet declared
 }
 
+// This replaces the placeholder above:
 TestInner(Work:Boolean) {
   if Work
      TestForward
@@ -801,7 +895,7 @@ TestInner(True)
 No special syntax for properties.
 A property "getter" can be a field:
 
-`MyFoo : Integer := 123`
+`Foo : Integer := 123`
 
 Or a function:
 
@@ -823,10 +917,18 @@ Classes can define a single, unnamed, parameter-less `final` method that will be
 
 ```javascript
 Shop {
+  Console.PutLine( 'Open!' )
+    
   final {
      Console.PutLine( 'Closed!' )
    }
 }
+
+{
+  MyShop : Shop
+  // do something with MyShop ...
+} // <-- at the end of the scope, MyShop finalizer is called
+
 ```
 
 
@@ -873,17 +975,29 @@ Shop {
     ,
     ( )
     ..
+    ...
     ?
     >
     >=
     <
     <=
     <>
-    <<
-    >>
     +
     -
     *
     /
-    %
-    ^
+
+### Comments
+
+```javascript
+// Single line comments
+
+/*
+  Multiple line 
+  comments
+*/
+
+Inline : Text := /* comments */ "around code"
+
+```
+
