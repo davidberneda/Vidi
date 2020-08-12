@@ -1,6 +1,6 @@
 # Vidi Language Reference
 
-@davidberneda v.008 July-2020
+@davidberneda v.009 August-2020
 
 **Important:** 
 DRAFT. EVERYTHING MIGHT CHANGE.
@@ -178,7 +178,7 @@ Parenthesis are used to group expressions and indicate precedence:
 
 ### Identifiers
 
-Identifiers might begin with an alpha character (`a` to `z`) or `_` (underline), and then any digit (`0` to `9`), alpha or underline.
+Identifiers begin with an alpha character (`a` to `z`) or `_` (underline), and then any digit (`0` to `9`), alpha or underline.
 
 Examples:
 
@@ -210,7 +210,7 @@ A variable can optionally define a *default* value (initial value) using the `:=
 Variable type can be optionally omitted to infer it from its initial value:
 
 ```javascript
-Data ::= True   // Type inference  (Data is Boolean)
+Data ::= True      // Type inference. (Data is Boolean)
 Planet ::= Earth   // Planet variable is of the same type as Earth value
 ```
 
@@ -224,7 +224,45 @@ Matrix : Float[ 3,3 ]   // Alternative way: Float[3][3]
 
 Ranges and expressions can also be used to declare array dimensions:
 
-`Numbers : Integer[ 1..2*10 ]   // 20 elements, from 1 to 20`
+```javascript
+Numbers : Integer[ 1..(2*10) ]   // 20 elements, from 1 to 20
+```
+
+
+
+#### Assignments
+
+The `:=` symbol assigns (sets) the right-side value or expression, to the left-side variable:
+
+```javascript
+X:Text
+X := 'Hello'  // <-- assignment
+```
+
+Arithmetic assignments ( `+= -= *= /=` ) are supported:
+
+```javascript
+Z : Integer
+
+Z := 1
+
+Z += 3  // Z := Z+3
+Z -= 2  // Z := Z-2
+Z *= 5  // Z := Z*5
+Z /= 4  // Z := Z/4
+```
+
+Text and arrays support additions:
+
+```javascript
+Hi : Text
+Hi := 'Hello'
+Hi += ' World!'  // string concatenation
+
+Nums : Integer[]
+Nums += [1,2,3]  // Array Nums.Append
+Nums += 4
+```
 
 
 
@@ -246,7 +284,8 @@ The rest of types (objects, arrays and functions) are always assigned by referen
 A : Person
 B : Person := A
 
-// A and B point to the same Person variable. Modifying one, changes the other.
+// A and B point to the same Person variable. 
+// Modifying one, changes the other.
 ```
 
 
@@ -255,7 +294,18 @@ B : Person := A
 
 The `final` keyword is used to define variables that cannot be modified (*readonly*):
 
-`final Pi : :=  3.1415`
+```javascript
+final Pi : :=  3.1415
+final Hello : Text := 'Hello'
+```
+
+Expressions are allowed to initialize final variables, including calling type-level functions:
+
+```
+final A ::= 1
+final B ::= A + 1
+final C ::= Math.Square(5) // 5*5 = 25
+```
 
 
 
@@ -290,7 +340,7 @@ In the above example, the `Customer` class derives from the  `Person` class.
 
 The `sys` module contains most basic classes. The `SomeThing` class is the root of any other class.
 
-Literal numbers, texts, arrays, etc are classes. Types and routines are classes too. Everything is `SomeThing`.
+Literal numbers, texts, arrays, etc are also classes. Types and routines are classes too. Everything is `SomeThing`.
 
 ```
 SomeThing {}
@@ -305,18 +355,17 @@ The `Self` keyword (equivalent to *this* or *it* or *base* in other languages) r
 ```javascript
 Foo is Integer {
   Bar() {
-    SomeClass.Test(Self)  // Passing ourselves as parameter
+    SomeClass.Test(Self)  // Passing ourselves as a parameter to Test function
   }
 }
 ```
 
 #### Sub-classes and sub-methods
 
-Class types and procedures / routines / methods / functions can be nested, unlimited.
+Class types and procedures / routines / methods / functions can be nested, unlimited, at any scope.
 
 ```javascript
-Life {
-
+Life {      // class
   Tree {    // subclass
   
     Plant( Quantity : Integer) {  // method
@@ -325,13 +374,14 @@ Life {
       }
       
       MyForest : Forest   // variable of Plant class
+      
+      SubMethod() {}
     }
   }
- 
 }
 ```
 
-Declaring a variable of a sub-class type using the `.` symbol:
+Sub elements are accessed using the `.` symbol, for example to declare a variable of a sub-class type:
 
 `Pine : Life.Tree`
 
@@ -370,9 +420,9 @@ Class1 {}
 Class2 is Class1 {}
 
 C2 : Class2
-C1 : Class1 := C2
+C1 : Class1 := C2  // OK
 
-//  C2_bis : Class2 := C1 // <-- Error. 
+//  C2_bis : Class2 := C1 // <-- Error 
 
 C2_bis : Class2 := Class2(C1) // <-- Casting is OK
 
@@ -386,7 +436,7 @@ Also called *routines*, *procedures* or *functions*.
 
 #### Parameters
 
-All parameters to a method are passed by default as constants and cannot be modified.
+All parameters to a method are passed by default as read-only constants and cannot be modified.
 
 ```javascript
 Make( Wheels : Integer ) {
@@ -420,6 +470,27 @@ MyFunction:Format {
 
 // Calling the routine and obtaining the tuple X:
 X ::= MyFunction 
+```
+
+#### Unnamed class types
+
+Variables can also be declared using a class declaration just after the `:` colon symbol:
+
+```javascript
+Planet : { Name:Text, Radius:Float }
+Planet.Name := 'Saturn'
+
+// An array can be used to initialize all class fields, in order:
+
+Planet:= [ 'Saturn', 58232 ]  
+
+// Also array of arrays:
+
+Planets : { Name:Text, Radius:Float } [] :=  
+  [
+    [ 'Mars',  3389.5 ],
+    [ 'Earth', 6371.0 ]
+  ] 
 ```
 
 
@@ -480,16 +551,22 @@ The `Ancestor` keyword refers to its parent method.
 
 #### Non-inheritable methods (final)
 
-Methods can be declared `final` to forbid overriding them in derived classes.
+Methods can be declared `final` to forbid overriding them in derived classes. 
 
 `final Proc() {}`
 
 #### Abstract methods
 
 When a method body is empty, it is considered abstract. 
-There is no special syntax.
+There is no special syntax to declare it.
 
-That means the method cannot be called (an error at compile time) and that derived classes must implement (override) it and fill it with content.
+```javascript
+Test {
+    Foo(A:Integer):Text {}  // <-- abstract method
+}
+```
+
+That means the method cannot be called (it is an error at compile time), and that derived classes must implement (override) it and fill it with content.
 
 
 
@@ -552,6 +629,22 @@ MyClass {
 
 // SomeModule symbols cannot be accessed here, outside MyClass scope
 ```
+
+Module file names might contain spaces or characters not allowed in module identifiers. In this case, the `with` syntax allows enclosing the module name in quotes like a text string literal:
+
+```javascript
+with "My module with spaces"
+```
+
+Aliasing allows replacing module names with custom ones:
+
+```javascript
+with Foo:= My_Long_Module.My_Class   // use Foo as alias
+
+Foo1 : Foo  // variable of type My_Class
+```
+
+
 
 ### Element visibility
 
