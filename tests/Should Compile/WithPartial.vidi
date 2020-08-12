@@ -4,7 +4,7 @@
  Test : SubClass
  Console.PutLine(Test.Hello) 
 
- SubSub : SubSubClass
+ SubSub : SubClass.SubSubClass
  SubSub.Foo
 
  with WithTotal.Plants

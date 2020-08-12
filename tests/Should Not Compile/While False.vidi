@@ -1,0 +1,6 @@
+// ERROR: [6,1] Code is never executed TWhile:TWhile? 
+Test {
+  while False {
+    Console.PutLine('Never')
+  }
+}

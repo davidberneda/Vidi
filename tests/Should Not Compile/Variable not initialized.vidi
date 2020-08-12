@@ -1,0 +1,14 @@
+{
+  X:Integer
+  Y::=X
+
+  Console.PutLine(Y)
+
+  Sample {
+   Z:Text
+  } 
+
+  A,B:Sample
+  B.Z:=''
+  A:=B
+}

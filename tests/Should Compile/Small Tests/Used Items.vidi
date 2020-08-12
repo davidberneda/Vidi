@@ -1,0 +1,50 @@
+with syntax // <-- should flag unused module error
+
+OkTest {
+}
+
+hidden OkHidden {
+}
+
+{
+  Test {
+    Foo() { Console.PutLine('Foo') }
+
+    X:Text[1]
+ 
+    final MyFinal(abc:Integer) { 
+      //Console.PutLine(abc) 
+     X[abc+1]:=''
+    }
+
+    Bar() { 
+
+      Lee() { 
+        Console.PutLine('Lee') 
+      }
+
+      Console.PutLine('Bar') 
+      Lee
+    }
+
+    C:Text
+ 
+    Append(T:Text) {
+      C += T.Characters
+    }
+  }
+
+  Test2 is Test {
+    hidden X:Integer
+
+    X:=0
+    
+    Console.PutLine(X)
+  }
+
+  T:Test 
+  T.Foo
+
+  T2:Test2
+  T2.X:=1
+}

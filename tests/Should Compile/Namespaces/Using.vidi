@@ -1,9 +1,11 @@
 with Both
 
+with One, Two // <-- temporary fix until "Both" aggregation works
+
 {
   A : Class_One
   A.SomeData:='aaa'
 
-  B : Two
+  B : Two.Two
   B.XYZ:=1.23 
 }

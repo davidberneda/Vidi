@@ -1,0 +1,10 @@
+Test {
+  Foo() {} // abstract
+}
+
+AncestorTest is Test {
+  Foo() { Ancestor } // <-- not overriden !
+}
+
+{
+}

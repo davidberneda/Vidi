@@ -1,0 +1,16 @@
+{
+  A:Boolean:=False
+
+  if A=False {} 
+  
+  if A<>True {}
+
+  if True=A {}
+
+  if not False = A {}
+
+  if A=A {}
+
+  if A<>A {}
+
+}
