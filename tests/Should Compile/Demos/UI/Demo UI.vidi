@@ -1,0 +1,37 @@
+with UI
+
+TextFrom(Ints : Integer[]):Text {
+  tmp : Text
+
+  for i in Ints {
+//    tmp.Characters.Append(i)
+    tmp.Append(Character.From(i))
+  }
+
+  return tmp
+}
+
+{
+  Form1 : Form
+  Form1.Text := 'Hello World !'
+
+  Button1 : Button
+  Button1.Position.Left := 50
+  Button1.Position.Top := 50
+
+  Button1.Text := 'Click'
+
+  Console.PutLine(Button1.Text)
+
+
+  Button1.Parent := Form1
+
+  Label1 : Label
+  Label1.Text := TextFrom( [0x0054, 0x0069, 0x006D, 0x0065, 0x0020, 0x0074, 0x006F,
+                           0x0020, 0x0075, 0x0070, 0x0067, 0x0072, 0x0061, 0x0064, 0x0065]
+                        )
+
+  Console.PutLine(Label1.Text)
+
+  Form1.Show
+}

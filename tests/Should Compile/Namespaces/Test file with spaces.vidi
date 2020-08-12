@@ -1,0 +1,6 @@
+with "Spaces in file name" 
+
+{
+  X::=Y
+  Console.PutLine(X.X)
+}

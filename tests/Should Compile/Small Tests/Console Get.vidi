@@ -1,0 +1,4 @@
+{
+  S::=Console.Get
+  Console.Put(S)
+}

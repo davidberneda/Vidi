@@ -1,0 +1,8 @@
+// ERROR: [6,6] Array access lower than range minimum TInteger:TInteger?
+
+Test {
+ X:Integer[1..5]
+
+ X[0]:=1 
+ X[6]:=1
+}

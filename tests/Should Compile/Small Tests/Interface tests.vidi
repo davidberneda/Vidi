@@ -1,0 +1,55 @@
+// Declaring an interface, it is a simple class:
+
+// 1) No variables
+// 2) No methods with content
+// 3) If there is an ancestor, it should also follow 1 and 2.
+
+Sport {
+  Score(Points : Integer) {}
+}
+
+// Declare a class to implement this interface (hard)
+
+Basket is Sport {
+  Score(Points : Integer) {
+    Console.PutLine('New basket: ',Points)
+  }
+}
+
+// Declare another class implementing this interface (soft)
+
+Football {
+  Score(Points : Integer) {
+    Console.PutLine('New goal: ',Points)
+  }
+}
+
+// An example of a method using the interface
+
+DoScore(S:Sport, Amount:Integer) {
+  S.Score(Amount)
+}
+
+// Example of use
+
+{
+  B : Basket
+
+  // Using the interface as a variable
+  
+  S : Sport := B
+  S.Score(123)
+
+  // Passing to a method expecting the interface
+
+  DoScore(B,45)
+
+  // Using the soft interface
+
+//  F : Football
+
+// TODO: Auto-discover if F is soft-compatible with Sport interface
+
+//  S := F 
+//  DoScore(S,3)
+}

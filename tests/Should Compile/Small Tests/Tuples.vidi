@@ -1,0 +1,22 @@
+Format { Size:Integer Name:Text }  // <-- The tuple
+
+// A routine returning a tuple:
+
+MyFunction:Format { 
+
+  Result:Format 
+  Result.Size := 123
+  Result.Name := 'abc'
+  
+  return result
+    
+  // Future releases might allow a simplified syntax:  
+  // return 123, 'abc'
+}
+
+{
+  // Calling the routine and obtaining the tuple X:
+  X ::= MyFunction 
+  
+  Console.PutLine(X.Name)
+}

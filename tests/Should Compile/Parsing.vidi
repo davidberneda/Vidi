@@ -1,13 +1,17 @@
 with ast, parse, parse.bee
-
+sss
 {
   P:Parser
 
+  /*
   Sample:Text:='abc 123'
   Console.PutLine(Sample)
+  */
 
-  P.Init(Sample)
+  P.Init('x') // P.Init(Sample)
+
+  /*
   Console.PutLine(P.GetToken)
   Console.PutLine(P.GetTokenNumber)
-  
+  */
 }

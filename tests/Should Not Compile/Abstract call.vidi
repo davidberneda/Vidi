@@ -1,0 +1,7 @@
+Test {
+  Foo(X:Integer):Integer {}
+}
+
+{
+  Test.Foo(1)
+}

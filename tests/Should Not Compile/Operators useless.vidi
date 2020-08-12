@@ -1,0 +1,18 @@
+// Useless expressions
+
+{
+  X:Integer:=1
+
+  if x=x {} 
+
+  if x+1 = 1+x {} 
+
+  y::= x-x
+
+  z::= x/x
+
+  w:Boolean := x>x  // <  <=   <>  >=  =
+
+  
+
+}

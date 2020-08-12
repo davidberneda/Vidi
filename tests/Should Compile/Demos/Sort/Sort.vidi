@@ -48,8 +48,8 @@ Array.Sort(Ascending:Boolean) {
     {
   Console.PutLine('0 i '+i.astext+' j '+j.astext)
 
-      while Compare(i,x)=Comp i:=i+1
-      while Compare(x,j)=Comp j:=j-1
+      while Compare(i,x)=Comp i += 1
+      while Compare(x,j)=Comp j -= 1
 
       if i<j
       {
@@ -67,8 +67,8 @@ Array.Sort(Ascending:Boolean) {
 
       if i<=j
       {
-        i:=i+1
-        j:=j-1
+        i += 1
+        j -= 1
       }
     }
 

@@ -1,0 +1,19 @@
+// ERROR: [11,3] Assignment is useless
+Foo() {
+  Console.PutLine('Foo')
+}
+
+{
+  X:Integer // local variable
+  
+  Foo
+
+  X:=123  // useless assignment
+
+  Foo
+  Foo
+  Foo
+
+  X:=456  
+
+}

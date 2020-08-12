@@ -1,0 +1,17 @@
+Class1 {}
+Class2 is Class1 {
+ final Hello::='Hello'
+}
+
+{
+  C2 : Class2
+  C1 : Class1 := C2
+
+  // C2_bis : Class2 := C1 // <-- Error.
+
+ // C2.Hello := 'Bye' // <--- Error cannot modify
+
+  C2_bis : Class2 := Class2(C1)
+
+  Console.PutLine(C2_Bis.Hello) // Hello
+}

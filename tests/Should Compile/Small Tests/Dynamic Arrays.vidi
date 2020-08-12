@@ -1,0 +1,56 @@
+Person {
+  Name : Text
+}
+
+{
+  X: SomeThing[] :=[123,"a"]
+  Console.PutLine(x)            // 123, a
+
+  A,B:Person
+ 
+  A.Name:='Anne'
+  B.Name:='Bern'
+
+  Y:Person[]:=[A,B]
+  Console.PutLine(y)         // A, B
+
+  Z:Integer[]
+  Console.PutLine(z.Count)  // 0
+
+
+  Z.Count:=100
+  Console.PutLine(z.Count)  // 100
+
+  for t::=0 to 99 Z[t]:=t
+
+  Z.Count:=0
+  Z:=[] 
+
+  Console.PutLine(z.Count) // 0
+
+
+  Z.Count:=10
+  Console.PutLine(z.Count)  // 10
+
+  for t::=z.Low to z.High Z[t]:=t
+
+ // Console.PutLine(z[9]) 
+
+ Console.PutLine(z)  // 0,1,2,3,4,5,6,7,8,9
+
+
+  z.Append(234)
+  z.Append("aa") // <-- ERROR not an integer
+  
+  z.Delete(3)
+
+  Console.PutLine(z.Count)
+  Console.PutLine(z)
+
+  z.Insert(5,456)
+
+  Console.PutLine(z.Count)
+  Console.PutLine(z)
+
+
+}

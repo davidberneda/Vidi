@@ -1,0 +1,6 @@
+// ERROR: Infinite loop
+{
+ repeat
+   console.put('a')
+ until false
+}

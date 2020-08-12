@@ -24,24 +24,29 @@ Expressions {
  b::= 456.789
 
  c::= a+b
- c:= a-b
- c:= a*b
- c := a / b
+ 
+ c1::= a-b
+ c2::= a*b
+ 
+ c += (a / b)
 
+ // TODO: Infer Float instead of Integer:
  d::= Math.Power(c,3)
- e::= Math.Power(c,4.1)
+ e:Float:= Math.Power(c,4.1)
 
  expA ::= -1E20
  expB ::= -5.1e-3
 
-// expC :Integer:= 2e10
+  expCInt :Integer:= 2e9
   expC:Float:=2e10
 
  f::= ( (a + b -c ) * (d/e) ) - b
 
  g:Float:= -123.45e6
 
- g:= g--e
+ g:= g- -e
+
+ g -= -e
 
  hexa ::= 0x123AB // base 16 hexadecimal
 
@@ -82,21 +87,38 @@ v4::=not 123
  Boolean_C::=True
  Boolean_D::=False
 
- h::= 1 = 1
+ h::= 1 = 10
  i::= 2 > 1
 
  h:= not h
- i:= ( 3>=2 ) and ( 5<9.1)
+ 
+ Console.PutLine(i)
+ 
+ i:= ( 3>=2 ) and ( 5<9.1) 
+ 
  h:= i or h
+ Console.PutLine(h)
+ 
  i:= i xor false
+
  h:= true or false
+ Console.PutLine(h)
+
  i:= false xor true
+ Console.PutLine(i)
 
  h := true and not false
+ Console.PutLine(h)
+
  i := false or not false
+ Console.PutLine(i)
 
  h := not true
+ Console.PutLine(h)
+
  i := not false
+ Console.PutLine(i)
+ 
 
  // Text
 
@@ -124,7 +146,7 @@ v4::=not 123
 
 // a:= true.asinteger
 
- p::= 23 < 12 ? "a" : "b"
+ p::= 23 < 12+c ? "a" : "b"
  Console.PutLine(p)
 
  Caption :Text := (5*4).AsText

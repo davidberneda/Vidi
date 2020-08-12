@@ -1,0 +1,9 @@
+{
+ a:Integer[(1+1)..(2+5)]
+  
+ a[5]:=6
+
+// a[8]:=123 // Error Range out of bounds
+
+ for t in a Console.PutLine(t)
+}

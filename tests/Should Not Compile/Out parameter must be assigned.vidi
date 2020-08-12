@@ -1,6 +1,8 @@
 // Out parameter must be assigned
 
 Test14 {
-  Foo(out A:Text) {} // ERROR Out parameter A must be assigned
+  Foo(out A:Text) {
+    Console.PutLine('Foo')
+  } // ERROR: [7,1] "Out" parameter must be assigned TVariable:A
 }
 

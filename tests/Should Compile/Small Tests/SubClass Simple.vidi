@@ -1,0 +1,5 @@
+Test6 {
+  Test7 {}
+}
+
+Test8 is Test6.Test7 {}

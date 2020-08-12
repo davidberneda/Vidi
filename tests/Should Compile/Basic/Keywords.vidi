@@ -27,6 +27,8 @@ Keywords {
   // Items that are only accessible from this class or method (private)
 
   hidden MyVariable : Boolean := False
+  
+  Console.PutLine(MyVariable)
 
   // Code included at some point (includes)
 
@@ -73,7 +75,7 @@ Keywords {
   // Self referencing inside a class
 
   SelfTest {
-    Foo() {}
+    Foo() { Console.PutLine('Foo') }
     TestProc(Param:SelfTest) { Console.PutLine('TestProc') Param.Foo }
     Proc123() { TestProc(Self) }
   }
@@ -85,7 +87,7 @@ Keywords {
       Ancestor   // <- calls SelfTest.Proc123
     }
      
-    Foo() { Ancestor } // empty / abstract ??
+    Foo() { Ancestor Proc123() }
   }
 
   // Shared variable (at type-level)
@@ -93,4 +95,8 @@ Keywords {
   shared Foo : Integer
 
   MyVariable:=True // unused ???
+  Console.PutLine(MyVariable)
+  
+  Sample:Text:= /* comments */ 'Around Code'
+  
 }

@@ -1,0 +1,16 @@
+F1:Text {
+  Console.PutLine('F1')
+
+  'F1'
+}
+
+F2:Text {
+  Console.PutLine('F2')
+
+  'F2'
+}
+
+
+{
+  Console.PutLine(F1+' - '+F2)
+}

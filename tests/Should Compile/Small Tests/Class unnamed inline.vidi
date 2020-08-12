@@ -1,0 +1,19 @@
+{
+ Planet : { Name:Text, Radius:Float }
+ 
+ //Planet.Name := 'Saturn'
+
+ Planet:=[ 'Saturn', 58232 ]  
+
+ Console.PutLine(Planet)
+ 
+ // Also array of arrays:
+
+ Planets : { Name:Text, Radius:Float } [] :=  
+  [
+    [ 'Mars',  3389.5 ],
+    [ 'Earth', 6371.0 ]
+  ] 
+
+ Console.PutLine(Planets)
+}

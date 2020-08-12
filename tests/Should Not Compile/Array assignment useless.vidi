@@ -1,0 +1,18 @@
+{
+ T:Integer[2] 
+
+ T[0]:=123 // good
+ T[1]:=456
+ Console.PutLine(T)
+
+ X:Integer[2] 
+
+ final Zero::=0
+ 
+ X[Zero]:=123  // useless
+
+ Console.PutLine(T)
+ 
+ X[0]:=456
+ Console.PutLine(X)
+}

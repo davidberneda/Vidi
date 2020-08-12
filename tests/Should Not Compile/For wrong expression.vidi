@@ -1,0 +1,6 @@
+// ERROR: [4,12] Wrong "in" expression TInteger
+
+{
+  for x in 123 
+}
+

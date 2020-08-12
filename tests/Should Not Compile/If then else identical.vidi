@@ -1,0 +1,14 @@
+Test {
+  X:Integer
+  
+ if X=2 
+    Console.PutLine(X)
+ else
+    Console.PutLine(X)
+    
+ if X=2 
+    Console.PutLine('a')
+ else
+    Console.PutLine('a')
+    
+}

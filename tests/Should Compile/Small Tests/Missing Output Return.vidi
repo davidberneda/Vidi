@@ -1,0 +1,15 @@
+Test {
+  
+  
+  Foo(N:Integer):Text {
+    if N=1 
+      "True"
+    else 
+      "False"
+  }
+}
+
+{
+  console.Putline(test.foo(2))
+  console.Putline(test.foo(1))
+}

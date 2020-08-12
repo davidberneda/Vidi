@@ -1,0 +1,12 @@
+Podiums is 1..3[] {
+}
+
+SomeData {
+ shared Begin::= 5
+ shared End::= 10
+}
+
+SomeInteger is SomeData.Begin .. SomeData.End {}
+
+{
+}

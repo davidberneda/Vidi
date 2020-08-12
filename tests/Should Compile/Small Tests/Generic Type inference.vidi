@@ -1,0 +1,14 @@
+//with ast
+
+/* TODO
+
+Guess(T:Type, x: T[]) {
+  Console.PutLine(x.Count)
+}
+
+{
+  a: Integer[]
+  Guess(Integer,a)
+}
+
+*/

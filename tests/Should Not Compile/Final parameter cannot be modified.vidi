@@ -1,4 +1,4 @@
-// Final Parameter cannot be modified
+// ERROR: [5,5] Cannot modify final variable TVariable:A
 
 Test3 {
   Foo(A:Integer) {

@@ -1,0 +1,14 @@
+Test {
+  Foo() {} // abstract routine
+}
+
+Test2 is Test {
+  Foo() { Console.PutLine('Foo') } // override
+}
+
+{
+  T:Test2
+  T.Foo()  // using instance
+  
+  Test2.Foo()  // no instance, using type
+}

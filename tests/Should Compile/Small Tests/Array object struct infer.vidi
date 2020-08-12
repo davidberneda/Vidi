@@ -1,0 +1,45 @@
+
+{
+ // Inline structure inference
+
+ Foo : { Name:Text }
+
+ Foo:=['Foo']
+
+ Console.PutLine(Foo.Name)
+
+ X: { Name:Text, Age:Integer } := ['Leia', 29]
+
+ // Inline infer struct array
+
+ Y: { Kind:Text, Weight:Float } [] :=
+       [
+        ['Cube', 1.1],
+        ['Pyramid', 2.3]
+       ]
+
+ // Assign-compatible  (structural typing)
+
+ My_Struct {
+   KindName: Text
+   Weight: Float
+ }
+
+ Z:My_Struct[] := Y
+
+ // Variable initialization using type
+
+ W:My_Struct[] :=
+       [
+        ['Cube', 1.1],
+        ['Pyramid', 2.3]
+       ]
+
+ Console.PutLine(X)
+ Console.PutLine(Z)
+ Console.PutLine(W)
+
+ B: { Name:Text, Address: { Street:Text }, Age:Integer }
+
+ Console.PutLine(B)
+}

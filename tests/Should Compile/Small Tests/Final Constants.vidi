@@ -1,0 +1,27 @@
+final Test {
+  final A::="The A"
+  final B::="Is "+A
+  
+  shared Y:Text:='d'
+  
+  Square(X:Integer):Integer { X*X }
+  
+  SomeText:Text { 'abc'+Y }
+  
+  final C ::=Square(5+2)
+  final D::=SomeText
+}
+
+// Test2 is Test {} // ERROR Test is final
+
+{
+  T:Test
+  Console.PutLine(T.B) // "Is The A"
+
+//  t.a:="aa"  // ERROR A is final
+//  Console.PutLine(Test.B)  // ERROR B is not shared
+
+  Console.PutLine(Test.C)
+  Console.PutLine(Test.D)
+}
+

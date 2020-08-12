@@ -1,0 +1,9 @@
+Test {
+  Sub {
+  }
+}
+
+{
+  S1 : Test.Sub // OK
+  S2 : Sub // BAD !
+}

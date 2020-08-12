@@ -1,6 +1,8 @@
 // Final Class cannot be derived
 
-final Test2 { }
+final Test2 {
+  X : Byte
+}
 
 Derived2 is Test2 {}  // ERROR Final class Test cannot be derived
 

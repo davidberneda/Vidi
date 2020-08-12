@@ -49,6 +49,8 @@ Arrays {
 
   cc[3,5] := 123  // Setting a matrix cell at row 3, column 5
 
+  Console.PutLine(cc[3,5])
+
   final Five::=5
 
   Console.PutLine(Five)
@@ -69,12 +71,12 @@ Arrays {
   h:Boolean[][]
 
   d.Append(456)  // Append to the end of the array
-  d.delete(0)   // Remove element at 0 index
+  d.Delete(0)   // Remove element at 0 index
 
 
   // d.sort()      // Demos\Sort
 
-  d.insert(5,789)  // Add a new element at 5th index position
+  d.Insert(5,789)  // Add a new element at 5th index position
 
   i::=d
 
@@ -92,7 +94,7 @@ Arrays {
 
   // Appending type compatible arrays
 
-  Big := Big + Small
+  Big += Small
 
   // Text arrays, initialization
 

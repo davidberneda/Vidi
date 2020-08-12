@@ -1,2 +1,2 @@
-final Test4 {} // Error final class cannot be abstract
+final Test4 {} // ERROR: [3,1] Final class cannot be empty TClassType:Test4
 

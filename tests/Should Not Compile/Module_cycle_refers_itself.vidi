@@ -1,0 +1,3 @@
+with Module_subcycle
+
+// ERROR: [4,1] Module [Module_subcycle] cannot reference itself

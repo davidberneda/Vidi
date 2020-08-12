@@ -1,0 +1,17 @@
+Throw is { Rock, Paper, Scissors }
+
+Play(Item:Throw) 
+{
+  when Item {
+    Throw.Rock { Console.Putline('Rock') }
+    Throw.Paper { Console.Putline('Paper') }
+  else  
+    Console.Putline('Scissors')
+  }
+}
+
+{
+  Play(Throw.Rock)
+  Play(Throw.Paper)
+  Play(Throw.Scissors)
+}

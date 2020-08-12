@@ -1,0 +1,39 @@
+Test {
+  i:Integer:=1  // Class variable
+
+  Foo() {
+    x::=i
+    Console.PutLine(x) // 1
+  }
+
+  final Constant ::= 123 // Class Constant
+  
+  Bar() {
+   a::=1 // Local method variable
+
+   while a<2 {
+
+     i:Integer:=2  // Local variable
+     
+     Console.PutLine(i) // 2
+
+     Inner_Class { // Local sub-class
+       xyz : Float
+     }
+     
+     inner : Inner_Class
+     inner.xyz := i
+     
+     Foo()
+     a += 1
+   }
+  }
+  
+  shared SharedZ : Text := 'Z' // Shared Class variable
+}
+
+{
+ T:Test
+ T.Bar 
+ Console.PutLine(T.SharedZ)
+}

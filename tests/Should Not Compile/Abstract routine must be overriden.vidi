@@ -8,4 +8,4 @@ Test1 {
 Derived is Test1 {
 }
 
-// ERROR Derived class must override abstract method Foo
+// ERROR: [5,3] Method must be overriden: Test1.Foo

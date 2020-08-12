@@ -1,0 +1,13 @@
+// Abstract Class
+
+Test {
+}
+
+{
+ A,B:Test
+
+ // Nothing happens, just a reference
+ A:=B
+ 
+ Console.PutLine(A)
+}

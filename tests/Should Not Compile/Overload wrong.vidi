@@ -1,0 +1,22 @@
+Test {
+  Foo(X:Integer):Integer {
+  }
+  Foo(X:Float):Float {
+  }
+}
+
+{
+ Y:Integer 
+ Y:=Test.Foo(1)
+ 
+ Console.PutLine(Y)
+ 
+ Y:=Test.Foo(1.1) // wrong overload
+
+ Console.PutLine(Y)
+
+ Z:Float
+ Z:=Test.Foo(1.1)
+ Console.PutLine(Z)
+
+}

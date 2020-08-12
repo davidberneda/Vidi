@@ -9,6 +9,6 @@
 
   Console.PutLine(A[5]) // Correct
 
-  Console.PutLine(A[0]) // ERROR Array index 0 out of bounds (5..7)
+  Console.PutLine(A[0]) // ERROR: [12,23] Array access lower than range minimum TInteger:TInteger?
 }
 

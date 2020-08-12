@@ -1,0 +1,5 @@
+with Module_self_referenced
+
+// ERROR: [4,1] Module [Module_self_referenced] cannot reference itself
+{
+}

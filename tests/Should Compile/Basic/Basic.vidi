@@ -1,16 +1,16 @@
-with Expressions, Arrays, Flow, Structures, Keywords
+with Expressions, Arrays, Flow, Structures, K:=Keywords
 
 {
  e:Expressions
  Console.PutLine( e.Hello )
 
- a:Arrays
+ a:Arrays.Arrays
  Console.PutLine( a.b )
 
- f:Flow
+ f:Flow.Flow
  Console.PutLine( f.Name )
 
- s:Structures
+ s:Structures.Structures
  Console.PutLine(s.MyPositive)
 
  k:Keywords

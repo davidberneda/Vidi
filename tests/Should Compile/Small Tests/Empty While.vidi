@@ -1,0 +1,36 @@
+Foo() {
+  N::=1
+
+  while true {
+    Console.Put(n,' ')
+    
+    if N>2
+       break
+    else
+       N += 1
+  }
+  
+  Console.PutLine
+  Console.PutLine('bye while',456)
+}
+
+Bar() {
+  N::=1
+
+  repeat {
+    Console.PutLine(n)
+  
+    if N>2
+       break
+    else
+       N += 1
+       
+  } until false
+
+  Console.PutLine('bye repeat')
+}
+
+{
+ Foo
+ Bar 
+}

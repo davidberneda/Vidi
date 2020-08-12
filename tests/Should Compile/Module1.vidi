@@ -20,7 +20,8 @@
   Console.PutLine(s1.T) // Hello
 
   s3::=s1
-  s3.T:=s3.T+" abc"
+  s3.T += " abc"
+
   Console.PutLine(s3.T) // Hello abc
   Console.PutLine(s1.T) // Hello abc
 

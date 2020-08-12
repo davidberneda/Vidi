@@ -1,0 +1,93 @@
+Test {
+  Numbers : Integer[] := [1,2,3,4]
+  
+  Foo() {
+    Console.PutLine('Range loop')
+    
+    for x in 1..2  {
+       Console.Put(x,' ')
+    }
+    
+    Console.PutLine
+    
+    Console.PutLine('Array loop')
+    
+    for x in Numbers {
+       Console.Put(x,' ')
+    }
+
+    Console.PutLine
+
+    Console.PutLine('Number loop')
+
+    for x::=5 to 7  {
+       Console.Put(x,' ')
+    }
+
+    Console.PutLine
+
+    Console.PutLine('Text loop')
+
+    for x in 'ABC' {
+       Console.Put(x,' ')
+    }
+
+    Console.PutLine
+
+    Console.PutLine('Expression loop')
+
+    Bar:Float[] { [3.14, 2.71] }
+    
+    for x in Bar {
+       Console.Put(x,' ')
+    }
+
+    Console.PutLine
+
+    Console.PutLine('Range function loop')
+
+    with ast
+    
+    x::=2
+    
+    FooRange:Range { 20..22+x }
+    
+    for x in FooRange {
+       Console.Put(x,' ')
+    }
+
+    Console.PutLine
+
+    Console.PutLine('Class loop')
+
+    Items is SomeThing[] {}
+    
+    Things: Items := [ 1, "A", True, 2.2 ]
+    
+    for x in Things {
+       Console.Put(x,' ')
+    }
+
+    Console.PutLine
+
+    Console.PutLine('Indexed loop')
+
+    Items2 {
+      indexed List:Text[]
+    }
+    
+    Things2: Items2
+    Things2.List := [ "X", 'Y', 'Z' ]
+    
+    for x in Things2 {
+       Console.Put(x,' ')
+    }
+
+    Console.PutLine
+  }
+}
+
+{
+  T:Test
+  T.Foo
+}

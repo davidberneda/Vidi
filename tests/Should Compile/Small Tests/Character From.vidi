@@ -1,0 +1,15 @@
+{
+  S:Text
+  S:=Character.From(65)+Character.From(66)
+
+  Console.PutLine(S)
+
+  U:Text
+  U:=Character.From(0x210D)+Character.From(0x03A3)
+     +Character.From(0x056C)+
+     Character.From(0x056C)+
+     Character.From(0x0E4F)
+
+  Console.PutLine(U)
+
+}

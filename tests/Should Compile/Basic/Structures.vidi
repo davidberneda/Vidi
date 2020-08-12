@@ -92,12 +92,12 @@ Structures {
   
   Specialized is Generic(Integer) {
     a:Integer { 
-       // TODO: Generics !!    Func123 + 1 
+3  //      3+Func123 + 1 
     }
   }
 
   s:Specialized
-  //s.Variable := 123  
+  s.Variable := 123  
   b::= s.a
 
   // Parameterized Class
@@ -117,7 +117,7 @@ Structures {
   // Virtual methods
 
   Class_A {
-    Proc1() {}
+    Proc1() { Console.PutLine }
   }
 
   Class_B is Class_A {
@@ -156,8 +156,8 @@ Structures {
   }
 
   // Extender Types
-  //Derived.AnotherSub {
-  //}
+  Derived.AnotherSub {
+  }
 
   // Lambdas, anonymous methods
   
@@ -206,7 +206,10 @@ Structures {
 
   Blue::=Colors.Blue
 
-  when Color { Colors.Red {} <>Blue{} } 
+  when Color { 
+    Colors.Red { Console.PutLine('Red') } 
+    <>Blue {  Console.PutLine('Blue') } 
+  } 
 
   // Property accessors
 

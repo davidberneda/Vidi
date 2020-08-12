@@ -3,6 +3,7 @@
 
  // Array 
  Items :Text[]:= ['Mercury', 'Venus', 'Earth']
+
  for t in Items { Console.PutLine(t) }   // Mercury, Venus, Earth
 
  // Text

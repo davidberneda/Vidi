@@ -1,0 +1,16 @@
+Colors is { Red, Green, Blue, Yellow }
+
+{
+  MyColor : := Colors.Blue
+
+  Console.PutLine(MyColor) // Blue
+
+  Names : Text[Colors]  // Array of four text items
+  Names[Colors.Green] := "My Green"
+
+  Console.PutLine(Names[Colors.Green])  // My Green
+
+  Console.PutLine(Names.Low)  // 0
+  Console.PutLine(Names.High)  // 3
+  Console.PutLine(Names.Count)  // 4
+}

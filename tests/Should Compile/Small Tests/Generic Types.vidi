@@ -1,0 +1,56 @@
+// Types with parameters
+
+Generic(T:Type) is Type {
+  Data:T
+  
+  Foo:T { Data }
+  
+  Bar(Param:T) { Console.PutLine(Param) } 
+}
+
+Generic_Integer is Generic(Integer) {
+  Data2 : T
+} 
+  
+{
+  Num1 : Generic_Integer
+  
+  Num1.Data:=123
+  Console.PutLine(Num1.Data)
+  
+  Foo1 ::= Num1.Foo
+  
+  Console.PutLine(Foo1)
+  
+  Num1.Data2 := 456
+
+  Console.PutLine(Num1.Data2)
+  
+  //Num1.Bar(Num1.Data2)
+  
+  Num2 : Generic(Text)
+  
+  Num2.Data:='abc'
+  Console.PutLine(Num2.Data)
+
+/*
+  MyArray(T:Type) is Type {
+    indexed Items:T[]
+  }
+  Booleans:MyArray(Boolean)
+ // Booleans.Items:=[True,False,True]
+*/
+
+  
+  Generic_Derived is Generic_Integer {
+//    Lee(V:Type):V {
+  //    V
+//    }
+  }
+
+  Num3 : Generic_Derived  
+  Num3.Data2 := 789
+  Num3.Data := 1000
+  
+  //Num3.Bar(123)
+}

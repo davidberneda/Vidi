@@ -1,0 +1,21 @@
+Person {
+  Name : Text
+  Age : Integer
+}
+
+Check(P:Person) {
+  if P=nil
+     Console.PutLine(P.Name) 
+  else Console.PutLine('P is nil')  
+}
+
+{
+  P : Person
+  Check(P)   
+
+  P.Name:='Lisa'  
+  Check(P)   
+
+//  P:=nil 
+  Check(P)   
+}

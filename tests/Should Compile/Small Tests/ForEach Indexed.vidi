@@ -1,0 +1,32 @@
+Toys {
+    indexed Items : Text[]
+
+  /* TODO
+
+    // Custom foreach for Toys class
+    ForEach {
+      index : Integer
+      Get:Text { Items[index] } 
+      Next:Boolean { 
+        index += 1
+        return index < Items.Count
+      }
+      Start() { index:=0 }
+    }
+  */
+
+}
+
+{
+
+  // Sample data
+
+  MyToys : Toys
+  MyToys.Items := ['Mercury', 'Venus', 'Earth']
+
+  // Testing foreach
+
+  for t in MyToys.Items { Console.PutLine(t) } // Using variable Items
+
+  for t in MyToys { Console.PutLine(t) } // Without using variable Items
+}

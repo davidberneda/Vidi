@@ -1,0 +1,8 @@
+
+Factorial(x:Integer):Float {
+  x=0 ? 1 : x * Factorial(x-1)
+}
+
+{
+  Console.PutLine(Factorial(6))  // Returns 720
+}

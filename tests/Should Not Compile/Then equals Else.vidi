@@ -1,0 +1,9 @@
+Foo() {
+  Console.PutLine('Foo')
+}
+
+{
+  X:Text
+
+  if X='' Foo else Foo
+}

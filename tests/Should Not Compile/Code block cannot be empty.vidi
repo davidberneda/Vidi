@@ -1,0 +1,18 @@
+// ERROR: [8,5] Code block cannot be empty: "for"
+
+Test {
+  
+  Foo() {
+    
+    for x in 1..10 {
+    }
+    
+    while true {}
+    repeat until true 
+  }
+}
+
+{
+  T:Test
+  T.Foo
+}

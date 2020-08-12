@@ -2,6 +2,6 @@
 
 Test7 {
   A:Integer
-  shared Foo() { A:=123 }  // ERROR Method Foo cannot be shared because it used non-shared variables
+  shared Foo() { A:=123 }  // ERROR: [6,1] Method Foo cannot be shared
 }
 

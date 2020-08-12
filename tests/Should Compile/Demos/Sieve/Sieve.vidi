@@ -1,14 +1,9 @@
-Sieve(Number:Integer) {
+Sieve(Number:Integer):Integer[] {
 
     Primes:Integer[Number+1]
    
-    for i in 2..Number {
+    for i in 2..Number
         Primes[i] := i
-    }
-
-console.putline(primes)
-
-console.putline
 
     i::= 2
 
@@ -18,7 +13,6 @@ console.putline
         {
             for j in 2..number-1
             {
-console.put(j, ' ')
                 if primes[i]*j > number
                    break
                 else
@@ -26,18 +20,16 @@ console.put(j, ' ')
             }
         }
 
-        i:=i+1
+        i += 1
     }
-
-console.putline('ending')
-
-    for i in 2..Number
-    {
-        if primes[i] <> 0
-           Console.Put(primes[i],' ')
-    }
+    
+    return Primes
 }
 
 {
-  Sieve(100)
+  Primes::=Sieve(100)
+  
+  for i in 2..100
+      if Primes[i] <> 0
+         Console.Put(Primes[i],' ')
 }

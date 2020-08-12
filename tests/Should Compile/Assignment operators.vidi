@@ -1,0 +1,28 @@
+{
+  X:Float:=1
+  Console.PutLine(X) // 1
+ 
+  X += 1
+  Console.PutLine(X) // 2 
+  
+  X *= 2
+  Console.PutLine(X) // 4 
+  
+  X -= 1
+  Console.PutLine(X) // 3 
+
+  X /= 2
+  Console.PutLine(X) // 1.5 
+  
+  Hi : Text
+  Hi := 'Hello'
+  Hi += ' World!'
+
+  Console.PutLine(Hi) // Hello World !
+  
+  Nums : Integer[]
+  Nums += [1,2,3]  // Array Nums.Append
+  Nums += 4
+
+  Console.PutLine(Nums) // 1 2 3 4
+}
