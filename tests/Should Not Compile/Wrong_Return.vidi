@@ -1,5 +1,0 @@
-Foo():Integer { 'abc' }
-
-{
-  Foo
-}
