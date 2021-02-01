@@ -1,6 +1,6 @@
 # Vidi Language Reference
 
-@davidberneda v.009 August-2020
+@davidberneda v0.0.11-alpha February-2021
 
 **Important:** 
 DRAFT. EVERYTHING MIGHT CHANGE.
@@ -375,7 +375,7 @@ Life {      // class
       
       MyForest : Forest   // variable of Plant class
       
-      SubMethod() {}
+      SubMethod() { }
     }
   }
 }
@@ -427,6 +427,25 @@ C1 : Class1 := C2  // OK
 C2_bis : Class2 := Class2(C1) // <-- Casting is OK
 
 ```
+
+##### Automatic casting protection
+
+*<u>Note: Experimental, not yet finished</u>*
+
+```
+MyBaseClass {}
+MyDerivedClass is MyBaseClass { Foo : Integer } 
+
+MyDerivedData : MyDerivedClass
+MyData : MyBaseClass := MyDerivedData
+
+if MyData is MyDerivedClass 
+   MyData.Foo := 123   // allowed and safe because the above "if" makes casting unnecessary
+   
+MyData.Foo := 456 // forbidden, compiler error. Casting is necessary.
+```
+
+
 
 ### Methods
 
@@ -644,6 +663,21 @@ with Foo:= My_Long_Module.My_Class   // use Foo as alias
 Foo1 : Foo  // variable of type My_Class
 ```
 
+#### Grouping modules
+
+A module can aggregate several other modules in one single place:
+
+```javascript
+// use modules with aliases
+with M1:=Module1, M2:=Module2  // etc
+
+// Declare modules as new classes
+Module1 is M1 {}
+Module2 is M2 {}
+```
+
+When using the above module, the `Module1` and `Module2` contents will be ready available without needing to use them in `with` keywords.
+
 
 
 ### Element visibility
@@ -659,6 +693,8 @@ hidden MyClass {
 ```
 
 Unused hidden items will produce an error at compile-time.
+
+
 
 ### Type-level shared elements
 
@@ -735,7 +771,7 @@ Y : Year
 Month is Integer {}
 M : Month
 
-Y:=M  // <-- Error. Different types.
+Y := M  // <-- Error. Different types.
 
 Class1 {}
 Class2 is Class1 {}
@@ -744,7 +780,7 @@ C1 : Class1
 C2 : Class2 // := C1  <-- equivalent but forbidden (strict check)
 ```
 
-Type discovery and reflection:
+#### Type discovery and reflection
 
 The `Type` class provides methods to inspect (reflect) existing types:
 
@@ -772,8 +808,8 @@ And then, inside the same module or in other external modules, we can declare ne
 // Module 2
 with Module1
 
-MyClass.MyProc() {}   // New extended Procedure
-MyClass.MySub { X:Float }  // New extended Sub-class
+MyClass.MyProcedure() {}   // New extended Procedure
+MyClass.MySubClass { X:Float }  // New extended Sub-class
 ```
 
 These new extended elements can then be used as normal, also in different modules
@@ -783,24 +819,70 @@ These new extended elements can then be used as normal, also in different module
 with Module1, Module2 
 
 Foo : MyClass
-Foo.MyProc()   // Calling an extension as if it was a normal method
+Foo.MyProcedure()   // Calling an extension as if it was a normal method
+
+Bar : MyClass.MySubClass
+Bar.X := 123
 ```
 
 These extensions are only available inside the scope where they are declared.
+
+Extended types can also be extended:
+
+```javascript
+MyClass.MySubClass.MyNewMethod() {}
+Bar.MyNewMethod()
+```
 
 
 
 ### Function types
 
-Also called lambdas or anonymous methods, types can be used to define a function:
+A type can be used as a function declaration:
 
 `MyProcType is (A:Text, B:Integer):Float {}`
 
-This type can be used to declare a variable and give it an implementation:
+This type can then be used anywhere like normal types:
 
-`MyFunction : MyProcType := { A:=A + B.AsText }`
+```javascript
+Foo(Function:MyProcType) { Function('Hello',123) }
+```
+
+Functions can be signature-compatible with the custom type:
+
+```javascript
+MyFunction(A:Text, B:Integer):Float { 
+  Console.PutLine(A, ' ', B.AsText) 
+}
+```
 
 The `MyFunction` variable (of type function), can now be called or passed to other methods.
+
+```javascript
+Foo(MyFunction)  // shows 'Hello 123'
+```
+
+#### Anonymous functions
+
+Also called *lambdas* or *callbacks* in other languages, functions can be passed as parameters "inline":
+
+```javascript
+// Same as the above example "MyFunction", but unnamed
+Foo( 
+ (A:Text, B:Integer):Float { Console.PutLine(A,' ',B) }
+)
+```
+
+Or assigned to variables of the custom function type:
+
+```javascript
+// Same as above, but using a variable
+MyFunction_Variable : MyProcType := { Console.PutLine(A, ' ', B) }
+
+Foo(MyFunction_Variable)
+```
+
+
 
 ### Enumerable types
 
@@ -859,29 +941,40 @@ while a=b {
 
 ```javascript
 repeat {
-  b:=b+1
+  b += 1
 
   if b=5 continue
 
 } until a<>b
+
+// Single statements do not require { }
+
+repeat
+  b +=1
+until b>5
 ```
 
 #### For
 
 A simple loop without any counter variable:
 
-```
-for 1 to 10 {}
-for a..b {}
+```javascript
+for 1 to 10 {}  // ten times
+for 5..7 {}   // three times
 ```
 
 An integer range:
 
-`for t in 1..10 {}`
+```javascript
+for t in 1..10 {}   // ten times
+```
 
 Traditional loop using the `to` keyword:
 
-`for x:=a to b {}`
+```javascript
+a ::= 5    b ::= 7
+for x:=a to b {}   // three times
+```
 
 The optional counter variable cannot be reused or accessed outside the `for` block.
 It cannot be an already declared variable. Its type is inferred.
@@ -897,9 +990,17 @@ Nums::=[ 6,2,9 ]
 for i in Nums { Output.Write(i) }    // iterate an array
 ```
 
+The array can be declared inline, without using a variable:
+
+```javascript
+for i in [ 6,2,9 ] // the type of "i" is automatically inferred
+```
+
 A `Text` expression is an array of characters so it can also be iterated:
 
-`for c in "abc" {} // for each character`
+```javascript
+for c in "abc" {} // for each character
+```
 
 
 
@@ -919,20 +1020,19 @@ when Name {
 Comparison complex expressions can also be used:
 
 ```javascript
-num ::= 5
-abc ::= 3
+num ::= 5 abc ::= 3
 
 when abc+num {
-  <3 { num:=123 }
-
-  4 { } // equals
-
-  <>6 { } // not equal
-
-  // otherwise
-  else { }
+  <3 { Console.PutLine('Lower than 3') }
+   4 { Console.PutLine('Equals 4') }
+ <>6 { Console.PutLine('Different than 6') }
+else { } // otherwise
 }
 ```
+
+After the first condition that matches the expression is found, execution flow exits.
+
+
 
 #### Return
 
@@ -948,9 +1048,74 @@ Test {
 Square(X:Float) { X*X }
 ```
 
+#### Try Catch
+
+Error handling (exceptions) follows the standard of other languages using `try`, `catch`, `finally`  keywords.
+
+Code inside the `try` block is protected, so in case an error happens, the `finally` block of code is always executed:
+
+```javascript
+try { 
+  X::=1/0   // <-- error divide by zero !
+}
+finally {
+  Console.PutLine('Always executed')
+}
+```
+
+The `catch` code is executed when a runtime error happens inside the `try` block:
+
+```javascript
+try { X::=1/0 }
+catch {
+  // Optional code, might be empty {}    
+  Console.PutLine('An error happened')
+}
+```
+
+The `catch` keyword can optionally specify a type (`MyError` class in this example), so only these errors will be processed:
+
+```javascript
+MyError { Code:Integer }
+Foo() { Exception.Raise(MyError) }  // <-- just an example of generating an error
+
+try { Foo() }
+catch MyError {
+  Console.PutLine('MyError happened')
+}
+```
+
+If the `catch` type is prefixed with a variable name (`X` in the following example), then the fields of the error type can be accessed:
+
+```javascript
+try { Foo() }
+catch X:MyError {
+  Console.PutLine('MyError happened: ', X.Code)
+}
+```
+
+The `catch` and `finally` sections can coexist (`finally` must go after `catch` for clarity):
+
+```javascript
+try { Foo() }
+catch { Console.PutLine('Error happened') }
+finally { Console.PutLine('Always executed') } 
+```
+
+Multiple `catch` blocks can be used to respond to different errors. Duplicates are not allowed.
+
+```javascript
+try { Foo() }
+catch X:MyError { Console.PutLine('MyError happened: ', X.Code) }
+catch DivideByZero { Console.PutLine('Division by Zero') }
+// catch DivideByZero {} <-- duplicate compile-time error
+```
+
 
 
 ### Recursivity
+
+Methods can call themselves in a recursive way:
 
 ```javascript
 Factorial(x:Integer):Float {
@@ -1026,6 +1191,32 @@ Shop {
 
 
 
+### Expression Operators
+
+*<u>Note: Experimental, not yet finished</u>*
+
+New expression operators can be implemented to provide cosmetic "syntax sugar" using symbols or keywords.
+
+```javascript
+// Declare a new "is" operator, using the existing Type.is function
+Operator.is := Type.is
+
+// Use example
+Foo : Boolean 
+
+// Equivalent expressions
+if Type.is(Foo, Boolean) Console.PutLine('Ok')
+if Foo is Boolean Console.PutLine('Ok')
+
+// Existing basic operators like +, -, *, >, < etc could theoretically be re-implemented as extensions.
+// The compiler finds the best overload for left and right types, if there is more than one.
+
+A + B   // calls Integer.Add(A,B) if both A and B are Integer-compatible
+
+```
+
+
+
 ### Syntax
 
 #### Reserved words
@@ -1033,10 +1224,12 @@ Shop {
     ancestor
     and
     break
+    catch
     continue
     else
     False
     final
+    finally
     for
     hidden
     if
@@ -1052,6 +1245,7 @@ Shop {
     shared
     to
     True
+    try
     until
     when
     while
@@ -1060,25 +1254,27 @@ Shop {
 
 ### Reserved symbols
 
-    { }
-    .
-    [ ]
-    :=
-    :
-    ,
-    ( )
-    ..
-    ...
-    ?
-    >
-    >=
-    <
-    <=
-    <>
-    +
-    -
-    *
-    /
+```javascript
+{ }   // code block  
+.     // membership  Foo.Bar
+[ ]   // arrays   [1,2,3]
+:=    // assignment Foo:=123
+:     // type declaration Foo:Integer
+,     // parameters 1,2,3
+( )   // expression groups, parameters
+..    // ranges 1..100
+...   // many values parameter
+?     // condition expression A=B ? 1 : 2
+>     // greater than
+>=    // greater or equal than
+<     // lower than
+<=    // lower or equal than
+<>    // different than
++     // addition
+-     // subtraction
+*     // multiplication
+/     // division
+```
 
 ### Comments
 
@@ -1090,7 +1286,7 @@ Shop {
   comments
 */
 
-Inline : Text := /* comments */ "around code"
+Inline : Text := "allow" + /* comments */ "around code"
 
 ```
 
