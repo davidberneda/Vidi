@@ -1,7 +1,7 @@
 # Vidi
 The Vidi Language
 
-[Download pre-release v0.0.11-alpha](releases/tag/v0.0.11-alpha)
+[Download compiler, mini-editor and demos, pre-release v0.0.11-alpha](https://github.com/davidberneda/Vidi/releases/tag/v0.0.11-alpha)
 
 [Language Reference v0.011-alpha February 2021](documentation/Vidi_Language_Reference.md)
 
