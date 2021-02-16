@@ -7,5 +7,5 @@ The Vidi Language
 
 [Twitter @Vidi_Lang](https://twitter.com/Vidi_Lang)
 
-![Vidi IDE](documentation/images/fibonacci.png "Vidi IDE Example")
+![Vidi IDE](documentation/images/fibonacci_0.0.12.png "Vidi IDE Example")
 
