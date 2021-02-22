@@ -16,7 +16,7 @@ Control {
   Parent: Control { _Parent }
 
   Parent(Value:Control) {
-//    if _Parent<>nil _Parent.Controls.Remove(Self)
+//    if _Parent _Parent.Controls.Remove(Self)
 
     _Parent:=Value
 

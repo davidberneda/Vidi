@@ -1,11 +1,11 @@
   Get:Integer {
     T:Integer
 
-    if T=nil
+    if not T
        return T
     else
     {
-      if T=nil
+      if not T
          return nil
       else
          return T

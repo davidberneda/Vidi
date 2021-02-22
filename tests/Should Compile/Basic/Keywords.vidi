@@ -75,9 +75,15 @@ Keywords {
   // Self referencing inside a class
 
   SelfTest {
+
     Foo() { Console.PutLine('Foo') }
     TestProc(Param:SelfTest) { Console.PutLine('TestProc') Param.Foo }
     Proc123() { TestProc(Self) }
+    Proc456(Value:SomeThing) {}
+
+    X : Float
+
+    Proc789() { Proc456(Self) Proc456(Self.X) }
   }
 
   // Ancestor keyword to refer parent class
