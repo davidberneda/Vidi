@@ -1,0 +1,8 @@
+// Single line comments
+
+/*
+  Multiple line 
+  comments
+*/
+
+Inline : Text := "allow" + /* comments */ "around code"

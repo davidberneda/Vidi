@@ -1,0 +1,19 @@
+{
+  A:Boolean:=False
+
+  B::= A=False
+  
+  C::= A<>True
+
+  D::= True=A
+
+  E::= not False = A 
+
+  // B:= A=A 
+
+  // B:= A<>A 
+
+  Console.PutLine(A,B,C,D,E)
+}
+
+// NOERROR: Useless comparison

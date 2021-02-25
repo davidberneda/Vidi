@@ -1,0 +1,20 @@
+{
+ T:Integer[2] 
+
+ T[0]:=123 // good
+ T[1]:=456
+ Console.PutLine(T)
+
+ X:Integer[2] 
+
+ final One::=2-1
+ 
+ X[One]:=123  // useless
+
+ Console.PutLine(T)
+ 
+ X[1]:=456
+ Console.PutLine(X)
+}
+
+// ERROR: [12,8] Assignment is useless Assignment:TAssignment?

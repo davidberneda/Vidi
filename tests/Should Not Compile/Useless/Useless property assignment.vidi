@@ -1,0 +1,12 @@
+TestBar {
+  _Bar : Text
+  Bar:Text{_Bar}
+  Bar(T:Text){_Bar:=T}
+}
+
+B:TestBar
+B.Bar:=B.Bar // correct ?
+
+B._Bar:=B._Bar // useless
+
+// NOERROR: Useless assignment B._Bar

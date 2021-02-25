@@ -1,0 +1,33 @@
+{
+ Console.PutLine
+
+ // Array 
+ Items :Text[]:= ['Mercury', 'Venus', 'Earth']
+
+ for t in Items { Console.PutLine(t) }   // Mercury, Venus, Earth
+
+ // Text
+ for t in "ABC" Console.Put(t,' ')  // A,B,C
+
+ Console.PutLine
+
+ // Range
+ for t in 1..3 Console.PutLine(t)  // 1,2,3
+
+ // Min to Max
+ for t::=-3 to -1 Console.PutLine(t)   // -3,-2,-1
+
+ Copy::=Items.Copy
+
+ Reference::=Items
+ Console.PutLine(Reference)  // Mercury, Venus, Earth
+
+ Items[1]:='Pluto'
+ Console.PutLine(Items)  // Mercury, Pluto, Earth
+
+ // Reference
+ Console.PutLine(Reference)  // Mercury, Pluto, Earth
+
+ // Copy
+ Console.PutLine(Copy)  // Mercury, Venus, Earth
+}

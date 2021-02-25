@@ -63,7 +63,7 @@ Structures {
   // Numeric types
 
   Positive is Integer {
-  //  0..Integer.Maximum 
+  // Range: 0..Integer.Maximum 
   }
 
   MyPositive:Positive := 123
@@ -89,20 +89,20 @@ Structures {
     B:T[10]
     Func123:T { Variable }
   }
-  
+
   Specialized is Generic(Integer) {
-    a:Integer { 
-3  //      3+Func123 + 1 
+    a:Integer {
+       3+Func123 + 1
     }
   }
 
   s:Specialized
-  s.Variable := 123  
+  s.Variable := 123
   b::= s.a
 
   // Parameterized Class
 
-  ClassWithParam(T:Text) {
+  ClassWithParam(T:Text) is Data {
      S:Text := T
      Console.Put(S)
   }
@@ -110,9 +110,9 @@ Structures {
   TestParam is ClassWithParam('xyz') {}
 
   w:TestParam
-  w.S.append("abc")
+  w.S.Append("abc")
 
-  // ww:ClassWithParam("asdf")
+  ww:ClassWithParam("asdf")
 
   // Virtual methods
 
@@ -133,9 +133,9 @@ Structures {
      Bar() { Foo(Self) }
   }
 
-  // Metaclasses
+  // TODO: Metaclasses
 
-  //MyClass : Class_A.Type := Class_B
+  //MyClass : Type(Class_A) := Class_B
 
   //foo:Class_A:= MyClass() // foo is Class_B
   
@@ -179,11 +179,15 @@ Structures {
   // syntaxis 2
   s3::=FooBar( F
 /* TODO
-         { 
-           if A return 'Yes' else return 'No' 
+         {
+           if A return 'Yes' else return 'No'
          }
 */
         )
+
+  // variables of type function
+
+  s4:FunctionType:=F
 
   // Single line functions
 
@@ -195,7 +199,7 @@ Structures {
 
   final Nums:Integer[] := [6,2,8,100]
 
-  // initialize classes:
+  // TODO: initialize classes:
 //  final John : Person := { Name:= 'John'  Age:=23 }
 
   // Enumerations
@@ -248,7 +252,7 @@ Structures {
   // Forward declarations
 
   TestForward() {
-    // TestInner(False)  // <-- forward (TODO)
+    // TestInner(False)  // <-- TODO: forward
   }
  
   TestInner(Work:Boolean) {

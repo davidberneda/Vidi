@@ -1,6 +1,6 @@
 Flow {
 
-  Name::="Jane"
+ Name::="Jane"
 
  Test() {
   Console.PutLine('Flow')
@@ -11,7 +11,7 @@ Flow {
   
   if 2>N
   else 
-     while true {
+     while True {
   
        if N>6 break
 
@@ -20,7 +20,7 @@ Flow {
 
          if N>3 break
 
-       } until true
+       } until True
 
        N += 1
 
@@ -85,6 +85,14 @@ Flow {
         break
      else
         continue
+        
+     // Example. 
+     // Subclasses can appear everywhere
+     MySubClass { SomeData:Text }   
+     S:MySubClass
+     S.SomeData:='SubClass inside For'
+     
+     Console.PutLine(S.SomeData)
   }
 
   m:Integer[3] // Initialized to zeroes
@@ -136,6 +144,14 @@ Flow {
 
   for t in MyToys { Console.PutLine(t) } // Without using variable Items
  }
+ 
+ X:Integer
+
+ repeat
+  X +=1  // single-statement, {} not needed
+ until X>5
+ 
+ Console.PutLine(X)
 }
 
 {

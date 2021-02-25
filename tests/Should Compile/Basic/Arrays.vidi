@@ -18,9 +18,9 @@ Arrays {
 
   a3:Integer[range1]
 
-//  aa : Array(Integer) // Generic Variable
+  aa : Array(Integer) // Generic Variable
 
-//  aaa is Array(Integer) {}  // Generic Class of Array
+  aaa is Array(Integer) {}  // Generic Class of Array
 
   b:Integer[10] // Simple single-dimension, from 0 to 9
 
@@ -31,11 +31,6 @@ Arrays {
   bbbb:Integer[2..7]  // Custom Low and High bounds
 
   bbbbb:Integer[(1+1)..(2+5)]  // Bounds as expressions
-
-  // The next line should fail at parse-time due to: 1+1..2+5
-  //fail:Integer[1+1..2+5]
-
-
 
   c:Float[3..7]
 

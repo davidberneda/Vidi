@@ -1,0 +1,28 @@
+// Property Foo
+Test {
+  _Foo : Integer
+
+  // getter
+  Foo:Integer { 
+    _Foo 
+  }
+
+
+  // setter
+  Foo(Value:Integer) { 
+
+    // Correct:    _Foo:=Value 
+
+    // Error:
+    Foo:=Value  // <-- infinite loop
+  }
+}
+
+// ERROR: [17,8] Cannot assign: Integer to: Variable:Foo
+
+{
+ T:Test
+
+ T.Foo := 123
+ Console.PutLine(T.Foo)
+}

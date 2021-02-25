@@ -1,0 +1,10 @@
+Foo(T:Type) is SomeThing {
+  X:T
+}
+
+{
+  Y:Foo
+  Y.X:=123
+}
+
+// ERROR: [7,3] Missing parameters ClassType:Foo

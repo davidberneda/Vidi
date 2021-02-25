@@ -1,10 +1,11 @@
 Test {
   Foo() {
     for x in 1..2
-       Console.Put(x,' ') // 1 2
+       Console.Put(x,' ') //OUT: 1 2 .
   }
 }
 
 {
   Test.Foo
+  Console.Put('.')
 }

@@ -1,0 +1,11 @@
+// Useless expression
+
+{
+  x:Integer:=1
+
+  b:Boolean:= x+1 = x+1   // useless, b::=True
+
+  Console.Put(b)
+}
+
+// ERROR: [8,3] Expression is always True IsEqual:TIsEqual?

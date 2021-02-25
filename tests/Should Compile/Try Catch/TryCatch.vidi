@@ -1,0 +1,50 @@
+DivideByZero {}
+
+Foo() {
+  Exception.Raise(DivideByZero)
+}
+
+{
+  A:Text
+  
+  // 1. try..finally
+
+  try { A:='A' Foo }
+  finally { A:='B' }
+  
+  // 2. try..catch
+  
+  try { A:='C' Foo }
+  catch {}
+  
+  // 3. try..catch..finally
+
+  try {
+    Y::=0
+    X::=1/Y
+    
+    Console.PutLine(X)
+    
+    Foo()
+  }
+  catch
+    DivideByZero Console.PutLine('Division by zero')
+    
+  finally
+    Console.PutLine('Finish')
+    
+  MyError { Code:Integer }  
+  
+  Bar() { Exception.Raise(MyError) }
+  
+  try {
+    Bar()
+  } 
+  catch D:DivideByZero  
+     Console.PutLine('Division by zero')
+
+  catch M:MyError
+     Console.PutLine(M.Code)
+
+
+}

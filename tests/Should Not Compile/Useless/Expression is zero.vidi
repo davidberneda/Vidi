@@ -1,0 +1,9 @@
+{
+  X:Integer:=1
+
+  y::= X-X // useless, y::=0
+
+  Console.Put(y)
+}
+
+// ERROR: [6,3] Expression is zero Subtraction:TSubtraction?

@@ -1,0 +1,7 @@
+// Unused parameter
+
+Test11 {
+  Foo(A:Integer) { Console.PutLine('') }
+}
+
+// ERROR: [5,1] Parameter is never used Variable:A

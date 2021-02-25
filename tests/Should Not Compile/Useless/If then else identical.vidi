@@ -1,0 +1,17 @@
+Test {
+  X:Integer
+  
+ if X=2 
+    Console.PutLine(X)
+ else
+    Console.PutLine(X)
+    
+ if X=2 
+    Console.PutLine('a')
+ else
+    Console.PutLine('a')
+    
+}
+
+// ERROR: [9,2] Then and Else are identical If:TIf?
+// ERROR: [14,1] Then and Else are identical If:TIf?

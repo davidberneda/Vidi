@@ -1,0 +1,26 @@
+// Simple class with a generic type parameter
+Array(T:Type) is Data {
+  indexed Items:T[]
+
+  Clear() { Items:=nil }
+}
+
+{
+  // Testing the simple class
+  A:Array(Integer)
+
+  A.Items.Count:=1
+
+  A.Items[0]:=123
+
+  A[0]:=456
+
+  Console.PutLine(A)
+
+  // Arrays as Generic types
+
+  Base(T:Type) is SomeThing { X:T }
+  M:Base(Integer[])
+  M.X[0]:=123
+
+}

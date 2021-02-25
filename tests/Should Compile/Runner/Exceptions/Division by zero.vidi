@@ -1,0 +1,5 @@
+foo:Integer {0}
+
+{
+  Console.PutLine(42 / foo)
+}

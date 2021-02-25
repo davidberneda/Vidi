@@ -11,12 +11,12 @@ Sieve(Number:Integer):Integer[] {
     {
         if (Primes[i] <> 0)
         {
-            for j in 2..number-1
+            for j in 2..Number-1
             {
-                if primes[i]*j > number
+                if Primes[i]*j > Number
                    break
                 else
-                   primes[primes[i]*j] :=0
+                   Primes[Primes[i]*j] :=0
             }
         }
 

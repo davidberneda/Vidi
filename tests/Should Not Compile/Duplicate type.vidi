@@ -1,0 +1,4 @@
+Foo {}
+Foo {}
+
+// ERROR: [5,1] Duplicate: Foo

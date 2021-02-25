@@ -1,0 +1,8 @@
+// Unused variable
+
+Test10 {
+  hidden A:Text
+}
+
+// ERROR: [9,1] Variable is never used Variable:A
+

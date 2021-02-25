@@ -1,0 +1,10 @@
+// Unreachable code
+
+Test15 {
+  Foo() {
+    return
+    Console.PutLine('Unreachable') // ERROR Unreachable code
+  }
+}
+
+// ERROR: [7,3] Unreachable code CallData:TCallData?

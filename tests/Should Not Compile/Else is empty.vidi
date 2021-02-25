@@ -1,0 +1,8 @@
+{
+  X:Integer := 1
+  if X=1  
+     Console.PutLine('1')
+  else
+
+  // ERROR: [8,1] Empty Else block If:TIf?
+}

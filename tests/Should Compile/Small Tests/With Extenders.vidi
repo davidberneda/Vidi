@@ -1,0 +1,7 @@
+with Extenders.Foo.Bar
+
+{
+  L:Lee
+  Console.PutLine( L.Name )
+
+}

@@ -1,0 +1,3 @@
+{
+ for t::=5+t to 10-t {} // ERROR: [2,14] Identifier not found: t
+}

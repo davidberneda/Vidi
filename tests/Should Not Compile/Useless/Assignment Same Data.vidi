@@ -1,0 +1,5 @@
+// ERROR: [4,4] Same data at both sides Variable:X
+Test {
+  X:Text
+  X:=X
+}

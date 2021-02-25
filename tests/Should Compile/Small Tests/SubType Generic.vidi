@@ -1,0 +1,30 @@
+Test(T:Type) is SomeThing {
+  My_Array is Array(T) {}
+
+  My_Class is T {}
+
+  shared My_Type:T
+}
+
+Foo {
+  Bar1(T:Type) is SomeThing { 
+  }
+
+  Bar2 {}
+}
+
+SubGenericTest 
+{
+  // Using type from generic class
+
+  Items2: Test(Text).My_Array
+  //Items2:=['a','b','c']
+
+  My_Integer: Test(Integer).My_Class
+  My_Integer:=123
+
+  //My_Variable: Test(Boolean).My_Type :=True
+
+  _Bar1:Foo.Bar1(Float)
+  _Bar2:Foo.Bar2
+}

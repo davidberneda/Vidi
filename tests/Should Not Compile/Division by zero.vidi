@@ -1,0 +1,10 @@
+{
+  a::=123
+
+  if a<>0 
+     Console.PutLine(a) 
+  else
+     Console.PutLine(42/a)   
+   
+  // NOERROR: TODO ERROR: Division by zero: a
+}

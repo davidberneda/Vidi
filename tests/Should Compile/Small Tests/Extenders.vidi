@@ -1,0 +1,58 @@
+// Type extensions
+
+Foo {
+  X : Text
+
+  Sub {
+  }
+}
+
+// 1) New method
+Foo.MyRoutine() { 
+  X:='MyRoutine'
+  Console.PutLine(X) 
+}
+
+// 2) New method type
+Foo.MyFuncType is (A:Integer):Boolean {}
+
+// 3) New subclass
+Foo.Bar {
+  B : Float := 456
+}
+
+
+// 4) Extending subclasses
+Foo.Sub.Tim {
+  final Name::='Tim'
+}
+
+// 5) Extending Extenders
+Foo.Bar.Lee {
+  final Name::='Lee'
+}
+
+// 6) Extended types as parameters
+TestParam(X:Foo.Bar.Lee):Foo.MyFuncType {
+}
+
+{
+  F:Foo
+  F.MyRoutine
+
+  DummyFunc(A:Integer):Boolean {
+    Console.PutLine(A)
+    return True
+  }
+
+  DummyVariable:Foo.MyFuncType := DummyFunc
+
+  Console.PutLine( DummyVariable(123) )
+
+  T:Foo.Bar.Tim
+  Console.PutLine( T.Name )
+
+  L:Foo.Bar.Lee
+  Console.PutLine( L.Name )
+}
+

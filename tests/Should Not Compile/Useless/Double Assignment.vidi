@@ -1,0 +1,11 @@
+Test {
+  A: Integer
+  
+  A:=1
+  
+  //Console.PutLine(A) // <-- TODO Uncommenting should also show double-assign error below
+  
+  A:=2
+}
+
+// ERROR: [4,4] Assignment is useless Assignment:TAssignment?

@@ -1,0 +1,19 @@
+// Taylor sequence 1/fact(n)
+Calculate(Iterations:Integer): Float {
+  if Iterations=0 return 0
+
+  fact:Float := 1
+
+  e:Float := 1 
+
+  for i::=1 to Iterations-1 {
+    fact *= i
+    e += 1.0/fact
+  }
+
+  return e
+}
+
+{
+  Console.PutLine('e = ', Calculate(50) ) 
+}

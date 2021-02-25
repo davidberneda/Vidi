@@ -1,0 +1,15 @@
+Animals {
+  SubClass {
+    Hello:Text:='Hello'
+
+    SubSubClass {
+      Foo() { Console.PutLine('SubSubClass.Foo') }
+    }
+  }
+}
+
+Plants {
+  SubClass {
+    Bye:Text:='Bye'
+  }
+}

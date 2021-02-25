@@ -1,0 +1,8 @@
+Test5 {
+}
+
+{
+ T5:Test5 // T5 is never used
+}
+
+// ERROR: [9,1] Variable is never used Variable:T5

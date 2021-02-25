@@ -1,16 +1,16 @@
-  Get:Integer {
+Get:Integer {
     T:Integer
 
-    if not T
+    if T=nil
        return T
     else
     {
-      if not T
+      if T=nil
          return nil
       else
          return T
     }
-  }
+}
 
 {
   

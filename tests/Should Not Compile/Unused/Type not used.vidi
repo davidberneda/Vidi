@@ -1,0 +1,12 @@
+{
+  Test is Integer {}
+
+  Foo(Y:Float) {
+    Console.PutLine(Y)
+  }
+
+  X:Integer:=123
+  Console.PutLine(X)
+}
+
+// ERROR: [13,1] Class is never used ClassType:Test

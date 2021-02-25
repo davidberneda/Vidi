@@ -1,0 +1,13 @@
+Test {
+  Foo(out Value:Integer) { Value:=4 Console.PutLine(Value) }
+}
+
+{
+  X:Integer:=1
+  //X:=2
+  
+  Test.Foo(X)
+  
+  X:=3
+  Console.PutLine(X)
+}

@@ -1,0 +1,6 @@
+{
+  z:Integer[1]
+  z.Append("aa") // <-- ERROR not an integer
+}
+
+// ERROR: [4,1] Bad Parameter: Text:TText?

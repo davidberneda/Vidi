@@ -1,5 +1,5 @@
-with One, Two
+with M1:=One, M2:=Two
 
-// TODO: Module Merging ("and" operator) ?
-//Both is One and Two {
-//}
+One is M1 {}
+Two is M2 {}
+

@@ -1,0 +1,4 @@
+{
+  x:sys.Integer
+  Console.PutLine(x)
+}

@@ -30,9 +30,10 @@ Expressions {
  
  c += (a / b)
 
- // TODO: Infer Float instead of Integer:
- d::= Math.Power(c,3)
- e:Float:= Math.Power(c,4.1)
+ c3::= Math.Power(5,3) // 125
+
+ d::= Math.Power(c.Truncate,3)
+ e::= Math.PowerFraction(c,4.1)
 
  expA ::= -1E20
  expB ::= -5.1e-3
@@ -43,6 +44,8 @@ Expressions {
  f::= ( (a + b -c ) * (d/e) ) - b
 
  g:Float:= -123.45e6
+
+ Console.PutLine(g)
 
  g:= g- -e
 
@@ -99,24 +102,24 @@ v4::=not 123
  h:= i or h
  Console.PutLine(h)
  
- i:= i xor false
+ i:= i xor False
 
- h:= true or false
+ h:= True or False
  Console.PutLine(h)
 
- i:= false xor true
+ i:= False xor True
  Console.PutLine(i)
 
- h := true and not false
+ h := True and not False
  Console.PutLine(h)
 
- i := false or not false
+ i := False or not False
  Console.PutLine(i)
 
- h := not true
+ h := not True
  Console.PutLine(h)
 
- i := not false
+ i := not False
  Console.PutLine(i)
  
 

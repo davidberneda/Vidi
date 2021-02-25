@@ -1,0 +1,11 @@
+{
+  a,b : Integer := 1  // Same value for multiple variables
+
+  Console.PutLine(a, ' ', b) // 1 1
+
+  x,y ::= 1.23  // Inferred type
+
+  Console.PutLine(x, ' ', y) // 1.23 1.23
+
+
+}

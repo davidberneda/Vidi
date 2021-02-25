@@ -1,0 +1,9 @@
+Foo(out A:Integer, B:Integer) {
+  A:=123
+  Console.Put(A,B)
+}
+
+{
+ C:Integer
+ Foo(C,C)  // ERROR: [9,1] Out parameter cannot be used twice Variable:C
+}

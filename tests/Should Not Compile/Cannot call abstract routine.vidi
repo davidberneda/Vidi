@@ -1,0 +1,7 @@
+Foo() {}
+
+{
+  Foo
+}
+
+// ERROR: [5,1] Cannot call abstract routine Routine:Foo

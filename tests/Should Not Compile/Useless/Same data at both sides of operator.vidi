@@ -1,0 +1,7 @@
+{
+  x:Integer:=1
+
+  if x<>x { x:=2 } 
+} 
+
+// ERROR: [4,11] Expression is always False IsNotEqual:TIsNotEqual?

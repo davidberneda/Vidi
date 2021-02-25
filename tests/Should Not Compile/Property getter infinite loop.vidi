@@ -1,0 +1,29 @@
+// Property Foo
+
+Test {
+  _Foo : Integer
+
+  // getter
+
+  Foo:Integer { 
+
+    // Correct:  _Foo 
+
+    // Error:
+    return Foo  // <--- infinite loop
+  }
+
+// ERROR: [19,3] Infinite loop Return:TReturn?
+
+  // setter
+  Foo(Value:Integer) { 
+    _Foo:=Value  // correct
+  }
+}
+
+{
+ T:Test
+
+ T.Foo := 123
+ Console.PutLine(T.Foo)
+}

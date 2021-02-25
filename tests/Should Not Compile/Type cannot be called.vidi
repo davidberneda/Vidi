@@ -1,0 +1,7 @@
+{
+  Foo {}
+
+  X:Foo
+
+  X // ERROR: [7,1] Expression cannot be called Variable:X
+}

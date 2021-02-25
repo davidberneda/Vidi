@@ -1,0 +1,20 @@
+MyFunction is (Num:Integer):Text {}
+
+Foo(F:MyFunction) {
+  Console.PutLine(F(-1))
+  Console.PutLine(F(0))
+  Console.PutLine(F(1))
+}
+
+{
+ // Passing a lambda as parameter 
+ Foo(
+    (Num:Integer):Text { return Num>0 ? '+' : '-' }
+   )
+
+ // Using a lambda to assign a variable
+ X:MyFunction:= (Num:Integer):Text { return Num>0 ? '+' : '-' }
+
+ // And then passing the variable as parameter
+ Foo(X)
+}

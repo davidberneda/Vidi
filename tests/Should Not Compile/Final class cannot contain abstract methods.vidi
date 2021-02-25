@@ -1,0 +1,9 @@
+final Test {
+  Foo(X:Integer):Integer {}
+}
+
+{
+  Test.Foo(1)
+}
+
+// ERROR: [5,1] Final class cannot contain abstract routines: ClassType:Test

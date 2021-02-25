@@ -1,0 +1,49 @@
+{
+  // TODO:
+  //X:Array
+  //X.Count:=1
+  //Console.PutLine(X)
+
+  // Direct variable
+  Y:Array(Text)
+  Y.Count:=1
+  Y[0]:='Y'
+
+  Console.PutLine(Y.Items)
+
+  // Assignment
+  YY:Text:=Y.Items[0]
+  YY2::=Y[0]
+
+  Console.PutLine(YY,YY2)
+
+
+  // Direct specialization
+  TZ is Array(Integer) {}  
+
+  Z:TZ
+
+  Z.Count:=1
+  Z[0]:=123
+  Console.PutLine(Z)
+
+  // Generic Ancestor
+  TW(V:Type) is Array(V) {}
+
+  W:TW(Text)
+
+  W.Append('W')
+
+  Console.PutLine(W)
+
+  // Generic subclassing
+  P is TW(Boolean) {}
+  Console.PutLine(P)
+
+  R1:SomeThing[]
+  R1.Append('A')
+
+  R2:SomeThings
+  R2.Append('A')
+  
+}

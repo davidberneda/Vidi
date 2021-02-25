@@ -1,0 +1,7 @@
+with ast
+
+{
+ X:ast // <-- a variable can also be a module
+
+ Console.PutLine(X)
+}

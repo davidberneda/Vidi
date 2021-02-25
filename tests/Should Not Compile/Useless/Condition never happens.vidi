@@ -1,0 +1,11 @@
+{
+  x:Integer := 123
+
+  if (x>0) and (x<100) 
+     Console.PutLine('between 0 and 100')
+  else
+  if (x>10) and (x<90)
+     Console.PutLine('Error. This code is never executed')
+
+  // NOERROR: [7,6] Condition is always False
+}

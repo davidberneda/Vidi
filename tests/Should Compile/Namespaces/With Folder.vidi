@@ -1,0 +1,6 @@
+with F:="Folder\InFolder"
+
+{
+  F:Foo
+  Console.PutLine(F.X)
+}

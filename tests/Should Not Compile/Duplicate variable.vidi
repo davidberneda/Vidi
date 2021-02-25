@@ -1,0 +1,8 @@
+// ERROR: [7,3] Duplicate: X
+{
+  X:Integer
+  Console.PutLine(X)
+
+  X:Text
+  Console.PutLine(X)
+}

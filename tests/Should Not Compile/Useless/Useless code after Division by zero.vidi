@@ -1,0 +1,13 @@
+foo(a:Integer):Integer
+{
+  b: Integer := 42 / a   // Might produce an exception (division by zero)
+
+  if a = 0 // NOERROR: Expression is always False
+     return b
+  else
+     return b+1
+}
+
+{
+  Console.PutLine(foo(123))
+}

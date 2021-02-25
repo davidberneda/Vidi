@@ -1,0 +1,10 @@
+{
+ a:Text:='a'
+ b:Text:='b'
+
+ if a=b 
+    a:=a+b 
+ else 
+    a:=a+b // TODO: a:=b+a  (compare code: support transitive operands)
+}
+// ERROR: [9,1] Then and Else are identical If:TIf?

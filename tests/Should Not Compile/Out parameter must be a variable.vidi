@@ -1,0 +1,7 @@
+Foo(out A:Integer) {
+  A:=123
+}
+
+{
+ Foo(1) // ERROR: [7,1] Out parameter must be passed as a variable Integer:TInteger?
+}

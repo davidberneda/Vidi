@@ -21,7 +21,7 @@
     Console.PutLine(Message)
   }
   
-  test("Hello")  // Hello
+  Test("Hello")  // Hello
   
   SomeNumber:Float { 3.1415 }
 

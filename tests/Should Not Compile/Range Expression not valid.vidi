@@ -1,0 +1,15 @@
+fail:Integer[1+1 .. "a"]
+
+// ERROR: [1,24] Incompatible left and right sides of operand Range:TRange?
+
+// Correct examples: 
+/*
+ Integer[1+1..2+5]
+ Integer["a".."z"]
+ Integer[(1+1)..(2+5)]
+
+*/
+
+
+
+

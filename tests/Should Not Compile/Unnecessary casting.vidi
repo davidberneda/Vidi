@@ -1,0 +1,7 @@
+
+{
+  Foo:Text
+  Console.PutLine(Text(Foo))
+}
+
+// ERROR: [4,28] Unnecessary casting. [CastingData:TCastingData?]

@@ -1,0 +1,16 @@
+Planet {
+  Name : Text
+}
+
+{
+  Mars:Planet
+
+  Mars.Name:='Mars'
+
+  if Mars<>nil Console.PutLine('Mars')
+
+  Mars:=nil
+
+  if Mars<>nil Console.PutLine('Mars')
+  
+}
