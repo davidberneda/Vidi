@@ -5,3 +5,5 @@ Test {
 {
   Test.Foo(1)
 }
+
+// ERROR: [6,13] Cannot call abstract routine DataCall:Foo

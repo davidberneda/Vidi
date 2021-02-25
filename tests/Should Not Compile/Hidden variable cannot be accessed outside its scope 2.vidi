@@ -1,8 +1,12 @@
 Test {
   hidden Name : Text
+
+  Console.Put(Name)
 }
 
 {
  T:Test
  T.Name:='abc'
 }
+
+// ERROR: [9,8] Hidden item cannot be accessed outside its scope: Variable:Name

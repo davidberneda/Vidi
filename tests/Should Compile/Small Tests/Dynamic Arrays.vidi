@@ -4,7 +4,7 @@ Person {
 
 {
   X: SomeThing[] :=[123,"a"]
-  Console.PutLine(x)            // 123, a
+  Console.PutLine(X)            // 123, a
 
   A,B:Person
  
@@ -12,45 +12,44 @@ Person {
   B.Name:='Bern'
 
   Y:Person[]:=[A,B]
-  Console.PutLine(y)         // A, B
+  Console.PutLine(Y)         // A, B
 
   Z:Integer[]
-  Console.PutLine(z.Count)  // 0
+  Console.PutLine(Z.Count)  // 0
 
 
   Z.Count:=100
-  Console.PutLine(z.Count)  // 100
+  Console.PutLine(Z.Count)  // 100
 
   for t::=0 to 99 Z[t]:=t
 
   Z.Count:=0
   Z:=[] 
 
-  Console.PutLine(z.Count) // 0
+  Console.PutLine(Z.Count) // 0
 
 
   Z.Count:=10
-  Console.PutLine(z.Count)  // 10
+  Console.PutLine(Z.Count)  // 10
 
-  for t::=z.Low to z.High Z[t]:=t
+  for t::=Z.Low to Z.High Z[t]:=t
 
  // Console.PutLine(z[9]) 
 
- Console.PutLine(z)  // 0,1,2,3,4,5,6,7,8,9
+ Console.PutLine(Z)  // 0,1,2,3,4,5,6,7,8,9
 
 
-  z.Append(234)
-  z.Append("aa") // <-- ERROR not an integer
+  Z.Append(234)
   
-  z.Delete(3)
+  Z.Delete(3)
 
-  Console.PutLine(z.Count)
-  Console.PutLine(z)
+  Console.PutLine(Z.Count)
+  Console.PutLine(Z)
 
-  z.Insert(5,456)
+  Z.Insert(5,456)
 
-  Console.PutLine(z.Count)
-  Console.PutLine(z)
+  Console.PutLine(Z.Count)
+  Console.PutLine(Z)
 
 
 }

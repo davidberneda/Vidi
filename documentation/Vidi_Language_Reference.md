@@ -1,6 +1,8 @@
 # Vidi Language Reference
 
-@davidberneda v0.0.11-alpha February-2021
+@davidberneda v0.0.13-alpha February-2021
+
+https://github.com/davidberneda/Vidi
 
 **Important:** 
 DRAFT. EVERYTHING MIGHT CHANGE.
@@ -226,6 +228,18 @@ Ranges and expressions can also be used to declare array dimensions:
 
 ```javascript
 Numbers : Integer[ 1..(2*10) ]   // 20 elements, from 1 to 20
+```
+
+Multiple variables of the same type can be declared in a single line:
+
+```javascript
+Name, Surname, Address : Text   // Three Text variables
+
+// Also supported optional same value for multiple variables:
+X,Y,Z : Float := 1.23
+
+// Multiple variables type can be inferred:
+A,B ::= True  // Both A and B are of Boolean type
 ```
 
 

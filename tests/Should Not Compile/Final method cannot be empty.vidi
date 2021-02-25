@@ -7,3 +7,5 @@ Test {
 
   final Foo3() {}  // <-- Error. Final method cannot be empty (abstract)
 }
+
+// ERROR: [9,1] Final method: Foo3 cannot be empty

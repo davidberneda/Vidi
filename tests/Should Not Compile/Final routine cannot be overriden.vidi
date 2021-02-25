@@ -7,7 +7,7 @@ Test4 {
 }
 
 Test5 is Test4 {
-  Foo() {  // ERROR Final routine Foo cannot be overriden
+  Foo() {  // ERROR: [11,5] Cannot override final method: Foo
     Console.PutLine('Overriden Foo') 
   }
 }

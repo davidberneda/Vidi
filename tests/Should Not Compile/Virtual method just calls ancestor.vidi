@@ -2,9 +2,8 @@ Test {
   Foo() {} // abstract
 }
 
-AncestorTest is Test {
-  Foo() { Ancestor } // <-- not overriden !
+Derived is Test {
+  Foo() { Ancestor } // <-- more is needed !
 }
 
-{
-}
+// ERROR: [10,1] Method must be more than Ancestor Routine:Foo

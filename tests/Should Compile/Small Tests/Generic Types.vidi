@@ -1,15 +1,24 @@
 // Types with parameters
 
 Generic(T:Type) is Type {
-  Data:T
+  Data: T  // variable of generic type
   
-  Foo:T { Data }
+  Foo: T { Data }  // routine returning generic type
   
-  Bar(Param:T) { Console.PutLine(Param) } 
+  // generic routine parameter
+  Bar(Param: T) {  
+    Console.PutLine(Param) 
+  }
+
+  // generic parameter used in another parameter
+  Phi(W: Type, X: W) {
+    Console.PutLine(X) 
+  }
 }
 
+// Derived class, specializing type as Integer
 Generic_Integer is Generic(Integer) {
-  Data2 : T
+  Data2: T
 } 
   
 {
@@ -26,31 +35,52 @@ Generic_Integer is Generic(Integer) {
 
   Console.PutLine(Num1.Data2)
   
-  //Num1.Bar(Num1.Data2)
-  
+  Num1.Bar(Num1.Data2)
+
   Num2 : Generic(Text)
-  
+
   Num2.Data:='abc'
   Console.PutLine(Num2.Data)
 
-/*
   MyArray(T:Type) is Type {
     indexed Items:T[]
   }
-  Booleans:MyArray(Boolean)
- // Booleans.Items:=[True,False,True]
-*/
 
-  
+  Booleans:MyArray(Boolean)
+
+  Booleans.Items:=[True,False,True]
+
+  Console.PutLine(Booleans)
+
   Generic_Derived is Generic_Integer {
-//    Lee(V:Type):V {
-  //    V
-//    }
+    Lee(V:Type):V {
+      V
+    }
   }
 
-  Num3 : Generic_Derived  
+  Num3 : Generic_Derived
   Num3.Data2 := 789
   Num3.Data := 1000
-  
-  //Num3.Bar(123)
+
+  Num3.Bar(123)
+  Console.PutLine(Num3.Lee(Float))
+
+  // Calculated Variable type, calling a shared method
+  // TODO: Num4:Generic_Derived.Lee(Text)
+
+  // Calculated Variable type, when inheriting a generic 
+  // TODO: Num5 is Generic_Derived.Lee(Float) {}
+
+  // Variable of generic calculated class
+  // TODO: X:Num5:=123.456
+
+  // TODO: Metadata Y:Type:=Num5
+  //Y::=Num5
+
+  // TODO:
+  //Y:Num5
+  //Console.PutLine(Y)
+
+  // TODO:
+  //Y2:Num5:=123.45
 }

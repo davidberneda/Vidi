@@ -1,4 +1,4 @@
-// ERROR: [8,5] Code block cannot be empty: "for"
+// ERROR: [10,5] Code block cannot be empty For:TFor?
 
 Test {
   

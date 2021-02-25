@@ -1,3 +1,3 @@
 123
 
-// ERROR: [1,1] Bad statement
+// ERROR: [4,1] Expression cannot be called Integer:TInteger?

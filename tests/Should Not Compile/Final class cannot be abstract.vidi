@@ -1,4 +1,4 @@
-// ERROR: Final Class cannot be empty: Test18
+// ERROR: [5,1] Final class cannot be empty ClassType:Test18
 
 final Test18 {}
 

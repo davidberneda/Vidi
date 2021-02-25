@@ -21,13 +21,13 @@ Fibonacci {
 {
   Console.PutLine('Loop')
 
-  for i in 0..20 
+  for i in 0..20
       Console.Put( Fibonacci.Loop(i), ' ' )
 
   Console.PutLine
 
   Console.PutLine('Recursive')
 
-  for i in 0..20 
+  for i in 0..20
       Console.Put( Fibonacci.Recursive(i), ' ' )
 }

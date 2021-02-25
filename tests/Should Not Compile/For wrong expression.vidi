@@ -1,6 +1,6 @@
-// ERROR: [4,12] Wrong "in" expression TInteger
+// ERROR: [4,12] Wrong "in" expression Integer:TInteger?
 
 {
-  for x in 123 
+  for x in 123 {}
 }
 

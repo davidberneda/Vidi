@@ -8,6 +8,8 @@ Test {
 
 Test3 is Test {
   //Foo() { Console.PutLine("") }
-}  // ERROR: [14,1] Method must be overriden: Test.Foo
+}
+
+// ERROR: [2,3] Method must be overriden: Test.Foo
 
 

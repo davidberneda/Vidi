@@ -1,1 +1,4 @@
 with Module_cycle_refers_itself
+
+// Pending TODO
+// NOERROR: [4,1] Module [Module_cycle_refers_itself] cannot reference itself  

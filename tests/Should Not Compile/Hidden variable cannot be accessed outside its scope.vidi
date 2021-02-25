@@ -8,6 +8,7 @@ Test6 {
 
 {
   T:Test6
-  T.A:="B" // ERROR Hidden variable cannot be accessed outside its scope
+  T.A:="B"
 }
 
+// ERROR: [11,6] Hidden item cannot be accessed outside its scope: Variable:A

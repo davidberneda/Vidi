@@ -4,5 +4,7 @@ final Test2 {
   X : Byte
 }
 
-Derived2 is Test2 {}  // ERROR Final class Test cannot be derived
+Derived2 is Test2 {}  
+
+// ERROR: [7,19] Cannot derive from final class ClassType:Test2
 

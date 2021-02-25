@@ -1,5 +1,4 @@
-with F := Fibonacci 
-
+with F := Fibonacci
 {
   Console.Put( /*F.*/ Fibonacci.Loop(5))
 }

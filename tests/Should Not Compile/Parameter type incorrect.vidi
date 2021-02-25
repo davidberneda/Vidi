@@ -1,6 +1,6 @@
 // Parameter type incorrect
 
-// ERROR: [7,20] Bad Parameter: TVariable:A TInteger:?
+// ERROR: [7,20] Bad Parameter: Integer:TInteger?
  
 Test12 {
   Foo(A:Text) {}

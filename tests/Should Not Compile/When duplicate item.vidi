@@ -4,6 +4,8 @@
   when X {
     0 { X:=2 }
     1 { X:=3 }
-    0 {}
+    0 { X:=4 }
   }
 }
+
+// ERROR: [8,3] Duplicate: Integer:TInteger?

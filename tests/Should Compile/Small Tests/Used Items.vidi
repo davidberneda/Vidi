@@ -46,5 +46,6 @@ hidden OkHidden {
   T.Foo
 
   T2:Test2
-  T2.X:=1
+  Console.PutLine(T2)
+//  T2.X:=1  <-- access error (X hidden)
 }

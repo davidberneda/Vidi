@@ -1,5 +1,3 @@
 Foo():Integer { 'abc' }
 
-{
-  Foo
-}
+// ERROR: [1,23] Type not compatible Text:TText?

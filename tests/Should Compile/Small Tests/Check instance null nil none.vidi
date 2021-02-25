@@ -4,16 +4,16 @@ Person {
 }
 
 Check(P:Person) {
-  Console.PutLine(P ? P.Name : 'P is nil')
+  Console.PutLine(P<>nil ? P.Name : 'P is nil')
 }
 
 {
   P : Person
-  Check(P)
+  Check(P)   
 
-  P.Name:='Lisa'
-  Check(P)
+  P.Name:='Lisa'  
+  Check(P)   
 
-  P:=nil
+//  P:=nil 
   Check(P)   
 }

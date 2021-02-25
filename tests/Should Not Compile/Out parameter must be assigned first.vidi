@@ -5,5 +5,5 @@ Test14 {
     Console.PutLine(A)
     Console.PutLine('Foo')
     A:='A'
-  } // ERROR: [9,1] "Out" parameter must be assigned first TVariable:A
+  } // ERROR: [9,1] "Out" parameter must be assigned first Variable:A
 }

@@ -13,5 +13,5 @@ Class2 is Class1 {
 
   C2_bis : Class2 := Class2(C1)
 
-  Console.PutLine(C2_Bis.Hello) // Hello
+  Console.PutLine(C2_bis.Hello) // Hello
 }

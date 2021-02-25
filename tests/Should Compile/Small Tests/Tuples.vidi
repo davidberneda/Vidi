@@ -8,7 +8,7 @@ MyFunction:Format {
   Result.Size := 123
   Result.Name := 'abc'
   
-  return result
+  return Result
     
   // Future releases might allow a simplified syntax:  
   // return 123, 'abc'

@@ -1,6 +1,6 @@
 {
   X:Integer
-  Y::=X
+  Y::=X  // ERROR? variable not initialized: X ? 
 
   Console.PutLine(Y)
 
@@ -11,4 +11,8 @@
   A,B:Sample
   B.Z:=''
   A:=B
+
+  Console.Put(A)
 }
+
+// NOERROR:

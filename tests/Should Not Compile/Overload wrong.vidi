@@ -1,22 +1,26 @@
 Test {
   Foo(X:Integer):Integer {
+    X
   }
+
   Foo(X:Float):Float {
+    X
   }
 }
 
 {
  Y:Integer 
- Y:=Test.Foo(1)
- 
- Console.PutLine(Y)
- 
- Y:=Test.Foo(1.1) // wrong overload
-
+ Y:=Test.Foo(1) // ok 
  Console.PutLine(Y)
 
  Z:Float
  Z:=Test.Foo(1.1)
  Console.PutLine(Z)
+ 
+ Y:=Test.Foo(1.1) 
+
+// ERROR: [20,3] Cannot assign: Float to: Variable:Y
+
+ Console.PutLine(Y)
 
 }

@@ -7,3 +7,5 @@ Test {
   S1 : Test.Sub // OK
   S2 : Sub // BAD !
 }
+
+// ERROR: [9,1] Identifier not found: Sub

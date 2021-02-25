@@ -1,6 +1,6 @@
-// ERROR: Infinite loop
+// ERROR: [6,1] "Repeat" loop is infinite Repeat:TRepeat?
 {
  repeat
-   console.put('a')
- until false
+   Console.Put('a')
+ until False
 }

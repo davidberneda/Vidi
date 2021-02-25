@@ -16,3 +16,5 @@ Test2 is Test {
      Console.PutLine('456') 
   } 
 }
+
+// ERROR: [16,6] Cannot override final method: Foo3

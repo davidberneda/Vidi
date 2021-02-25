@@ -10,6 +10,6 @@ Test {
 }
 
 {
-  console.Putline(test.foo(2))
-  console.Putline(test.foo(1))
+  Console.PutLine(Test.Foo(2))
+  Console.PutLine(Test.Foo(1))
 }

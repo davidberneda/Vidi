@@ -5,3 +5,4 @@ Test9 {
   Bar() { Foo(123) } // ERROR Wrong number of parameters (1 instead of 2)
 }
 
+// ERROR: [5,20] Wrong number of parameters DataCall:Foo

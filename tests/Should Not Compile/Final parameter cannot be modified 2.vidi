@@ -1,6 +1,7 @@
 // Final parameter cannot be modified
 
 Test13 {
-  Foo(A:Text) { A:="A" } // ERROR Final parameter A cannot be modified
+  Foo(A:Text) { A:="A" }
 }
 
+// ERROR: [4,18] Cannot modify final variable Variable:A

@@ -1,8 +1,8 @@
 Foo() {
   N::=1
 
-  while true {
-    Console.Put(n,' ')
+  while True {
+    Console.Put(N,' ')
     
     if N>2
        break
@@ -18,14 +18,14 @@ Bar() {
   N::=1
 
   repeat {
-    Console.PutLine(n)
+    Console.PutLine(N)
   
     if N>2
        break
     else
        N += 1
        
-  } until false
+  } until False
 
   Console.PutLine('bye repeat')
 }

@@ -1,7 +1,7 @@
 Test {
   final A:Integer:=1 
   
-  D::=5
+  final D::=5
   
   final E::=A+D // 6
 
@@ -12,7 +12,7 @@ Test {
   
   F:Boolean
   
-  final G::=F  // ERROR: [13,13] Expression cannot be evaluated at compile time TVariable:F
+  final G::=F  // ERROR: [15,13] Expression cannot be evaluated at compile time Variable:F
 }
 
 {

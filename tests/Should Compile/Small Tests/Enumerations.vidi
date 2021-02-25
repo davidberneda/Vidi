@@ -3,10 +3,10 @@ Throw is { Rock, Paper, Scissors }
 Play(Item:Throw) 
 {
   when Item {
-    Throw.Rock { Console.Putline('Rock') }
-    Throw.Paper { Console.Putline('Paper') }
+    Throw.Rock { Console.PutLine('Rock') }
+    Throw.Paper { Console.PutLine('Paper') }
   else  
-    Console.Putline('Scissors')
+    Console.PutLine('Scissors')
   }
 }
 

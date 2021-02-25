@@ -1,7 +1,7 @@
 {
   final B::=5
   c:Integer
-  A:Integer[B+1+C] // ERROR: [4,12] Array size cannot be evaluated TAddition:TAddition?
+  A:Integer[B+1+c] // ERROR: [4,12] Array size cannot be evaluated Addition:TAddition?
   
   Console.PutLine(A[0])
 }

@@ -33,7 +33,7 @@ Test6 {
 Test8 is Test6.Test7 {
   Foo:Text {
    // Console.PutLine('8 '+ancestor) // 8 5
-    "8" + ancestor
+    "8" + Ancestor
   }
 }
 
