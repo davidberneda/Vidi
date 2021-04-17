@@ -9,8 +9,8 @@ El Llenguatge Vidi
 
 ### En un minut:
 
-* Vidi és un llenguatge de programació que és una barreja de Java / Javascript, C#, Delphi, C++ i altres.
-* Tipus de dades estàtiques i estrictes, orientat a objectes, extensible, permet personaliztar la sintaxi.
+* Vidi és un llenguatge de programació, barreja de Java / Javascript, C#, Delphi / Pascal, C++ i altres.
+* Tipus de dades estàtiques i estrictes, orientat a objectes, extensible, permet personalitzar la sintaxi.
 * Molt concís, fent servir el menor conjunt possible de símbols i paraules reservades.
 * Molt estricte, no permet ni genera "avisos" (warnings) ni "consells" (tips).
 * Anàlisi estàtic de codi en temps de compilació.
