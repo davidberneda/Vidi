@@ -1,6 +1,8 @@
 # Vidi
 The Vidi Language
 
+Read in other languages: [Català](README.ca.md) [Español](README.es.md)
+
 [Download compiler, mini-editor IDE and demos](https://github.com/davidberneda/Vidi/releases/tag/v0.0.13-alpha)
 
 [Language Reference](documentation/Vidi_Language_Reference.md)
