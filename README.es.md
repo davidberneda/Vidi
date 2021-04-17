@@ -22,7 +22,7 @@ El Lenguaje Vidi
 * Editor y depurador integrados en una pequeña y simple aplicación.
 * Re-escritura del compilador Vidi en lenguaje Vidi. Actualmente se basa en FreePascal.
 * Soporte de plataformas adicionales (Linux, Android, Apple)
-* Módulos y extensiones para aplicaciones gráficas y de interface de usuario (Forms / Views / Graphics / etc)
+* Módulos y extensiones para aplicaciones gráficas y de interfaz de usuario (Forms / Views / Graphics / etc)
 
 ---
 
