@@ -1,6 +1,6 @@
 # Vidi Language Reference
 
-@davidberneda v0.0.13-alpha February-2021
+@davidberneda v0.0.14-alpha April-2021
 
 https://github.com/davidberneda/Vidi
 
@@ -28,7 +28,8 @@ Numbers can be expressed in several ways:
 -4567   // Negative
 12.345  // Float
 
-4e2   // Exponent
+4e2    // Exponent
+-5e-3  // Exponent negative
 
 // Other bases:
 
@@ -67,7 +68,7 @@ False
 
 ```javascript
 [ 1, 2, 3 ]  // Simple array
-[ ["a","b"], ["c", "d"] ]  // Array inside array
+[ ["a","b"], ["c", "d", 'e'] ]  // Array inside array
 ```
 
 #### Integer Ranges
@@ -75,27 +76,27 @@ False
 Ranges express minimum and maximum values:
 
 ```javascript
-1..10  // from 1 to 10
--12..-2
+1..10     // from 1 to 10
+-12..-2   // from -12 to -2
 ```
 
-Ranges can be used in several places, like when declaring an array:
+Ranges can be used in several places, like for example when declaring an array:
 
-```
-MyArray : Integer[1..10]
+```javascript
+MyArray : Integer[1..10]  // An array of 10 Integer values
 ```
 
 Or to specify custom `Integer` types to benefit from overflow checking:
 
 ```javascript
-// A custom Integer class
+// A custom Integer class from 1 to 3
 Podium is 1..3 {}
 
 P : Podium := 4  // <-- Error. Overflow
 
 // The 'Podium' class can also be used as an array dimension:
 
-MyArray : Integer[Podium]  // same as Integer[1..3]  
+MyArray : Integer[Podium]  // same as: Integer[1..3]  
 
 ```
 
@@ -154,7 +155,7 @@ not 123
 
 "Hello" + "World" // Text addition
 
-// Other mathematical expressions using classes instead of symbols:
+// Other mathematical expressions are done using functions instead of symbols:
 
 Math.Power(5,2)   // 5 elevated to 2 is: 25
 Math.Modulo(10,3) // 10 modulo 3 is: 1
@@ -174,13 +175,13 @@ Equality operators:
 
 Parenthesis are used to group expressions and indicate precedence:
 
-`(4+2) * 6 - (5/9) * (Abc - Xyz)`
+`(4+2) * 6 - ((5/9) * (Abc - Xyz))`
 
 
 
 ### Identifiers
 
-Identifiers begin with an alpha character (`a` to `z`) or `_` (underline), and then any digit (`0` to `9`), alpha or underline.
+Identifiers must begin with an alpha character (`a` to `z`) or `_` (underline), and then any digit (`0` to `9`), alpha or underline.
 
 Examples:
 
@@ -274,7 +275,7 @@ Hi := 'Hello'
 Hi += ' World!'  // string concatenation
 
 Nums : Integer[]
-Nums += [1,2,3]  // Array Nums.Append
+Nums += [1,2,3]  // Equals to Array Nums.Append method
 Nums += 4
 ```
 
@@ -290,16 +291,19 @@ B : Integer := A
 
 // A and B are independent. Modifying A does not change B.
 
+A := 456 // B value is still 123
 ```
 
-The rest of types (objects, arrays and functions) are always assigned by reference.
+The rest of types (objects, arrays and functions) are always assigned "*by reference*".
 
 ```javascript
 A : Person
 B : Person := A
 
 // A and B point to the same Person variable. 
-// Modifying one, changes the other.
+// Modifying one, changes the other:
+
+A.Name := 'John'  // B.Name is also John now
 ```
 
 
@@ -311,11 +315,13 @@ The `final` keyword is used to define variables that cannot be modified (*readon
 ```javascript
 final Pi : :=  3.1415
 final Hello : Text := 'Hello'
+
+// Pi := 123  <-- Error, final constant cannot be modified
 ```
 
 Expressions are allowed to initialize final variables, including calling type-level functions:
 
-```
+```javascript
 final A ::= 1
 final B ::= A + 1
 final C ::= Math.Square(5) // 5*5 = 25
@@ -356,7 +362,7 @@ The `sys` module contains most basic classes. The `SomeThing` class is the root 
 
 Literal numbers, texts, arrays, etc are also classes. Types and routines are classes too. Everything is `SomeThing`.
 
-```
+```javascript
 SomeThing {}
 ```
 
@@ -399,18 +405,40 @@ Sub elements are accessed using the `.` symbol, for example to declare a variabl
 
 `Pine : Life.Tree`
 
+
+
 #### Class parameters
 
 Exactly like methods, class parameters can be used when variables are declared, to initialize (construct) them.
 
 ```javascript
-Customer(SomeName:Text) is Person {
+// Parameter: SomeName
+Customer(SomeName: Text) is Person {
   Name:= SomeName
 }
 
 Cust1 : Customer("John")
 Cust2 : Customer("Anne") 
 ```
+
+
+
+#### Variables of type: Type
+
+A variable can also be defined to be of type `Type`. 
+
+```javascript
+Food {}  // a simple class
+Fruit is Food {}
+Rice is Food {}
+
+MyFoodType : Type  // future: Type(Food)
+MyFoodType := Rice
+
+MyFood : MyFoodType  // <-- equivalent to MyFood : Rice
+```
+
+
 
 #### Generic types
 
@@ -423,6 +451,7 @@ with Types
 List(T:Type) is T[] {}    // Parameter of type: Type
 
 Numbers is List(Float) {}  // List of Float
+Names is List(Text) {}     // List of Text
 ```
 
 #### Casting expressions
@@ -434,11 +463,11 @@ Class1 {}
 Class2 is Class1 {}
 
 C2 : Class2
-C1 : Class1 := C2  // OK
+C1 : Class1 := C2  // Correct, same hierarchy
 
-//  C2_bis : Class2 := C1 // <-- Error 
+//  C2_bis : Class2 := C1 // <-- Error, casting must be explicit
 
-C2_bis : Class2 := Class2(C1) // <-- Casting is OK
+C2_bis : Class2 := Class2(C1) // <-- Casting is correct
 
 ```
 
@@ -446,17 +475,23 @@ C2_bis : Class2 := Class2(C1) // <-- Casting is OK
 
 *<u>Note: Experimental, not yet finished</u>*
 
-```
+```javascript
 MyBaseClass {}
 MyDerivedClass is MyBaseClass { Foo : Integer } 
 
 MyDerivedData : MyDerivedClass
 MyData : MyBaseClass := MyDerivedData
 
+// 1) Access to Foo is forbidden, compiler error. Casting is necessary
+MyData.Foo := 456
+
+// 2) Correct, but might generate an exception at runtime if MyData is not MyDerivedClass
+MyDerivedClass(MyData).Foo := 789
+
+// 3) Correct access because the "if" does the casting automatically
 if MyData is MyDerivedClass 
-   MyData.Foo := 123   // allowed and safe because the above "if" makes casting unnecessary
-   
-MyData.Foo := 456 // forbidden, compiler error. Casting is necessary.
+   MyData.Foo := 123  // No runtime exception will happen
+
 ```
 
 
@@ -465,15 +500,17 @@ MyData.Foo := 456 // forbidden, compiler error. Casting is necessary.
 
 Also called *routines*, *procedures* or *functions*.
 
-  `Area : Float { return 123 }`
+```javascript
+Area : Float { return 123 }
+```
 
 #### Parameters
 
-All parameters to a method are passed by default as read-only constants and cannot be modified.
+Method parameters are passed by default as read-only constants and cannot be modified.
 
 ```javascript
 Make( Wheels : Integer ) {
- // Wheels parameter cannot be changed
+ // Wheels parameter cannot be changed inside 
 }
 ```
 
@@ -485,24 +522,25 @@ Parts( Style:Text, out Price:Float ):Boolean {
 }
 ```
 
-The "Tuples" concept (returning more than one value) is done using records:
+Returning more than one value ("*tuples*") is done using structs (records):
 
 ```javascript
-Format { Size:Integer Name:Text }  // <-- The tuple
+Format { Size:Integer Name:Text }  // <-- The record
 
-// Routine returning the tuple:
-MyFunction:Format { 
-  Result:Format 
+// Routine returning the record:
+MyFunction : Format { 
+  Result : Format 
   Result.Size := 123
   Result.Name := 'abc'
   
-  return result
+  return Result
     
   // Future releases might allow:  return 123, 'abc'
 }
 
-// Calling the routine and obtaining the tuple X:
+// Calling the method and obtaining the tuple X:
 X ::= MyFunction 
+Console.Put(X.Name)
 ```
 
 #### Unnamed class types
@@ -515,7 +553,7 @@ Planet.Name := 'Saturn'
 
 // An array can be used to initialize all class fields, in order:
 
-Planet:= [ 'Saturn', 58232 ]  
+AnotherPlanet:= [ 'Saturn', 58232 ]  
 
 // Also array of arrays:
 
@@ -544,11 +582,11 @@ Print
 Print('abc')
 Print(123,'abc',True)  
 
-TypedPrint( Values : Integer... ) {
+PrintNumbers( Values : Integer... ) {
  for Value in Values Console.PutLine(Value)
 }
 
-TypedPrint(7,8,9,10,11)  // similar to: [7,8,9,10,11]
+PrintNumbers(7,8,9,10,11)  // similar to: [7,8,9,10,11]
 
 ```
 
@@ -559,7 +597,7 @@ Routines can have the same name if they have different parameters and/or return 
 ```javascript
 Write( Number : Integer) {}
 Write( Number : Float):Integer[] {}
-Write( Number : Text, Other : Boolean) {}
+Write( Word : Text, Other : Boolean) {}
 ```
 
 
@@ -567,6 +605,8 @@ Write( Number : Text, Other : Boolean) {}
 #### Method inheritance
 
 A child class can declare methods with exactly the same name, parameters and return values as its ancestor parent class.
+
+The `Ancestor` keyword refers to its parent method.
 
 ```javascript
 Class1 {
@@ -580,11 +620,11 @@ Class2 is Class1 {
 }
 ```
 
-The `Ancestor` keyword refers to its parent method.
+
 
 #### Non-inheritable methods (final)
 
-Methods can be declared `final` to forbid overriding them in derived classes. 
+Methods can be declared with the `final` keyword to forbid overriding them in derived classes. 
 
 `final Proc() {}`
 
@@ -608,7 +648,7 @@ That means the method cannot be called (it is an error at compile time), and tha
 ### Interfaces
 
 There is no special syntax to declare interfaces.
-Simple classes that have no fields (no variables), and all their methods are abstract, are always considered interfaces.
+Simple classes that have no fields (no variables), and all their methods are abstract, are considered interfaces.
 
 ```javascript
 MyInterface {
@@ -616,7 +656,7 @@ MyInterface {
 }
 ```
 
-Classes can be derived from interfaces as usually:
+Classes can be derived from interfaces:
 
 ```javascript
 MyClass is MyInterface {   // Deriving from an interface
@@ -639,7 +679,8 @@ Example( Value : MyInterface) {
 }
 
 Some1 : SomeClass
-Example(Some1)  // Some1 variable can be considered of MyInterface type
+Example(Some1)  // Some1 variable is considered of MyInterface type
+
 ```
 
 In the above code, `SomeClass` class is not derived from `MyInterface` but can be used as if it was.
@@ -657,7 +698,7 @@ with Module1, Module2, Module3.MyClass
 MyClass {
   with SomeModule  // inner scope with
 
-  Test : SomeClass // Class declared inside SomeModule
+  Test : SomeClass // SomeClass is declared inside SomeModule
 }
 
 // SomeModule symbols cannot be accessed here, outside MyClass scope
@@ -669,7 +710,7 @@ Module file names might contain spaces or characters not allowed in module ident
 with "My module with spaces"
 ```
 
-Aliasing allows replacing module names with custom ones:
+Aliasing allows replacing module names with custom ones. For example to shorten its length or to avoid clash duplicates.
 
 ```javascript
 with Foo:= My_Long_Module.My_Class   // use Foo as alias
@@ -682,7 +723,9 @@ Foo1 : Foo  // variable of type My_Class
 A module can aggregate several other modules in one single place:
 
 ```javascript
-// use modules with aliases
+// Module3
+
+// Use modules with aliases
 with M1:=Module1, M2:=Module2  // etc
 
 // Declare modules as new classes
@@ -690,7 +733,7 @@ Module1 is M1 {}
 Module2 is M2 {}
 ```
 
-When using the above module, the `Module1` and `Module2` contents will be ready available without needing to use them in `with` keywords.
+When using the above module `Module3`, the `Module1` and `Module2` contents will be ready available without needing to use them in `with` keywords.
 
 
 
@@ -721,14 +764,19 @@ Colors {
 }
 
 Colors.Default := "Blue"   // Can be used at type-level, without any instance
+
 ```
 
 Type-level methods are auto-discovered. There is no special syntax to declare them.
 When a method do not access any non-shared field or non-type level methods, it is considered `shared`.
 
 ```javascript
-// Type-level procedure, no shared keyword necessary
-SetDefault( Value : Text) { Default:=Value }
+Colors {
+  shared Default : Text := "Red"
+  
+  // Type-level procedure, no shared keyword necessary
+  SetDefault( Value : Text) { Default:=Value }
+}
 
 Colors.SetDefault( "Green" )
 ```
@@ -749,7 +797,7 @@ MyNamespace {
 }
 ```
 
-Modules with duplicate namespace names can be merged, to aggregate (contribute) new classes to the same namespace
+Modules with duplicate namespace names can be merged, to aggregate (contribute) new classes to the same namespace:
 
 ```javascript
 // Module2
@@ -758,7 +806,7 @@ MyNamespace {
 }
 ```
 
-The `with` keyword can also be used to reference just only a sub element instead of to everything in the module
+The `with` keyword can also be used to reference just only a sub element instead of to everything in the module:
 
 ```javascript
 // Module3
@@ -791,7 +839,9 @@ Class1 {}
 Class2 is Class1 {}
 
 C1 : Class1
-C2 : Class2 // := C1  <-- equivalent but forbidden (strict check)
+C2 : Class2 
+// ERROR: C2 := C1  <-- equivalent but forbidden (strict check)
+
 ```
 
 #### Type discovery and reflection
@@ -799,16 +849,20 @@ C2 : Class2 // := C1  <-- equivalent but forbidden (strict check)
 The `Type` class provides methods to inspect (reflect) existing types:
 
 ```javascript
+// Type checking:
 if Type.is( C1, Class1 ) ...
+
+// Obtaining the list of methods of a given type or instance:
 Methods:Method[] := Type.Methods( C1 )
+
 ```
 
 
 
 ### Extenders
 
-At any scope, including in other modules, types can be extended with new methods.
-So for example we can declare this class:
+At any scope, including in other modules, types can be extended with new methods and subclasses.
+So for example we can declare this class in one module:
 
 ```javascript
 // Module 1
@@ -824,9 +878,10 @@ with Module1
 
 MyClass.MyProcedure() {}   // New extended Procedure
 MyClass.MySubClass { X:Float }  // New extended Sub-class
+
 ```
 
-These new extended elements can then be used as normal, also in different modules
+These new extended elements can then be used as normal, also in different modules.
 
 ```javascript
 // Module 3
@@ -837,9 +892,10 @@ Foo.MyProcedure()   // Calling an extension as if it was a normal method
 
 Bar : MyClass.MySubClass
 Bar.X := 123
+
 ```
 
-These extensions are only available inside the scope where they are declared.
+These extensions, like any normal type, are only available inside the scope where they are declared.
 
 Extended types can also be extended:
 
@@ -854,15 +910,17 @@ Bar.MyNewMethod()
 
 A type can be used as a function declaration:
 
-`MyProcType is (A:Text, B:Integer):Float {}`
+```javascript
+MyProcType is (A:Text, B:Integer):Float {}
+```
 
 This type can then be used anywhere like normal types:
 
 ```javascript
-Foo(Function:MyProcType) { Function('Hello',123) }
+Foo(Function: MyProcType) { Function('Hello',123) }
 ```
 
-Functions can be signature-compatible with the custom type:
+To be compatible with `MyProcType`, functions should be signature-compatible:
 
 ```javascript
 MyFunction(A:Text, B:Integer):Float { 
@@ -870,7 +928,7 @@ MyFunction(A:Text, B:Integer):Float {
 }
 ```
 
-The `MyFunction` variable (of type function), can now be called or passed to other methods.
+The `MyFunction` function can now be called or passed to other methods.
 
 ```javascript
 Foo(MyFunction)  // shows 'Hello 123'
@@ -894,6 +952,7 @@ Or assigned to variables of the custom function type:
 MyFunction_Variable : MyProcType := { Console.PutLine(A, ' ', B) }
 
 Foo(MyFunction_Variable)
+
 ```
 
 
@@ -946,8 +1005,11 @@ else
 #### While
 
 ```javascript
-while a=b {
-  if a=0 break else a:= a - 1
+while a>b {
+  if a=0 
+     break   // "break" exits the "while" loop
+  else 
+     a:= a - 1
 }
 ```
 
@@ -957,7 +1019,8 @@ while a=b {
 repeat {
   b += 1
 
-  if b=5 continue
+  if b=5 
+     continue  // "continue" jumps to start of "repeat"
 
 } until a<>b
 
@@ -966,6 +1029,7 @@ repeat {
 repeat
   b +=1
 until b>5
+
 ```
 
 #### For
@@ -987,21 +1051,28 @@ Traditional loop using the `to` keyword:
 
 ```javascript
 a ::= 5    b ::= 7
-for x:=a to b {}   // three times
+for x: := a to b {}   // three times
+for y: := 1+a to 9 {} // four times, from 6 to 9
 ```
 
-The optional counter variable cannot be reused or accessed outside the `for` block.
-It cannot be an already declared variable. Its type is inferred.
+The optional counter variable:
 
-The `in` keyword can loop an enumerated type:
+- Cannot be reused or accessed outside the `for` block
+- Cannot be modified inside the `for` loop
+- It cannot be an already declared variable
+- Its type is always automatically inferred
+
+
+
+The `in` keyword can loop over an enumerated type:
 
 `for c in Colors {}`
 
 The `in` keyword can also be used to loop an array:
 
 ```javascript
-Nums::=[ 6,2,9 ]
-for i in Nums { Output.Write(i) }    // iterate an array
+Nums: := [ 6,2,9 ]
+for i in Nums { Console.Put(i) }    // iterate an array
 ```
 
 The array can be declared inline, without using a variable:
@@ -1023,23 +1094,26 @@ for c in "abc" {} // for each character
 Also called *switch*, *select* or *case* in other languages.
 
 ```javascript
-Name::="Jane"
+Name::= "Jane"
 
 when Name {
-  "Jane" { }
-  "Peter" { }
+  "Jane"  { DoThis }
+  "Peter" { DoThat }
+else
+   DoElse   
 }
 ```
 
-Comparison complex expressions can also be used:
+Comparison expressions can also be used:
 
 ```javascript
-num ::= 5 abc ::= 3
+num ::= 5 
+abc ::= 3
 
 when abc+num {
-  <3 { Console.PutLine('Lower than 3') }
-   4 { Console.PutLine('Equals 4') }
- <>6 { Console.PutLine('Different than 6') }
+  < 3 { Console.PutLine('Lower than 3') }
+    4 { Console.PutLine('Equals 4') }
+ <> 6 { Console.PutLine('Different than 6') }
 else { } // otherwise
 }
 ```
@@ -1050,7 +1124,7 @@ After the first condition that matches the expression is found, execution flow e
 
 #### Return
 
-The return statement exits a method, with an optional value if the method is a function
+The `return` statement exits a method, with an optional value if the method is a function
 
 ```javascript
 Test {
@@ -1159,8 +1233,12 @@ TestInner(Work:Boolean) {
      TestForward
 }
 
-TestInner(True)
+{
+  TestInner(True)
+}
 ```
+
+
 
 ### Properties
 
@@ -1173,7 +1251,7 @@ Or a function:
 
 `Foo : Integer { return MyFoo }`
 
-And optionally, a property "setter" which is just a function with the same name:
+And optionally, a property "setter" which is just a function with the same name and one parameter:
 
 `Foo(Value:Integer) { MyFoo:=Value } // Setter`
 
@@ -1220,6 +1298,8 @@ Foo : Boolean
 
 // Equivalent expressions
 if Type.is(Foo, Boolean) Console.PutLine('Ok')
+
+// Using the new "is" operator
 if Foo is Boolean Console.PutLine('Ok')
 
 // Existing basic operators like +, -, *, >, < etc could theoretically be re-implemented as extensions.
@@ -1283,6 +1363,7 @@ A + B   // calls Integer.Add(A,B) if both A and B are Integer-compatible
 >=    // greater or equal than
 <     // lower than
 <=    // lower or equal than
+=     // equal
 <>    // different than
 +     // addition
 -     // subtraction
