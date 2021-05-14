@@ -1,0 +1,10 @@
+{
+X::=123
+
+if X<10 
+  Console.Put('a')
+else
+  Console.Put('b')
+}
+
+//OUT: b

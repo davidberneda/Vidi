@@ -1,0 +1,28 @@
+A() {
+  Console.Put('A')
+}
+
+B() {
+  Console.Put('B')
+  A
+}
+
+
+C() {
+  Console.Put('C')
+  B
+}
+
+
+D() {
+  Console.Put('D')
+  C
+}
+
+
+{
+  Console.Clear
+  D
+}
+
+//OUT: DCBA

@@ -1,0 +1,12 @@
+Test {
+  Foo() {
+    for x in 1..2
+       Console.Put(x,' ') //OUT: 1 2 .
+  }
+}
+
+{
+  Console.Clear
+  Test.Foo
+  Console.Put('.')
+}

@@ -1,0 +1,7 @@
+{
+  X::=Math.Power(3,5) 
+
+  Console.Put(X)
+}
+
+//OUT: 243

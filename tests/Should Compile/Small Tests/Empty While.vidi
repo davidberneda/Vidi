@@ -11,7 +11,7 @@ Foo() {
   }
   
   Console.PutLine
-  Console.PutLine('bye while',456)
+  Console.PutLine('bye while ',456)
 }
 
 Bar() {
@@ -34,3 +34,10 @@ Bar() {
  Foo
  Bar 
 }
+
+//OUT: 1 2 3 ^
+//OUT: bye while 456^
+//OUT: 1^
+//OUT: 2^
+//OUT: 3^
+//OUT: bye repeat^

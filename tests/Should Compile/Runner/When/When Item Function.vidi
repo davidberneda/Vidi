@@ -1,0 +1,16 @@
+IsJane:Text {
+  'Jane'
+}
+
+{
+ Name::="Jane"
+
+ when Name {
+  IsJane { Console.Put('J') }
+  "Peter" { Console.Put('P') }
+  else
+    Console.Put('?')
+ }
+}
+
+//OUT: J

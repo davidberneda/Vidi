@@ -1,0 +1,10 @@
+MyType {
+  A: Integer:=1
+}
+
+{
+  X:MyType
+  Console.Put(X.A)
+}
+
+//OUT: 1

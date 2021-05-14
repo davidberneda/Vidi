@@ -1,0 +1,19 @@
+Test {
+  Value : Integer
+
+  Foo() {
+    Console.Put(Value)
+  }
+}
+
+{
+  A,B : Test
+
+  A.Value:=1
+  B.Value:=2
+
+  A.Foo
+  B.Foo
+}
+
+//OUT: 12

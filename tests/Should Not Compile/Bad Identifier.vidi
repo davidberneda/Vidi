@@ -1,0 +1,4 @@
+.
+{}
+
+// ERROR: [2,1] Bad identifier: .

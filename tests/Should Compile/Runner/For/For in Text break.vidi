@@ -1,0 +1,17 @@
+Test {
+  Foo() {
+    for x in 'abcde' {
+       Console.Put(x,' ') //OUT: a b c .
+
+       if x='c'
+          break
+    }
+  }
+}
+
+{
+  Console.Clear
+  Test.Foo
+  Console.Put('.')
+}
+

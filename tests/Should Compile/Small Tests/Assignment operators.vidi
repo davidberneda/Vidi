@@ -16,7 +16,7 @@
   
   Hi : Text
   Hi := 'Hello'
-  Hi += ' World!'
+  Hi += ' World !'
 
   Console.PutLine(Hi) // Hello World !
   
@@ -26,3 +26,11 @@
 
   Console.PutLine(Nums) // 1 2 3 4
 }
+
+//OUT: 1^
+//OUT: 2^
+//OUT: 4^
+//OUT: 3^
+//OUT: 1.5^
+//OUT: Hello World !^
+//OUT: 1234^

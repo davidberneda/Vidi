@@ -1,0 +1,9 @@
+Foo:Boolean { False }
+SomeNumber:Integer{ 123 }
+
+{
+  Console.Put(not Foo)
+  Console.Put(not SomeNumber)
+}
+
+//OUT: True-124

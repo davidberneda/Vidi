@@ -146,7 +146,7 @@ Structures {
 
   // Extender Function
   Integer.Foo:Float {
-    Self + 12.34
+    Value + 12.34
   }
 
   TestExtender() {
@@ -265,4 +265,10 @@ Structures {
 }
 
 AnotherClass { // just a test
+}
+
+
+{
+ S:Structures
+ Console.PutLine(S.Blue) 
 }

@@ -19,4 +19,8 @@ MyFunction:Format {
   X ::= MyFunction 
   
   Console.PutLine(X.Name)
+  Console.PutLine(X.Size)
 }
+
+//OUT: abc^
+//OUT: 123^

@@ -1,0 +1,28 @@
+Temperature {
+  Celsius : Float
+
+  // Property getter
+  Fahrenheit:Float {
+    32 + (Celsius * 1.8)
+  }
+
+  // Property setter
+  Fahrenheit(Value:Float) {
+    Celsius := (Value-32) / 1.8
+  }
+}
+
+{
+  T:Temperature
+
+  T.Fahrenheit:=99
+
+  Console.PutLine(T.Celsius)
+
+  T.Celsius:=32
+
+  Console.PutLine(T.Celsius)
+}
+
+//OUT: 37.2222222222222^
+//OUT: 32^

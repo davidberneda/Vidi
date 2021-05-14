@@ -1,0 +1,13 @@
+Foo:Integer { 
+  return 5 
+}
+
+
+{
+  B:Boolean
+  B:=5 in [4,6,Foo]
+
+  Console.Put(B) 
+}
+
+//OUT: True

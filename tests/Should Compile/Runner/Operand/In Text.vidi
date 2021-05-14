@@ -1,0 +1,8 @@
+{
+  B:Boolean
+  B:='a' in 'Mar'
+
+  Console.Put(B) 
+}
+
+//OUT: True

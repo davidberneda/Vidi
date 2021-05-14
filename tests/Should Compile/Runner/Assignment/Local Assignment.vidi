@@ -1,0 +1,15 @@
+{
+  a::=5
+  b:Integer:=0
+  
+  for 0..1 
+  {
+    temp ::= a
+    a += b
+    b:= temp
+  }
+
+  Console.Put(a,b)
+}
+
+//OUT: 105

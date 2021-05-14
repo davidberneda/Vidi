@@ -1,0 +1,7 @@
+{
+  X:Integer:=0
+  X+=1
+  Console.Put(X)
+}
+
+//OUT: 1

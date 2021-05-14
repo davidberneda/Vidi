@@ -8,4 +8,4 @@ Test {
   S2 : Sub // BAD !
 }
 
-// ERROR: [9,1] Identifier not found: Sub
+// ERROR: [8,8] Type not found: Sub

@@ -27,7 +27,7 @@ Test3 is Test1.Test11 {}
 
   Console.PutLine(T1.Bar)
 
-  Console.PutLine('')
+  Console.PutLine
 
   Console.PutLine('T2')
 
@@ -37,3 +37,11 @@ Test3 is Test1.Test11 {}
   Console.PutLine(T2.Bar)
 }
 
+//OUT: T1^
+//OUT: Foo Test1^
+//OUT: 1^
+//OUT: ^
+//OUT: T2^
+//OUT: Foo Test1^
+//OUT: Foo Test2^
+//OUT: 2^

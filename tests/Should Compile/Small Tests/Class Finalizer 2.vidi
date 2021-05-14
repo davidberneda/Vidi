@@ -1,0 +1,18 @@
+Shop {
+  Console.PutLine( 'Open !' )
+    
+  final {
+     Console.PutLine( 'Closed !' )
+  }
+
+  Foo() { Console.PutLine('Welcome !') }
+}
+
+{
+  MyShop : Shop
+  MyShop.Foo
+}
+
+//OUT: Open !
+//OUT: Welcome !
+//OUT: Closed !

@@ -5,7 +5,7 @@ Test {
     Console.PutLine('Range loop')
     
     for x in 1..2  {
-       Console.Put(x,' ')
+       Console.Put(x,' ')  // 1 2
     }
     
     Console.PutLine
@@ -13,7 +13,7 @@ Test {
     Console.PutLine('Array loop')
     
     for x in Numbers {
-       Console.Put(x,' ')
+       Console.Put(x,' ')  // 1 2 3 4
     }
 
     Console.PutLine
@@ -21,7 +21,7 @@ Test {
     Console.PutLine('Number loop')
 
     for x::=5 to 7  {
-       Console.Put(x,' ')
+       Console.Put(x,' ')  // 5 6 7
     }
 
     Console.PutLine
@@ -29,7 +29,7 @@ Test {
     Console.PutLine('Text loop')
 
     for x in 'ABC' {
-       Console.Put(x,' ')
+       Console.Put(x,' ') // A B C
     }
 
     Console.PutLine
@@ -39,7 +39,7 @@ Test {
     Bar:Float[] { [3.14, 2.71] }
     
     for x in Bar {
-       Console.Put(x,' ')
+       Console.Put(x,' ')  // 3.14 2.71
     }
 
     Console.PutLine
@@ -53,7 +53,7 @@ Test {
     FooRange:Range { 20..22+x }
     
     for x in FooRange {
-       Console.Put(x,' ')
+       Console.Put(x,' ')  // 20 21 22 23 24
     }
 
     Console.PutLine
@@ -65,7 +65,7 @@ Test {
     Things: Items := [ 1, "A", True, 2.2 ]
     
     for x in Things {
-       Console.Put(x,' ')
+       Console.Put(x,' ') // 1 A True 2.2
     }
 
     Console.PutLine
@@ -80,7 +80,7 @@ Test {
     Things2.List := [ "X", 'Y', 'Z' ]
     
     for x in Things2 {
-       Console.Put(x,' ')
+       Console.Put(x,' ') // X Y Z
     }
 
     Console.PutLine
@@ -91,3 +91,21 @@ Test {
   T:Test
   T.Foo
 }
+
+//OUT: Range loop^
+//OUT: 1 2 ^
+//OUT: Array loop^
+//OUT: 1 2 3 4 ^
+//OUT: Number loop^
+//OUT: 5 6 7 ^
+//OUT: Text loop^
+//OUT: A B C ^
+//OUT: Expression loop^
+//OUT: 3.14 2.71 ^
+//OUT: Range function loop^
+//OUT: 20 21 22 23 24 ^
+//OUT: Class loop^
+//OUT: 1 A True 2.2 ^
+//OUT: Indexed loop^
+//OUT: X Y Z ^
+

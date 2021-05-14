@@ -1,0 +1,10 @@
+Planets is { Venus, Earth, Mars }
+
+{
+  X::=Planets.Mars
+
+  if X<>Planets.Earth
+     Console.PutLine(X)
+}
+
+//OUT: Mars^

@@ -1,0 +1,13 @@
+foo:Integer[10] 
+
+Test()
+{
+  X::=-1
+  Console.PutLine(foo[X])
+}
+
+{ 
+  Test
+}
+
+//OUT: Array index -1 lower than minimum 0

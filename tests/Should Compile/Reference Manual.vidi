@@ -1,0 +1,827 @@
+// Basic Data Types
+
+/// Numeric
+
+N1::=   123   // Integer
+N2::= -4567   // Negative
+N3::= 12.345  // Float
+
+N4::=  4e2    // Exponent
+N5::= -5e-3   // Exponent negative
+
+// Other bases:
+
+N6::= 0xFF    // Hexadecimal base 16
+N7::= 0b11011 // Binary base 2
+N8::= 0c217   // Octal base 8
+
+/// Text
+
+T1::= "Hello"        // Double-quotes
+T2::= 'World'        // Single-quotes
+T3::= "How're you?"  // Single quote inside double quotes
+T4::= 'Say "abc" !'  // Double quotes inside single quotes
+
+/// Booleans
+
+B1::= True
+B2::= False
+
+// Other Data Types
+
+/// Arrays
+
+A1::= [ 1, 2, 3 ]  // Simple array
+A2::= [ ["a","b"], ["c", "d", 'e'] ]  // Array inside array
+
+/// Integer Ranges
+
+R1::= 1..10     // from 1 to 10
+R2::= -12..-2   // from -12 to -2
+
+MyArray : Integer[1..10]  // An array of 10 Integer values
+
+// A custom Integer class from 1 to 3
+Podium is 1..3 {}
+
+// P : Podium := 4  // <-- Compile-time error. Overflow
+
+// The 'Podium' class can also be used as an array dimension:
+
+Winners : Integer[Podium]  // same as: Integer[1..3] 
+
+Total : Integer
+for Num in 0..1000 { Total += 1 }
+
+MyFunction( MyParam : 20..1000): 4..10 { }
+
+Months : Range { 1..12 }
+
+Podiums is 1..3[10] {}  // An array of 10 integer values, each value from 1 to 3
+
+// Expressions
+
+/// Logical
+
+L1::= True and False
+L2::= True or False
+L3::= not True 
+L4::= True xor False
+L5::= True and not False
+
+L6::= L1 = L2 ? True : False   //  Ternary
+
+L7::= 'A' in 'ABC'  // True
+L8::= 5 in [1,2,3]  // False
+
+/// Arithmetic
+
+M1::= 2 + 3 - 5 * (6 / -7) // Basic math
+
+M2::= 255 or 0xFF
+M3::= 128 and 255
+M4::= 64 xor 32
+M5::= not 123
+
+M6::= "Hello" + "World" // Text addition
+
+// Other mathematical expressions are done using functions instead of symbols:
+
+Math.Power(5,2)   // 5 elevated to 2 is: 25
+Math.Modulo(10,3) // 10 modulo 3 is: 1
+
+BinaryShift.Left(2,4)   // 2 << 4 is: 32
+BinaryShift.Right(32768,4)  // 32768 >> 4 is: 2048
+
+/// Comparative
+
+C1::= M1 = M2
+C2::= M1 <> M2
+C3::= M1 > M2
+C4::= M1 < M2
+C5::= M1 >= M2
+C6::= M1 <= M2
+
+/// Grouping
+
+G1::= (4+2) * 6 - ((5/9) * (M1 - M2))
+
+// Identifiers
+
+Abc,
+X123,
+My_Name,
+_Test4,
+_4Z        : Text
+
+// Variables
+
+A : Integer
+B : Text
+
+F : Float := 123.45   // Value initialization
+
+Data ::= True      // Type inference. (Data is Boolean)
+Earth : Integer
+Planet ::= Earth   // Planet variable is of the same type as Earth value
+
+Colors : Text[] := [ "Red", "Blue" ]
+
+Matrix : Float[ 3,3 ]   // Alternative way: Float[3][3]
+Matrix2 : Float[3][3]
+
+TwentyNumbers : Integer[ 1..(2*10) ]   // 20 elements, from 1 to 20
+
+Name, Surname, Address : Text   // Three Text variables
+
+// Also supported optional same value for multiple variables:
+X,Y,Z : Float := 1.23
+
+// Multiple variables type can be inferred:
+This,That ::= True  // Both This and That are variables of Boolean type
+
+// Assignments
+
+X2 : Text
+X2 := 'Hello'  // <-- assignment
+
+/// Arithmetic assignments
+
+Z := 1
+
+Z += 3  // Z := Z+3
+Z -= 2  // Z := Z-2
+Z *= 5  // Z := Z*5
+Z /= 4  // Z := Z/4
+
+// Text and Array additions
+
+Hi : Text
+Hi := 'Hello'
+Hi += ' World!'  // string concatenation
+
+Nums : Integer[]
+Nums += [1,2,3]  // Equals to Array Nums.Append method
+Nums += 4
+
+// Copying and referencing
+
+A3 : Integer := 123
+B3 : Integer := A3
+
+// A3 and B3 are independent. Modifying A3 does not change B3.
+
+A3 := 456 // B3 value is still 123
+
+Person { Name: Text }
+
+A4 : Person
+B4 : Person := A4
+
+// A and B point to the same Person variable. 
+// Modifying one, changes the other:
+
+A4.Name := 'John'  // B.Name is also John now
+
+// Constants
+
+final Pi : :=  3.1415
+final Hello : Text := 'Hello'
+
+// Pi := 123  <-- Error, final constant cannot be modified
+
+final A5 ::= 1
+final B5 ::= A5 + 1
+final A6 ::= Math.Square(5) // 5*5 = 25
+
+// Class inheritance
+
+SomeCustomer is Person {
+  Code : Integer
+}
+
+// Class as parameter
+
+SomeClass {
+  Test(Value: Something) {
+    Console.Put(Value)
+  }
+}
+
+Foo is Integer {
+  Bar() {
+    SomeClass.Test(Self)  // Passing ourselves as a parameter to Test function
+  }
+}
+
+// Sub-classes and sub-methods
+
+Life {      // class
+  Tree {    // subclass
+  
+    Plant( Quantity : Integer) {  // method
+    
+      Forest is Text[] {    // subclass inside method
+      }
+      
+      MyForest : Forest   // variable of Plant class
+      
+      SubMethod() { Console.Put('Hello', MyForest) }
+
+      SubMethod
+
+      Console.PutLine(Quantity)
+    }
+   
+  }
+}
+
+Pine : Life.Tree
+
+
+// Class parameters
+
+// Parameter: SomeName
+Customer(SomeName: Text) is Person {
+  Name:= SomeName
+}
+
+Cust1 : Customer("John")
+Cust2 : Customer("Anne") 
+
+// Variables of type Type
+
+Food {}  // a simple class
+Fruit is Food {}
+Rice is Food {}
+
+MyFoodType : Type  // future: Type(Food)
+MyFoodType := Rice
+
+// TODO: MyFood : MyFoodType  // <-- equivalent to MyFood : Rice
+
+
+// Generic Types
+
+//with Types
+
+List(T:Type) is T[] {}    // Parameter of type: Type
+
+Numbers is List(Float) {}  // List of Float
+Names is List(Text) {}     // List of Text
+
+
+// Casting Expressions
+
+Class1 {}
+Class2 is Class1 {}
+
+C_2 : Class2
+C_1 : Class1 := C_2  // Correct, same hierarchy
+
+//  C2_bis : Class2 := C_1 // <-- Compile-time Error, casting must be explicit
+
+C2_bis : Class2 := Class2(C_1) // <-- Casting is correct
+
+
+// Automatic Casting Protection
+
+MyBaseClass {}
+MyDerivedClass is MyBaseClass { Foo : Integer } 
+
+MyDerivedData : MyDerivedClass
+MyData : MyBaseClass := MyDerivedData
+
+// 1) Access to Foo is forbidden, compiler error. Casting is necessary
+// MyData.Foo := 456
+
+// 2) Correct, but might generate an exception at runtime if MyData is not MyDerivedClass
+MyDerivedClass(MyData).Foo := 789
+
+// 3) Correct access because the "if" does the casting automatically
+if Type.is(MyData,MyDerivedClass) {
+  // TODO:   MyData.Foo := 123  // No runtime exception will happen
+  Console.PutLine
+}
+
+// Methods
+
+Area : Float { return 123 }
+
+// Parameters
+
+Make( Wheels : Integer ) {
+ // Wheels parameter cannot be changed inside 
+   Console.PutLine(Wheels)
+}
+
+Parts( Style:Text, out Price:Float ):Boolean { 
+  Price:=123  // <-- Price must be assigned
+
+  Console.PutLine(Style)
+
+  return True
+}
+
+// Returning Records
+
+Format { Size:Integer Name:Text }  // <-- The record
+
+// Routine returning the record:
+MyRecordFunction : Format { 
+  Result : Format 
+  Result.Size := 1234
+  Result.Name := 'abcd'
+  
+  return Result
+    
+  // Future releases might allow:  return 1234, 'abcd'
+}
+
+// Calling the method and obtaining the tuple X:
+FuncX ::= MyRecordFunction 
+Console.Put(FuncX.Name)
+
+// Unnamed Class Types
+
+Planet2 : { Name:Text, Radius:Float }
+Planet2.Name := 'Saturn'
+
+// An array can be used to initialize all class fields, in order:
+
+AnotherPlanet::= [ 'Saturn', 58232 ]  
+
+// Also array of arrays:
+
+Planets : { Name:Text, Radius:Float } [] :=  
+  [
+    [ 'Mars',  3389.5 ],
+    [ 'Earth', 6371.0 ]
+  ] 
+
+// Many-Values Parameters
+
+Print( Values : Data...) { 
+ for Value in Values Console.PutLine(Value)
+}
+
+// Call examples:
+Print
+Print('abc')
+Print(123,'abc',True)  
+
+PrintNumbers( Values : Integer... ) {
+ for Value in Values Console.PutLine(Value)
+}
+
+PrintNumbers(7,8,9,10,11)  // similar to: [7,8,9,10,11]
+
+// Method Overloads
+
+Write( Number : Integer) {}
+Write( Number : Float):Integer[] {}
+Write( Word : Text, Other : Boolean) {}
+
+// Method Inheritance
+
+Class3 {
+  Proc() {}
+}
+
+Class4 is Class3 {
+  Proc() {
+    Ancestor  // calls Class3.Proc
+    Console.PutLine('Class4')
+  }
+}
+
+// Final Methods
+
+final Proc() { Console.PutLine('Final Proc') }
+
+// Abstract Methods
+
+Test {
+    Foo(A:Integer):Text {}  // <-- abstract method
+}
+ 
+
+// Interfaces
+
+MyInterface {
+   MyMethod( Data : Boolean ):Text {}   // abstract function
+}
+
+// Class derived from interface
+
+MyClass is MyInterface {   // Deriving from an interface
+
+  // must implement abstract method
+  MyMethod( Data : Boolean ):Text { 
+     return Data ? "abc" : "def"
+  }
+} 
+
+// Soft Interfaces
+
+SomeClass2 {
+  MyMethod( Data : Boolean ):Text { return Data ? "abc" : "def" }
+}
+
+// This method requires a MyInterface parameter
+Example( Value : MyInterface) {
+  Value.MyMethod(True)
+}
+
+Some1 : SomeClass2
+// TODO: Example(Some1)  // Some1 variable is considered of MyInterface type
+
+// Modules
+
+with FooArray := "Basic\Arrays"
+
+A123 : FooArray
+
+// Element Visibility
+
+hidden MyClass2 {
+  hidden MyField : Integer
+  hidden MyFunction : Boolean {}
+  hidden MySubClass { Foo() {} }
+
+  Foo() {
+    MyField := 123
+    MyFunction
+   
+   Sub : MySubClass
+   Sub.Foo    // TODO: Compile-time abstract call
+  }
+}
+
+// Type-level shared elements
+
+Colors2 {
+  shared Default : Text := "Red"
+}
+
+Colors2.Default := "Blue"   // Can be used at type-level, without any instance
+
+Colors3 {
+  shared Default : Text := "Red"
+  
+  // Type-level procedure, no shared keyword necessary
+  SetDefault( Value : Text) { Default:=Value }
+}
+
+Colors3.SetDefault( "Green" )
+
+
+// Namespaces
+
+// Module1
+MyNamespace {
+  MyClass {}
+}
+
+
+// Strong Typing
+
+// Type alias
+
+Year is Integer {}
+SomeYear : Year
+
+Month is Integer {}
+SomeMonth : Month
+
+// SomeYear := SomeMonth  // <-- Error. Different types.
+
+Class7 {}
+Class8 is Class7 {}
+
+SomeClass7 : Class7
+SomeClass8 : Class8
+
+// ERROR: 
+// SomeClass8 := SomeClass7 // <-- equivalent but forbidden (strict check)
+
+
+// Type Discovery and Reflection
+
+// Type checking:
+if Type.is( C1, Class1 ) {
+   Console.PutLine('C1 is of type Class1')
+}
+
+// Obtaining the list of methods of a given type or instance:
+// TODO: Methods:Method[] := Type.Methods( C1 )
+
+// Simple class
+MyTestClass {
+}
+
+// New extended Procedure
+MyTestClass.MyProcedure() { 
+  Console.PutLine('Extended Procedure')
+}
+
+MyTestClass.MySubClass { X:Float }  // New extended Sub-class
+
+Foo2 : MyTestClass
+Foo2.MyProcedure()   // Calling an extension as if it was a normal method
+
+Bar : MyTestClass.MySubClass
+Bar.X := 123
+
+MyTestClass.MySubClass.MyNewMethod() {}
+// TODO: Bar.MyNewMethod()
+
+// Function Types
+
+MyProcType is (A:Text, B:Integer):Float {}
+
+Foo(Function: MyProcType) { Function('Hello',123) }
+
+MyFunction(A:Text, B:Integer):Float { 
+  Console.PutLine(A, ' ', B.AsText) 
+  return 12.3
+}
+
+// TODO: Foo(MyFunction)  // shows 'Hello 123'
+
+
+// Anonymous Functions
+
+// Same as the above example "MyFunction", but unnamed
+// TODO: 
+/*
+Foo( 
+ (A:Text, B:Integer):Float { Console.PutLine(A,' ',B) }
+)
+*/
+
+// Same as above, but using a variable
+//TODO: 
+// MyFunction_Variable : MyProcType := { Console.PutLine(A, ' ', B) }
+
+// Foo(MyFunction_Variable)
+
+
+// Enumerable Types
+
+Colors4 is { Red, Green, Blue, Yellow }
+
+MyColor : := Colors4.Blue
+
+Names2 : Text[Colors4]  // Array of four text items
+Names2[Colors4.Green] := "I Like Green"
+
+for Color in Colors4 {
+  Console.PutLine(Color)
+}
+
+
+// Statements
+
+/// Assignment
+
+Var_a, Var_b, Var_c, Var_d : Integer
+
+Var_b := 1
+Var_a := Var_b
+Var_b := Var_c + Var_d  // TODO: Var_c and Var_d not initialized
+
+
+Call_foo() { Console.PutLine('foo') }
+Call_bar() { Console.PutLine('bar') }
+
+
+// If
+
+if Var_a=Var_b
+   Call_foo
+else
+   Call_bar
+
+
+// While
+
+while Var_a > Var_b {
+  if Var_a=0 
+     break   // "break" exits the "while" loop
+  else 
+     Var_a:= Var_a - 1
+}
+
+// Repeat
+
+repeat {
+  Var_b += 1
+
+  if Var_b=5 
+     continue  // "continue" jumps to start of "repeat"
+
+} until Var_a<>Var_b
+
+// Single statements do not require { }
+
+repeat
+  Var_b +=1
+until Var_b>5
+
+
+// For
+
+for 1 to 10 { Console.Put }  // ten times
+for 5..7 { Console.Put }   // three times
+
+for t in 1..10 { Console.Put }   // ten times
+
+Loop_a ::= 5    Loop_b ::= 7
+for Loop_x: := Loop_a to Loop_b { Console.Put }   // three times
+for Loop_y: := 1+Loop_a to 9 { Console.Put } // four times, from 6 to 9
+
+for c in Colors { Console.Put }
+
+
+Nums3: := [ 6,2,9 ]
+for i in Nums3 { Console.Put(i) }    // iterate an array
+
+for i in [ 6,2,9 ] // the type of "i" is automatically inferred
+   Console.Put(i)
+
+for c in "abc" { Console.Put(c) } // for each character
+ 
+// When
+
+Name9 ::= "Jane"
+
+when Name9 {
+  "Jane"  { Call_foo }
+  "Peter" { Call_bar }
+else
+   Console.PutLine('Else')
+}
+
+
+num ::= 5 
+abcd ::= 3
+
+when abcd + num {
+  < 3 { Console.PutLine('Lower than 3') }
+    4 { Console.PutLine('Equals 4') }
+ <> 6 { Console.PutLine('Different than 6') }
+else {
+   Console.PutLine('Else')
+  } // otherwise
+}
+
+// Return 
+
+Test2 {
+  Foo() { return }
+  Bar:Text { return "abc" }
+}
+
+// The return keyword is optional at the last expression of a function:
+Square(X:Float):Float { X*X }
+
+// Try Catch
+
+try { 
+  X::=1/num   // <-- error divide by zero !
+  Console.PutLine(X)
+}
+finally {
+  Console.PutLine('Always executed')
+}
+
+num:= 0
+try { X::=1/num 
+  Console.PutLine(X)
+  }
+catch {
+  // Optional code, might be empty {}    
+  Console.PutLine('An error happened')
+}
+
+MyError { Code:Integer }
+Foo() { Exception.Raise(MyError) }  // <-- just an example of generating an error
+
+try { Call_foo() }
+catch MyError {
+  Console.PutLine('MyError happened')
+}
+
+
+try { Call_foo() }
+catch X:MyError {
+  Console.PutLine('MyError happened: ', X.Code)
+}
+
+
+try { Call_foo() }
+catch { Console.PutLine('Error happened') }
+finally { Console.PutLine('Always executed') } 
+
+
+try { Call_foo() }
+catch X:MyError { Console.PutLine('MyError happened: ', X.Code) }
+catch DivideByZero { Console.PutLine('Division by Zero') }
+// catch DivideByZero {} <-- duplicate compile-time error
+
+
+// Recursivity
+
+Factorial(x:Integer):Float {
+  x=0 ? 1 : x * Factorial(x-1)
+}
+
+Factorial(5)  // Returns 120
+
+
+// Forward Declarations
+
+TestInner(Work:Boolean) {} // <-- empty placeholder
+
+// TODO:
+/*
+TestForward() {
+    TestInner(False)  // <-- not yet declared
+}
+
+
+// This replaces the placeholder above:
+TestInner(Work:Boolean) {
+  if Work
+     TestForward
+}
+
+{
+  TestInner(True)
+}
+*/
+
+
+// Properties
+
+
+MyClass9 {
+  Foo : Integer := 123  // simple field, value or property
+}
+
+MyClass10 {
+  hidden MyFoo : Integer
+  Foo : Integer { return MyFoo }  // property getter (read)
+  Foo(Value:Integer) { MyFoo:=Value } // property setter (write)
+}
+
+MyVar_Class10 : MyClass10
+MyVar_Class10.Foo := 123  // will call the setter method: Foo(123)
+
+
+// Finalizers
+
+Shop {
+  Console.PutLine( 'Open!' )
+    
+  Work() { Console.PutLine('Working !') }
+
+  final {
+     Console.PutLine( 'Closed!' )
+   }
+}
+
+{
+  MyShop : Shop
+  // do something with MyShop ...
+  MyShop.Work
+} // <-- at the end of the scope, MyShop finalizer is called
+
+
+
+// Expression Operators
+
+// Declare a new "is" operator, using the existing Type.is function
+//TODO: Operator.is := Type.is
+
+// Use example
+Foo33 : Boolean 
+
+// Equivalent expressions
+if Type.is(Foo33, Boolean) Console.PutLine('Ok')
+
+// Using the new "is" operator
+//TODO: if Foo33 is Boolean Console.PutLine('Ok')
+
+// Existing basic operators like +, -, *, >, < etc could theoretically be re-implemented as extensions.
+// The compiler finds the best overload for left and right types, if there is more than one.
+
+// A + B   // calls Integer.Add(A,B) if both A and B are Integer-compatible
+
+
+// TODO: Invalid order:
+//OUT: Open!^
+//OUT: Closed!^
+//OUT: Working !^
+

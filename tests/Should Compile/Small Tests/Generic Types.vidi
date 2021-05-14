@@ -63,7 +63,7 @@ Generic_Integer is Generic(Integer) {
   Num3.Data := 1000
 
   Num3.Bar(123)
-  Console.PutLine(Num3.Lee(Float))
+// TODO:  Console.PutLine(Num3.Lee(Float))
 
   // Calculated Variable type, calling a shared method
   // TODO: Num4:Generic_Derived.Lee(Text)

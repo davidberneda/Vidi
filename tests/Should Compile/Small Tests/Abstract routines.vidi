@@ -3,7 +3,7 @@ Test {
 }
 
 Test2 is Test {
-  Foo() { Console.PutLine('Foo') } // override
+  Foo() { Console.PutLine('Foo2') } // override
 }
 
 {
@@ -11,4 +11,7 @@ Test2 is Test {
   T.Foo()  // using instance
   
   Test2.Foo()  // no instance, using type
+
+  T2:Test:=T
+  T2.Foo  // polymorphism should call Test2.Foo, which is the type of T
 }

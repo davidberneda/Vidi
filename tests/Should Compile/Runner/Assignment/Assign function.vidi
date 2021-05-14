@@ -1,0 +1,13 @@
+Foo:Integer
+{
+  42
+}
+
+{
+  Y:Integer
+
+  Y:=Foo+1
+  Console.Put(Y)
+}
+
+//OUT: 43

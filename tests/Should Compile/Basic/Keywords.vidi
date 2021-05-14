@@ -60,7 +60,7 @@ Keywords {
     Four:Text
     One:Text { "Hi" }
     Two:Integer { 42 }
-    Three() { Four:= One }
+    Three() { Four:= One Console.PutLine(Four) }
   }
 
   // Passing interfaces
@@ -77,7 +77,10 @@ Keywords {
   SelfTest {
     Foo() { Console.PutLine('Foo') }
     TestProc(Param:SelfTest) { Console.PutLine('TestProc') Param.Foo }
-    Proc123() { TestProc(Self) }
+
+    Proc123() { 
+    //  TestProc(Self) 
+    }
   }
 
   // Ancestor keyword to refer parent class
@@ -85,18 +88,37 @@ Keywords {
   AncestorTest is SelfTest {
     Proc123() {
       Ancestor   // <- calls SelfTest.Proc123
+      Console.PutLine('Proc123')
     }
      
-    Foo() { Ancestor Proc123() }
+    Foo() { 
+      Ancestor 
+      Proc123() 
+    }
   }
 
   // Shared variable (at type-level)
 
   shared Foo : Integer
 
-  MyVariable:=True // unused ???
+  MyVariable:=True
   Console.PutLine(MyVariable)
   
   Sample:Text:= /* comments */ 'Around Code'
   
 }
+
+{
+ K:Keywords
+ Console.PutLine(K.Sample)
+ K.SelfTest.Foo
+ Keywords.AncestorTest.Foo
+}
+
+//OUT: Keywords^
+//OUT: False^
+//OUT: True^
+//OUT: Around Code^
+//OUT: Foo^
+//OUT: Foo^
+//OUT: True^

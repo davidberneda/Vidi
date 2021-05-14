@@ -1,0 +1,10 @@
+{
+  P:Integer[1]
+   
+  for i in 0..0
+      P[i] := i+123
+
+  Console.Put(P)
+}
+
+//OUT: 123

@@ -1,0 +1,12 @@
+Test {
+  final X ::= 123 // Type-level Constant
+}
+
+{
+  Console.Put(Test.X)
+
+  T:Test
+  Console.Put(T.X)
+}
+
+//OUT: 123123

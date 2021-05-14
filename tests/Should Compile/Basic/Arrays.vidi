@@ -108,3 +108,14 @@ Arrays {
   Texts_6:Text[]:= [ ['a','b'], ['c','d'] ]
 }
 
+
+{
+ a:Arrays
+  Console.PutLine(a.Big)
+}
+
+//OUT: Arrays^
+//OUT: Test^
+//OUT: 123^
+//OUT: 5^
+//OUT: 1234534^

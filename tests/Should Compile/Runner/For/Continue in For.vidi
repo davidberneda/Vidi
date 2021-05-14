@@ -1,0 +1,20 @@
+{
+  min::= 123 + 0
+  max::= 126 
+
+  for d in min..1+max { // 123 to 127
+
+     Console.PutLine(d) 
+
+     if d=max-1 
+        break
+     else
+        continue
+
+     Console.PutLine('never happens')
+  }
+}
+
+//OUT: 123^
+//OUT: 124^
+//OUT: 125^

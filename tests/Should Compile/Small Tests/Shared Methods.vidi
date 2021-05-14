@@ -43,5 +43,16 @@ Test {
 
  Test.Sub.Foo
 
- Console.PutLine(Test.Sub.Lee)
+ B::=Test.Sub.Lee
+ Console.PutLine(B)
 }
+
+
+//OUT: I am a shared method^
+//OUT: I am a shared method^
+//OUT: X^
+//OUT: 123^
+//OUT: 123^
+//OUT: I am a shared method^
+//OUT: Sub.Lee^
+//OUT: X^

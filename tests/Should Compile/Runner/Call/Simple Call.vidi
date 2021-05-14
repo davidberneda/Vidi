@@ -1,0 +1,9 @@
+Foo(X:Integer) {
+  Console.Put(X)
+}
+
+{
+  Foo(123)
+}
+
+//OUT: 123

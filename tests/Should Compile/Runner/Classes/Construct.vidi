@@ -1,0 +1,7 @@
+final A ::= Math.Square(5) // 5*5 = 25
+
+{
+  Console.Put(A)
+}
+
+//OUT: 25

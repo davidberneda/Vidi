@@ -1,5 +1,5 @@
 Shop {
-  Hello() {}
+  Hello() { Console.PutLine('Hello') }
 
   Console.PutLine( 'Open !' )
 
@@ -22,3 +22,9 @@ Test {
   T:Test
   T.Work
 }
+
+//OUT: Open !
+//OUT: Hello
+//OUT: Finishing
+//OUT: Closed !
+

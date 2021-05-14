@@ -1,0 +1,11 @@
+Factorial(x:Integer):Float {
+  x=0 ? 1 : x * Factorial(x-1)
+}
+
+X::=Factorial(5)  // Returns 120
+
+{
+  Console.PutLine(X)
+}
+
+//OUT: 120^

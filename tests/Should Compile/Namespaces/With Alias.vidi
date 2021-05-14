@@ -1,6 +1,8 @@
 with Z:="Spaces in file name" 
 
 {
-  X::=Z.Y
+  X:Z.Y
   Console.PutLine(X.X)
 }
+
+//OUT: a^

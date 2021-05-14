@@ -2,3 +2,6 @@ with F := Fibonacci
 {
   Console.Put( /*F.*/ Fibonacci.Loop(5))
 }
+
+
+//OUT: 8

@@ -1,0 +1,18 @@
+Test {
+  Foo() {
+    for x in [1,2,3]
+       Console.Put(x,' ') //OUT: 1 2 3
+  }
+
+  Bar(Items:Text[]) {
+    for x in Items
+       Console.Put(x,' ')
+  }
+}
+
+{
+  Console.Clear
+  Test.Foo
+  Test.Bar(['X','Y','Z'])  //OUT:  X Y Z .
+  Console.Put('.')
+}

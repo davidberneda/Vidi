@@ -1,0 +1,11 @@
+Test {
+  X:Integer
+}
+
+{
+  T::=Test // inferred type is: Type
+
+  Console.Put(T.X)
+}
+
+// ERROR: [8,18] Unknown: X

@@ -1,5 +1,7 @@
 {
- X::=[ [1,2,3],  [4,5,6] ]   // X:Integer[2,3] // [2][3]
+ X::=[ [1,2,3], 
+
+       [4,5,6] ]   // X:Integer[2,3] // [2][3]
 
  Console.PutLine(X[0,0])
  Console.PutLine(X[0,1])

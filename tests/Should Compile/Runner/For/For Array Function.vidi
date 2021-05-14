@@ -1,0 +1,14 @@
+// Function Bar, returns an array
+Bar:Float[] { 
+  [3.14, 2.71] 
+}
+
+{    
+  // Loop on Bar function result 
+
+  for x in Bar {
+    Console.Put(x,' ')  // 3.14 2.71
+  }
+}
+
+//OUT: 3.14 2.71 

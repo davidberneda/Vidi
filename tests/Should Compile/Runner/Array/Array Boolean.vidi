@@ -1,0 +1,16 @@
+X:Boolean[]
+
+Foo:Integer {
+ 2
+}
+
+{
+ X.Count:=Foo
+
+ X[0]:=True
+ X[1]:=False
+
+ Console.PutLine(X)
+}
+
+//OUT: TrueFalse^

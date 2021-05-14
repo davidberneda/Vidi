@@ -1,0 +1,16 @@
+Test:Text[100..101]
+
+Foo()
+{
+  Console.PutLine(Test.Low)
+  Console.PutLine(Test.High)
+}
+
+{
+ Foo
+}
+
+// TODO: Error, should return 100 and 101
+
+//OUT: 0^
+//OUT: 1^

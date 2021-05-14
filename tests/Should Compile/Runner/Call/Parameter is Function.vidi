@@ -1,0 +1,9 @@
+Bar:Integer { 
+  456
+}
+
+{
+  Console.PutLine(Bar)
+}
+
+//OUT: 456^

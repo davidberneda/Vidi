@@ -5,3 +5,5 @@ with Extenders.Foo.Bar
   Console.PutLine( L.Name )
 
 }
+
+//OUT: Lee^

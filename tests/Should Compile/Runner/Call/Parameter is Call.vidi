@@ -1,0 +1,13 @@
+Bar:Integer {
+  456
+}
+
+Foo(X,Y:Integer) {
+  Console.PutLine(X,Y)
+}
+
+{
+  Foo(123,Bar)
+}
+
+//OUT: 123456^

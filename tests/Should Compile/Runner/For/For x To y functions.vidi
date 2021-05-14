@@ -1,0 +1,9 @@
+Foo:Integer { 99 }
+Bar:Integer { 100 }
+
+{
+  for y::=Foo to Bar 
+      Console.Put(y)
+}
+
+//OUT: 99100

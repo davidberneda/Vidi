@@ -1,0 +1,13 @@
+foo:Integer[10] 
+
+Test()
+{
+  X::=10
+  Console.PutLine(foo[X])
+}
+
+{ 
+  Test
+}
+
+//OUT: Array index 10 greater than maximum 9

@@ -1,0 +1,8 @@
+{
+ P:Integer[2]
+
+ if P[0] = 0
+    Console.Put('Yes')
+}
+
+//OUT: Yes

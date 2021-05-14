@@ -16,15 +16,23 @@ Temperature {
   T:Temperature
   T.Fahrenheit:=99
 
-  Console.PutLine("Celsius: ",T.Celsius)
+  Console.PutLine("Celsius: ",T.Celsius) // Celsius 0
 
   T.Celsius:=32
-  Console.PutLine(T.Celsius)
+  Console.PutLine(T.Celsius)  // 32
 
-  Console.PutLine(T.Fahrenheit)
+  Console.PutLine(T.Fahrenheit) // 89.6
 
   T.Fahrenheit:=100
 
-  Console.PutLine(T.Fahrenheit)
-  Console.PutLine(T.Celsius)
+  Console.PutLine(T.Fahrenheit)  // 100
+  Console.PutLine(T.Celsius)     // 37.7777777777778
 }
+
+//OUT: Celsius: 37.2222222222222^
+//OUT: 32^
+//OUT: 89.6^
+//OUT: 100^
+//OUT: 37.7777777777778^
+
+

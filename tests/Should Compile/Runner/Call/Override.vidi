@@ -1,0 +1,28 @@
+  MyInterface {
+    One:Text {}
+    Three() {}
+  }
+
+  InterfaceTest is MyInterface {
+    Four:Text
+
+    One:Text { "Hi" }
+
+    Three() { 
+      Four:= One 
+      Console.PutLine(Four) 
+    }
+  }
+
+  // Passing interfaces
+
+  SomeMethod( I : MyInterface) {
+    I.Three()
+  }
+
+{
+  My_Interface : InterfaceTest
+  SomeMethod(My_Interface)
+}
+
+//OUT: Hi^

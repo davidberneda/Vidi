@@ -1,0 +1,9 @@
+Foo() {
+  return
+}
+
+{
+ Foo
+}
+
+//OUT:

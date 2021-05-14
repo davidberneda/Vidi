@@ -1,0 +1,20 @@
+TestInner(Work:Boolean) {
+  Console.Put(Work)
+} // <-- empty placeholder
+
+TestForward() {
+  TestInner(False)  // <-- not yet declared
+}
+
+// This replaces the placeholder above:
+_TestInner(Work:Boolean) {
+
+  Console.PutLine(Work)
+
+  if Work
+     TestForward
+}
+
+{
+ TestInner(True)
+}

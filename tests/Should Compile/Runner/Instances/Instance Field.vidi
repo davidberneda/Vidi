@@ -1,0 +1,11 @@
+Test { X:Integer }
+
+{
+  T:Test
+  Console.Put(T.X)  // 0
+  
+  T.X:=123
+  Console.Put(T.X)  // 123
+}
+
+//OUT: 0123

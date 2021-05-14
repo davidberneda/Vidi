@@ -1,0 +1,10 @@
+Colors is { Red, Green, Blue, Yellow }
+
+{
+  for Color in Colors
+      if Color=Colors.Red
+         Console.PutLine('Red', ' ')
+}
+
+//OUT* Red Green Blue Yellow <-- pending
+//OUT: Red ^

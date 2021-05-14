@@ -1,0 +1,11 @@
+{
+  X::=42
+  Console.Put(X.AsText)
+
+  C:Character:=' '
+  Console.Put(C)
+
+  Console.Put(42.AsText)
+}
+
+//OUT: 42 42

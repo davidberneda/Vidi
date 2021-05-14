@@ -1,0 +1,7 @@
+Foo:Integer[3] {}
+
+{
+  Foo[0]:=123
+}
+
+// ERROR: [4,9] Cannot assign: Integer to: ArrayExpression:TArrayExpression?

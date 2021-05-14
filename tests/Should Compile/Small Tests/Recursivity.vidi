@@ -6,3 +6,5 @@ Factorial(x:Integer):Float {
 {
   Console.PutLine(Factorial(6))  // Returns 720
 }
+
+//OUT: 720^

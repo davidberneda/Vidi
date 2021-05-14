@@ -1,0 +1,16 @@
+Age is Integer {
+  Show() { 
+    Console.Put(Self) 
+  }
+}
+
+{
+  A:Age  
+  A:=15
+
+  Console.Put(A)
+
+  A.Show
+}
+
+//OUT: 1515

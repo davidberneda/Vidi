@@ -1,3 +1,6 @@
 Test {
   X:Integer[1+1..2+5] // Should work
 }
+
+T:Test
+

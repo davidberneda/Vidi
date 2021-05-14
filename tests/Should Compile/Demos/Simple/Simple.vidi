@@ -25,25 +25,28 @@
   
   SomeNumber:Float { 3.1415 }
 
-  Console.PutLine(SomeNumber) //, "Pi", True, 123)
+  Console.PutLine(SomeNumber) // 3.1415
 
-  Console.PutLine(2+2)
-  Console.PutLine(2+SomeNumber)
+  Console.PutLine(2+2)  // 4
+  Console.PutLine(2+SomeNumber)  // 5.1415
 
-  for num::=-(2+1) to -1  {Console.PutLine(num)}
+  for num::=-(2+1) to -1 { 
+     Console.PutLine(num) } // -3 -2 -1
 
-  for a in 1..3 { Console.PutLine(a) }
+  for a in 1..3 { Console.Put(a) }  // 123
 
-  for num::=2 to 4  {Console.PutLine(num)}
+  for num::=2 to 4  {Console.Put(num)} // 234
+
+  Console.PutLine
 
   d:Text[]:=["a",'b']
-  Console.PutLine(d)
+  Console.Put(d) // ab
  
   e:Text[]:=d+['c']
-  Console.PutLine(e)
+  Console.Put(e) // abc
 
   f::=e+d
-  Console.PutLine(f)
+  Console.PutLine(f) // abcab
 
 //  g:Text[]:=d+'c'   <-- should fail 
 //  Console.PutLine(g)

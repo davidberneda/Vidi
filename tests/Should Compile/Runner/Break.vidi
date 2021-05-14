@@ -1,0 +1,18 @@
+{
+  for 1..2  {
+    
+    a::=5
+    b::=2
+
+    while a>b {
+      b+=1
+
+      if b=3 
+         break
+    }
+
+    Console.Put(b)
+  }
+}
+
+//OUT: 33

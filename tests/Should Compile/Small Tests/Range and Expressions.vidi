@@ -1,6 +1,8 @@
-//X is (1)..10 {}
+//bug: X is (1)..10 {}
 
 {
-  b:Integer[1+1..2+5]
+  b:Integer[1+1..2+5]  // from 2 to 7 = 6 elements
   Console.PutLine(b)
 }
+
+//OUT: 000000^

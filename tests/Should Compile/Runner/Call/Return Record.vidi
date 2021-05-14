@@ -1,0 +1,20 @@
+Format { Size:Integer Name:Text }  // <-- The record
+
+// Routine returning the record:
+MyRecordFunction : Format { 
+  Result : Format 
+  Result.Size := 123
+  Result.Name := 'abc'
+  
+  return Result
+    
+  // Future releases might allow:  return 123, 'abc'
+}
+
+{
+  // Calling the method and obtaining the tuple X:
+  FuncX ::= MyRecordFunction 
+  Console.Put(FuncX.Name,' ',FuncX.Size)
+}
+
+//OUT: abc 123

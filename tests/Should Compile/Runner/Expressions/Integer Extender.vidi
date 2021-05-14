@@ -1,0 +1,6 @@
+{
+  S :Text:= (5*4).AsText
+  Console.PutLine( S )
+}
+
+//OUT: 20^

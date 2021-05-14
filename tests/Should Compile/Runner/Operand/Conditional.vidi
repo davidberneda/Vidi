@@ -1,0 +1,9 @@
+{
+  final A::=True
+
+  X::= A ? 1 : 2
+
+  Console.Put(X)
+}
+
+//OUT: 1

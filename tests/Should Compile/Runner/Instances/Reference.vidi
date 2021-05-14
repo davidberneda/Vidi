@@ -1,0 +1,16 @@
+Test {
+  X : Integer
+}
+
+{
+  A : Test
+  B : Test
+  
+  B:=A
+
+  A.X := 123
+  
+  Console.PutLine(B.X)
+}
+
+//OUT: 123^

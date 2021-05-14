@@ -14,3 +14,7 @@ F2:Text {
 {
   Console.PutLine(F1+' - '+F2)
 }
+
+//OUT: F1^
+//OUT: F2^
+//OUT: F1 - F2^

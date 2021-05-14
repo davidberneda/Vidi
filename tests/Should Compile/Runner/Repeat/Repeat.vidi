@@ -1,0 +1,10 @@
+{
+  X:Integer:=8
+  repeat {
+    X /= 2
+  } until X=1
+
+  Console.Put(X)
+}
+
+//OUT: 1

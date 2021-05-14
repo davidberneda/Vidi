@@ -1,0 +1,15 @@
+{
+  X:Integer:=1
+
+  Keep:Boolean {
+    X<8
+  }
+
+  while Keep {
+    X *= 2
+  }
+
+  Console.Put(X)
+}
+
+//OUT: 8

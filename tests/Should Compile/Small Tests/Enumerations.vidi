@@ -15,3 +15,7 @@ Play(Item:Throw)
   Play(Throw.Paper)
   Play(Throw.Scissors)
 }
+
+//OUT: Rock^
+//OUT: Paper^
+//OUT: Scissors^

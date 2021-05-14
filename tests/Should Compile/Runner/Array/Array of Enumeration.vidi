@@ -1,0 +1,11 @@
+Planet is { Venus, Earth, Mars }
+
+{
+  Radius : Float[Planet]
+
+  Radius[Planet.Earth] := 6371 // km
+
+  Console.PutLine(Radius,' km')  
+}
+
+//OUT: 063710 km^

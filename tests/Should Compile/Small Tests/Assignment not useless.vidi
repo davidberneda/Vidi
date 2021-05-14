@@ -6,8 +6,11 @@ Test {
   X:Integer:=1
   //X:=2
   
-  Test.Foo(X)
+  Test.Foo(X)  // 4
   
   X:=3
-  Console.PutLine(X)
+  Console.PutLine(X) // 3
 }
+
+//OUT: 4^
+//OUT: 3^

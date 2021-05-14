@@ -1,0 +1,18 @@
+{
+  S: SomeThing 
+
+  S := "Hello"
+  Console.Put(S)
+
+  S := 2
+  Console.Put(S)
+
+  S := 3.14
+  Console.Put(S)
+
+  S := True
+  Console.Put(S)
+
+}
+
+//OUT: Hello23.14True

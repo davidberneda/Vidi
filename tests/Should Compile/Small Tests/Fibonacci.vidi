@@ -1,7 +1,7 @@
 Fibonacci {
   
   Loop(Value:Integer):Integer {
-    a:Integer:=1
+    a::=1
     b:Integer:=0
   
     for 0..Value {
@@ -21,13 +21,20 @@ Fibonacci {
 {
   Console.PutLine('Loop')
 
-  for i in 0..20
+  for i in 0..15
       Console.Put( Fibonacci.Loop(i), ' ' )
 
   Console.PutLine
 
   Console.PutLine('Recursive')
 
-  for i in 0..20
+  for i in 0..15
       Console.Put( Fibonacci.Recursive(i), ' ' )
+
+  Console.PutLine
 }
+
+//OUT: Loop^
+//OUT: 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 ^
+//OUT: Recursive^
+//OUT: 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 ^

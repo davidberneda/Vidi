@@ -1,0 +1,11 @@
+F(x:Integer):Float {
+  x=0 ? 1 : 2
+}
+
+X::=F(5)
+
+{
+  Console.Put(X)
+}
+
+//OUT: 2

@@ -1,4 +1,4 @@
-// ERROR: [6,6] Array access lower than range minimum Integer:TInteger?
+// ERROR: [6,6] Array index 0 lower than minimum 1 Integer:TInteger?
 
 Test {
  X:Integer[1..5]

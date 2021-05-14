@@ -1,0 +1,7 @@
+{
+  foo::=0
+  Console.PutLine(42 / foo)
+}
+
+//OUT: Division by zero
+

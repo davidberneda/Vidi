@@ -1,0 +1,6 @@
+{
+  X::= False<>True
+  Console.Put(X)
+}
+
+//OUT: True

@@ -1,0 +1,18 @@
+Y:Integer
+
+foo:Boolean {
+  Y>10 
+}
+
+{
+  X:integer
+
+  if foo 
+   X:=1
+  else
+   X:=2
+
+  Console.Put(X)
+}
+
+//OUT: 2

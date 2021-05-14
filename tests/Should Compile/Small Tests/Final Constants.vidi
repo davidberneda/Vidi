@@ -1,6 +1,6 @@
 final Test {
-  final A::="The A"
-  final B::="Is "+A
+  final A ::= "The A"
+  final B ::= "Is "+A
   
   shared Y:Text:='d'
   
@@ -8,19 +8,21 @@ final Test {
   
   SomeText:Text { 'abc'+Y }
   
-  final C ::=Square(5+2)
-  final D::=SomeText
+  final C ::= Square(5+2)
+  final D ::= SomeText
 }
 
 // Test2 is Test {} // ERROR Test is final
 
 {
+  Console.PutLine(Test.A) // "Is The A"
+
   T:Test
   Console.PutLine(T.B) // "Is The A"
 
-//  t.a:="aa"  // ERROR A is final
-//  Console.PutLine(Test.B)  // ERROR B is not shared
+//  t.A:="aa"  // ERROR A is final
 
+  Console.PutLine(Test.B)
   Console.PutLine(Test.C)
   Console.PutLine(Test.D)
 }

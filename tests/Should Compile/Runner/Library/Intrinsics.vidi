@@ -1,0 +1,23 @@
+{
+  X:Text :='abcde'
+
+  N:Integer := X.IndexOf('c')
+  Console.PutLine(N)
+
+  N:= X.IndexOf('z')
+  Console.PutLine(N)
+
+  Y:Float:= -123.4
+  Console.PutLine(Y.Absolute)
+
+  Console.PutLine(Y.Round)
+  Console.PutLine(Y.Fraction)
+
+ // Console.PutLine(NamedType.NameOf(Y))
+}
+
+//OUT: 3^
+//OUT: 0^
+//OUT: 123.4^
+//OUT: -123^
+//OUT: -0.4^

@@ -6,7 +6,7 @@ Test {
 {
   Console.PutLine('Using shared type Test: ' , Test.A) // 123
 
-//  Console.PutLine(Test.B) // <-- this should not compile (B is not shared)
+  Console.PutLine(Test.B) // 456
 
 
   T:Test
@@ -15,3 +15,8 @@ Test {
 
 //  T.B:=789 // <--- error should not compile because B is final (readonly constant)
 }
+
+//OUT: Using shared type Test: 123^
+//OUT: 456^
+//OUT: Using instance T: 123^
+//OUT: 456^

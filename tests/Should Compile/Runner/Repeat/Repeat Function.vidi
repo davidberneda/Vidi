@@ -1,0 +1,15 @@
+{
+  X:Integer:=8
+
+  foo:Boolean {
+    X=1
+  }
+
+  repeat {
+    X /= 2
+  } until foo
+
+  Console.Put(X)
+}
+
+//OUT: 1

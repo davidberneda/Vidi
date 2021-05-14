@@ -1,0 +1,19 @@
+{
+  S : Integer [3]
+
+  S[0]:=123
+  S[1]:=456
+  S[2]:=789
+
+  X : Integer [1..3]
+ 
+  X[1]:=123
+  X[2]:=456
+  X[3]:=789
+
+  Console.PutLine(S)
+  Console.PutLine(X)
+}
+
+//OUT: 123456789^
+//OUT: 123456789^

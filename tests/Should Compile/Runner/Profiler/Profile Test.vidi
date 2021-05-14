@@ -1,0 +1,32 @@
+X::=0
+
+SubProc() {
+  X += 1
+}
+
+Proc1() {
+  SubProc
+}
+
+Proc2() {
+  SubProc
+}
+
+ProcTop()
+{
+  for 1..1000 Proc1
+
+  for 1..500 Proc2
+}
+
+{
+  ProcTop
+
+  for 1..100 Proc1
+  for 1..50 Proc2
+
+  Console.PutLine(X)
+}
+
+
+//OUT: 1650^

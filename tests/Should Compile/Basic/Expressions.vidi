@@ -6,7 +6,7 @@ Expressions {
  
 // ???? : Text := '??'
 
- Hello: Text := '??'
+ Hello: Text := 'hello'
  
 // Console.PutLine( ???? )
 
@@ -24,16 +24,24 @@ Expressions {
  b::= 456.789
 
  c::= a+b
+
+ Console.PutLine(c) // 1690.789
  
  c1::= a-b
  c2::= a*b
  
  c += (a / b)
 
+ Console.PutLine(c) // 1693.49046610361
+
  c3::= Math.Power(5,3) // 125
+
+ Console.PutLine(c3) // 125
 
  d::= Math.Power(c.Truncate,3)
  e::= Math.PowerFraction(c,4.1)
+
+ Console.PutLine(e) // 1.7298534008e+13
 
  expA ::= -1E20
  expB ::= -5.1e-3
@@ -148,16 +156,37 @@ v4::=not 123
 // h:= 0.asboolean
 
 // a:= true.asinteger
+  
+   p::= 23 < 12+c ? "a" : "b"
+   Console.PutLine(p)
 
- p::= 23 < 12+c ? "a" : "b"
- Console.PutLine(p)
-
- Caption :Text := (5*4).AsText
- Console.PutLine(Caption)
-
+   Caption :Text := (5*4).AsText
+   Console.PutLine(Caption)
 }
 
 {
  e:Expressions
   Console.PutLine(e.m)
 }
+
+
+//OUT: Expressions^
+//OUT: hello^
+//OUT: 1690.789^
+//OUT: 1693.49046610361^
+//OUT: 125^
+//OUT: 8215383330001^
+//OUT: -123450000^
+//OUT: 9^
+//OUT: True^
+//OUT: True^
+//OUT: True^
+//OUT: True^
+//OUT: True^
+//OUT: True^
+//OUT: False^
+//OUT: True^
+//OUT: True^
+//OUT: b^
+//OUT: 20^
+//OUT: True^

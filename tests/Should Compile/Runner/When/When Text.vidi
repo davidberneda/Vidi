@@ -1,0 +1,12 @@
+{
+ Name::="Jane"
+
+ when Name {
+  "Jane"  { Console.Put('J') }
+  "Peter" { Console.Put('P') }
+  else
+    Console.Put('?')
+ }
+}
+
+//OUT: J

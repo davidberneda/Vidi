@@ -1,0 +1,15 @@
+{
+  X:Integer:=0
+
+  repeat {
+    X +=1
+
+    if X>3 
+       break
+
+  } until X=100
+
+  Console.Put(X)
+}
+
+//OUT: 4

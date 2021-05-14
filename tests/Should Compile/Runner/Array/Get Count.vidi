@@ -1,0 +1,6 @@
+{
+  X:Integer[10]
+  Console.Put(X.Count)
+}
+
+//OUT: 10

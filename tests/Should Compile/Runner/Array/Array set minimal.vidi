@@ -1,0 +1,7 @@
+{
+  P:Integer[1]
+  P[0] :=123
+  Console.Put(P)
+}
+
+//OUT: 123

@@ -1,0 +1,17 @@
+Test {
+  Inner {
+    Foo() { 
+      Console.PutLine('Foo') 
+    }
+  }
+}
+
+{
+  T:Test
+  T.Inner.Foo
+
+  Test.Inner.Foo
+}
+
+//OUT: Foo^
+//OUT: Foo^

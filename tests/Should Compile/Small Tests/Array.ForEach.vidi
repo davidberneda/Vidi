@@ -31,3 +31,20 @@
  // Copy
  Console.PutLine(Copy)  // Mercury, Venus, Earth
 }
+
+
+//OUT: ^
+//OUT: Mercury^
+//OUT: Venus^
+//OUT: Earth^
+//OUT: A B C ^
+//OUT: 1^
+//OUT: 2^
+//OUT: 3^
+//OUT: -3^
+//OUT: -2^
+//OUT: -1^
+//OUT: MercuryVenusEarth^
+//OUT: MercuryPlutoEarth^
+//OUT: MercuryVenusEarth^
+//OUT: MercuryVenusEarth^

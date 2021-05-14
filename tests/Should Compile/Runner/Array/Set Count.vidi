@@ -1,0 +1,18 @@
+Foo:Integer { 1 }
+
+{
+  X:Integer[]
+
+  X.Count:=Foo
+  X[0]:=42
+
+  Console.PutLine(X)
+
+  Console.PutLine(X.Count)
+  X.Clear
+  Console.PutLine(X.Count)
+}
+
+//OUT: 42^
+//OUT: 1^
+//OUT: 0^

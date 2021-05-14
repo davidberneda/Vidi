@@ -3,7 +3,7 @@ Test {
 
   Foo() {
     x::=i
-    Console.PutLine(x) // 1
+    Console.Put(x) // 1
   }
 
   final Constant ::= 123 // Class Constant
@@ -15,7 +15,7 @@ Test {
 
      i:Integer:=2  // Local variable
      
-     Console.PutLine(i) // 2
+     Console.Put(i) // 2
 
      Inner_Class { // Local sub-class
        xyz : Float
@@ -25,8 +25,10 @@ Test {
      inner.xyz := i
      
      Foo()
-     a += 1
+     a += inner.xyz
    }
+
+   Console.Put(a) // 3
   }
   
   shared SharedZ : Text := 'Z' // Shared Class variable
@@ -35,5 +37,9 @@ Test {
 {
  T:Test
  T.Bar 
- Console.PutLine(T.SharedZ)
+ Console.Put(T.SharedZ)
+ Console.Put(Test.SharedZ)
+ Console.Put(' ',Test.Constant)
 }
+
+//OUT: 213ZZ 123

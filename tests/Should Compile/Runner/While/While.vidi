@@ -1,0 +1,10 @@
+{
+  X:Integer:=1
+  while X<8 {
+    X *= 2
+  }
+
+  Console.Put(X)
+}
+
+//OUT: 8

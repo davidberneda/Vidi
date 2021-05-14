@@ -1,0 +1,14 @@
+Test {
+  Sub {
+    Lee:Text { 
+       "X"
+    }
+  }
+}
+
+{
+ B::=Test.Sub.Lee
+ Console.PutLine(B)
+}
+
+//OUT: X^

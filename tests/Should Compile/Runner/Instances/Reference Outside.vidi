@@ -1,0 +1,21 @@
+Test {
+  X : Integer
+}
+
+A : Test
+
+Foo(Value:Test) {
+  A:=Value
+}
+
+{
+  B : Test
+  
+  Foo(B)
+  
+  B.X:=123
+
+  Console.PutLine(A.X)
+}
+
+//OUT: 123^

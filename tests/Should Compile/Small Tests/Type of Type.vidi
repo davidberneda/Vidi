@@ -1,0 +1,11 @@
+Food {}  // a simple class
+Fruit is Food {}
+Rice is Food {}
+
+MyFoodType : Type   // : Type(Food)
+MyFoodType := Rice
+
+MyFood ::= MyFoodType
+
+// TODO: 
+

@@ -1,0 +1,7 @@
+{
+  final foo::=0
+  Console.PutLine(42 / foo)
+}
+
+// ERROR: [3,27] Division by zero Division:TDivision?
+

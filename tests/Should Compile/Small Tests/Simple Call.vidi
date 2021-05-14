@@ -19,3 +19,11 @@ Bar:Text {
   Console.PutLine(Bar)
   Console.PutLine('D')
 }
+
+//OUT: A^
+//OUT: B^
+//OUT: S1^
+//OUT: S2^
+//OUT: C^
+//OUT: Bar^
+//OUT: D^

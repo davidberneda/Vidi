@@ -1,0 +1,15 @@
+Foo(Y:Integer):Integer {
+   Y*2
+}
+
+{
+  X:Integer:=1
+
+  while X<8 {
+    X :=Foo(X)
+  }
+
+  Console.Put(X)
+}
+
+//OUT: 8

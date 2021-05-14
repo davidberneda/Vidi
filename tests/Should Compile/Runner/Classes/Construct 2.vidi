@@ -1,0 +1,11 @@
+E {
+ c3::= Math.Power(5,3) // 125
+
+}
+
+{
+ E1 : E
+ Console.PutLine(E1.c3) // 125
+}
+
+//OUT: 125^

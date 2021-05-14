@@ -23,3 +23,7 @@ Test {
   T:Test
   Console.PutLine(T.Bar)  // 2
 }
+
+//OUT: 123^
+//OUT: abc^
+//OUT: 2^

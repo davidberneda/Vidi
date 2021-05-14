@@ -1,0 +1,7 @@
+X:Text :='hello'
+
+{
+  Console.Put(X)
+}
+
+//OUT: hello

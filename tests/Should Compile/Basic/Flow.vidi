@@ -72,6 +72,8 @@ Flow {
     Console.Put(a,' ')
   } // range
 
+  Console.PutLine
+
   min::= 123 + 0
   max::= 126 
 
@@ -81,18 +83,19 @@ Flow {
 
      Console.PutLine(f)
 
-     if d=max-1 
-        break
-     else
-        continue
-        
      // Example. 
      // Subclasses can appear everywhere
      MySubClass { SomeData:Text }   
      S:MySubClass
      S.SomeData:='SubClass inside For'
      
-     Console.PutLine(S.SomeData)
+     if d=max-1 {
+        Console.PutLine(S.SomeData)
+        break
+     }
+     else
+        continue
+        
   }
 
   m:Integer[3] // Initialized to zeroes
@@ -151,7 +154,7 @@ Flow {
   X +=1  // single-statement, {} not needed
  until X>5
  
- Console.PutLine(X)
+ Console.PutLine(X) // <-- TODO: Never happens (class instance constructor)
 }
 
 {
@@ -159,3 +162,35 @@ Flow {
   F.Test
   Console.PutLine(F.Name)
 }
+
+
+//OUT: 6^
+//OUT: Flow^
+//OUT: 5^
+//OUT: num is not six^
+//OUT: 5^
+//OUT: Name is Jane^
+//OUT: Text ab^
+//OUT: a^
+//OUT: b^
+//OUT: c^
+//OUT: 1 2 3 4 5 6 7 8 9 10 ^
+//OUT: 123^
+//OUT: 124^
+//OUT: 125^
+//OUT: SubClass inside For^
+//OUT: 0^
+//OUT: 0^
+//OUT: 0^
+//OUT: 1^
+//OUT: 2^
+//OUT: 3^
+//OUT: xxxxxxxxxx^
+//OUT: zz^
+//OUT: Mercury^
+//OUT: Venus^
+//OUT: Earth^
+//OUT: Mercury^
+//OUT: Venus^
+//OUT: Earth^
+//OUT: Jane^

@@ -1,0 +1,11 @@
+{
+  for 6 to 9
+      Console.Put('x')
+
+  a ::= 5 b ::= 7
+   
+  for x::=a to b
+      Console.Put(x)
+}
+
+//OUT: xxxx567

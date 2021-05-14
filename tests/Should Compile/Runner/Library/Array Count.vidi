@@ -1,0 +1,18 @@
+Test
+{
+  indexed C:Character[]
+  C.Count:=3
+
+  Foo:Integer { C.Count }
+
+  Total: Integer { Foo }
+}
+
+{
+  F:Test
+
+  Console.Put(F.Foo)
+  Console.Put(F.Total)
+}
+
+//OUT: 33

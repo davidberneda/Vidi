@@ -1,0 +1,12 @@
+Foo(X:Integer):Integer {
+  if X=0 
+     return 0
+  else
+     return X+Foo(X-1) 
+}
+
+{
+  Console.Put(Foo(3))
+}
+
+//OUT: 6

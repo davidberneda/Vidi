@@ -1,0 +1,5 @@
+{
+  Console.PutLine
+}
+
+//OUT: ^

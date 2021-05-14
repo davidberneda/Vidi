@@ -1,0 +1,10 @@
+{
+  X:Integer := -(1+2)
+  Console.PutLine(X)
+
+  Y:Float := -(1.2+2.3)
+  Console.PutLine(Y)
+}
+
+//OUT: -3^
+//OUT: -3.5^
