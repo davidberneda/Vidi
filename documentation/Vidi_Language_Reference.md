@@ -96,7 +96,7 @@ P : Podium := 4  // <-- Error. Overflow
 
 // The 'Podium' class can also be used as an array dimension:
 
-MyArray : Integer[Podium]  // same as: Integer[1..3]  
+Winners : Integer[Podium]  // same as: Integer[1..3]  
 
 ```
 
@@ -240,7 +240,7 @@ Name, Surname, Address : Text   // Three Text variables
 X,Y,Z : Float := 1.23
 
 // Multiple variables type can be inferred:
-A,B ::= True  // Both A and B are of Boolean type
+This, That ::= True  // Both This and That are variables of Boolean type
 ```
 
 
@@ -297,6 +297,8 @@ A := 456 // B value is still 123
 The rest of types (objects, arrays and functions) are always assigned "*by reference*".
 
 ```javascript
+Person { Name: Text } // simple class
+
 A : Person
 B : Person := A
 
@@ -446,8 +448,6 @@ There is no special syntax for generic types.
 Class parameters of type `Type` can be used to specialize generic classes.
 
 ```javascript
-with Types
-
 List(T:Type) is T[] {}    // Parameter of type: Type
 
 Numbers is List(Float) {}  // List of Float
@@ -553,7 +553,7 @@ Planet.Name := 'Saturn'
 
 // An array can be used to initialize all class fields, in order:
 
-AnotherPlanet:= [ 'Saturn', 58232 ]  
+AnotherPlanet: := [ 'Saturn', 58232 ]  
 
 // Also array of arrays:
 
@@ -925,6 +925,7 @@ To be compatible with `MyProcType`, functions should be signature-compatible:
 ```javascript
 MyFunction(A:Text, B:Integer):Float { 
   Console.PutLine(A, ' ', B.AsText) 
+  return 12.3
 }
 ```
 
@@ -1133,7 +1134,7 @@ Test {
 }
 
 // The return keyword is optional at the last expression of a function:
-Square(X:Float) { X*X }
+Square(X:Float):Float { X*X }
 ```
 
 #### Try Catch

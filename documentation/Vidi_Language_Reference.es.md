@@ -96,7 +96,7 @@ P : Podium := 4  // <-- Error. Exceso (Overflow)
 
 // La clase 'Podium' se puede usar también como una dimensión en una lista:
 
-MiLista : Integer[Podium]  // equivalente a: Integer[1..3]  
+Ganadores : Integer[Podium]  // equivalente a: Integer[1..3]  
 
 ```
 
@@ -447,8 +447,6 @@ No hace falta una sintáxis especial para definir tipos genéricos.
 Los parámetros de clases de tipo `Type` se usan para especializar clases genéricas.
 
 ```javascript
-with Types
-
 Lista(T:Type) is T[] {}    // Parámetro de tipo: Type
 
 Numeros is Lista(Float) {}  // Lista de numéros decimales
@@ -554,7 +552,7 @@ Planeta.Nombre := 'Saturno'
 
 // Una lista se puede usar para inicializar todos los campos en orden:
 
-OtroPlaneta: = [ 'Saturno', 58232 ]  
+OtroPlaneta: : = [ 'Saturno', 58232 ]  
 
 // O una lista de listas:
 
@@ -929,6 +927,7 @@ Para ser compatibles con `MiTipoFuncion` , las funciones deben tener mismos par�
 ```javascript
 MiFuncion(A:Text, B:Integer):Float { 
   Console.PutLine(A, ' ', B.AsText) 
+  return 12.3
 }
 ```
 
@@ -1138,7 +1137,7 @@ Prueba {
 }
 
 // La palabra return es opcional si es la última expresión de la función:
-Square(X:Float) { X*X }
+Cuadrado(X:Float):Float { X*X }
 ```
 
 #### Try Catch (intento y captura)
