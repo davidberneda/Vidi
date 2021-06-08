@@ -1,0 +1,10 @@
+Test {
+  Foo:Integer { 123 }
+}
+
+{
+  T:Test
+  T.Foo := 456
+}
+
+// ERROR: [8,1] Cannot find setter routine T.?

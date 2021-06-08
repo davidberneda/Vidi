@@ -1,4 +1,4 @@
-// ERROR: [8,3] "While" loop is infinite While:TWhile?
+// ERROR: [8,3] "While" loop is infinite While:while
 
 {
   while True {

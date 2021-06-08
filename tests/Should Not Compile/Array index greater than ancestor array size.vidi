@@ -1,0 +1,7 @@
+Test is Integer[0..33] {
+  Foo:Integer {
+    return Self[34]
+  }
+}
+
+// ERROR: [4,3] Array index 34 greater than maximum 33

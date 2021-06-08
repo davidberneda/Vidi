@@ -1,0 +1,13 @@
+{
+  X:0..10
+
+  X:=(1+2)/2
+  Console.PutLine(X)
+
+  Y:Integer:=(1+2)/2
+  Console.PutLine(Y)
+
+}
+
+//OUT: 1^
+//OUT: 1^

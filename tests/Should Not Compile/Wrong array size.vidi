@@ -1,0 +1,6 @@
+Foo {
+}
+
+a : Integer[Foo]
+
+// ERROR: [4,12] Wrong array size of type: Foo

@@ -15,6 +15,10 @@ N6::= 0xFF    // Hexadecimal base 16
 N7::= 0b11011 // Binary base 2
 N8::= 0c217   // Octal base 8
 
+N9::= 42_000  // Any number might include "_" digit separators
+N10::= -34_123.59e-4
+N11::= -0x6_000_000
+
 /// Text
 
 T1::= "Hello"        // Double-quotes
@@ -31,7 +35,7 @@ B2::= False
 
 /// Arrays
 
-A1::= [ 1, 2, 3 ]  // Simple array
+A1::= [ 1, 2, 3 ]// Simple array
 A2::= [ ["a","b"], ["c", "d", 'e'] ]  // Array inside array
 
 /// Integer Ranges
@@ -44,11 +48,19 @@ MyArray : Integer[1..10]  // An array of 10 Integer values
 // A custom Integer class from 1 to 3
 Podium is 1..3 {}
 
-// P : Podium := 4  // <-- Compile-time error. Overflow
+// P : Podium := 4 ?// <-- Compile-time error. Overflow
 
 // The 'Podium' class can also be used as an array dimension:
 
-Winners : Integer[Podium]  // same as: Integer[1..3] 
+Winners : Integer[Podium] // same as: Integer[1..3] 
+
+// Array slicing
+
+Big ::= ['a','b','c','d','e','f','g']
+Small ::= Big[2..4]
+
+Console.PutLine(Big)
+Console.PutLine(Small)
 
 Total : Integer
 for Num in 0..1000 { Total += 1 }
@@ -203,7 +215,7 @@ SomeCustomer is Person {
 // Class as parameter
 
 SomeClass {
-  Test(Value: Something) {
+  Test(Value: SomeThing) {
     Console.Put(Value)
   }
 }
@@ -274,7 +286,10 @@ Names is List(Text) {}     // List of Text
 // Casting Expressions
 
 Class1 {}
-Class2 is Class1 {}
+
+Class2 is Class1 {
+  Z:Text
+}
 
 C_2 : Class2
 C_1 : Class1 := C_2  // Correct, same hierarchy
@@ -282,7 +297,7 @@ C_1 : Class1 := C_2  // Correct, same hierarchy
 //  C2_bis : Class2 := C_1 // <-- Compile-time Error, casting must be explicit
 
 C2_bis : Class2 := Class2(C_1) // <-- Casting is correct
-
+C2_bis.Z := "Z"
 
 // Automatic Casting Protection
 
@@ -299,7 +314,7 @@ MyData : MyBaseClass := MyDerivedData
 MyDerivedClass(MyData).Foo := 789
 
 // 3) Correct access because the "if" does the casting automatically
-if Type.is(MyData,MyDerivedClass) {
+if Type.Is(MyData,MyDerivedClass) {
   // TODO:   MyData.Foo := 123  // No runtime exception will happen
   Console.PutLine
 }
@@ -509,7 +524,7 @@ SomeClass8 : Class8
 // Type Discovery and Reflection
 
 // Type checking:
-if Type.is( C1, Class1 ) {
+if Type.Is( C1, Class1 ) {
    Console.PutLine('C1 is of type Class1')
 }
 
@@ -809,7 +824,7 @@ Shop {
 Foo33 : Boolean 
 
 // Equivalent expressions
-if Type.is(Foo33, Boolean) Console.PutLine('Ok')
+if Type.Is(Foo33, Boolean) Console.PutLine('Ok')
 
 // Using the new "is" operator
 //TODO: if Foo33 is Boolean Console.PutLine('Ok')

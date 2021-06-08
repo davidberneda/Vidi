@@ -1,0 +1,3 @@
+Foo(a,b) {}
+
+// ERROR: [1,11] Missing type for parameter: a

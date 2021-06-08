@@ -1,0 +1,21 @@
+Nums is Integer[] {
+
+  Sum:Float {
+    result:Float
+
+    for X in Self  
+        result += X
+
+    return result
+  }
+
+}
+
+
+{
+  N:Nums := [1,2,3,4]
+  
+  Console.Put(N.Sum)
+}
+
+//OUT: 10

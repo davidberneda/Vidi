@@ -1,0 +1,20 @@
+Foo(p:Boolean) {
+  Console.Put('a')
+
+  if p
+     Console.Put('b')
+  else 
+  {
+    Console.Put('c')
+    return
+  }
+
+  Console.Put('d')
+}
+
+{
+  Foo(True)
+  Foo(False)
+}
+
+//OUT: abdac

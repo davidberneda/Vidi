@@ -1,0 +1,3 @@
+with missing_module
+
+// ERROR: [4,1] Cannot find module: missing_module at: c:\david\projects\vidi\Tests\Should Not Compile\

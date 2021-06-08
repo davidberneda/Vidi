@@ -1,0 +1,22 @@
+Test {
+  X:Text
+
+  Foo:Test {
+    return Self
+  }
+  
+  Bar:Test {
+    X:='Bar'
+    return Self
+  }
+
+}
+
+{
+  T:Test
+  T.X:='Hello'
+
+  Console.Put(T.Foo.Bar.X)
+}
+
+//OUT: Bar

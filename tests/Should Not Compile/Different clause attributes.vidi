@@ -1,0 +1,9 @@
+Foo {
+  Test:Integer {}  // forward
+
+  hidden Test:Integer {
+    1
+  }
+}
+
+// ERROR: [7,1] Different clause attributes Test

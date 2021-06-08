@@ -1,0 +1,5 @@
+{
+ X:=1
+}
+
+// ERROR: [2,5] Identifier not found: X

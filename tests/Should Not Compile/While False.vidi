@@ -1,4 +1,4 @@
-// ERROR: [6,1] Code is never executed While:TWhile? 
+// ERROR: [6,1] Code is never executed While:while
 Test {
   while False {
     Console.PutLine('Never')

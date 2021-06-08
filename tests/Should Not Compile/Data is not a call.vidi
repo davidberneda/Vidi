@@ -1,0 +1,7 @@
+{
+  Foo:Text
+
+  if Foo(2)
+}
+
+// ERROR: [4,9] Data is not a call: Foo

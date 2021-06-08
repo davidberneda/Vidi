@@ -1,0 +1,19 @@
+Test is Text[] {
+  Foo:Text {
+    return Self[1]
+  }
+
+  Bar() {
+    Self[1]:="abc"
+  }
+}
+
+{
+  T:Test
+  T.Count:=2
+
+  T.Bar
+  Console.Put(T.Foo)
+}
+
+//OUT: abc

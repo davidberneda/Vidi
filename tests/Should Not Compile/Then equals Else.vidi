@@ -8,4 +8,4 @@ Foo() {
   if X='' Foo else Foo
 }
 
-// ERROR: [9,1] Then and Else are identical If:TIf?
+// ERROR: [9,1] Then and Else are identical If:if

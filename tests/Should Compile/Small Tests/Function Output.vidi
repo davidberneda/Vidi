@@ -9,3 +9,6 @@ Test {
   T:Test
   Console.PutLine(T.Foo)
 }
+
+//OUT: a^
+//OUT: x^

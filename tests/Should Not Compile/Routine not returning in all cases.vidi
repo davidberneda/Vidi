@@ -1,0 +1,8 @@
+Foo:Text {
+  S:Text
+
+  if S=""
+     return ""
+}
+
+// ERROR: [9,1] Routine Foo is not returning in all cases

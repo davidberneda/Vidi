@@ -3,5 +3,5 @@ Foo(out A:Integer) {
 }
 
 {
- Foo(1) // ERROR: [7,1] Out parameter must be passed as a variable Integer:TInteger?
+ Foo(1) // ERROR: [7,1] Out parameter must be passed as a variable Integer:1
 }

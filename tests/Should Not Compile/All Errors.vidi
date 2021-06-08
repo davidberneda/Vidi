@@ -1,4 +1,4 @@
-// ERROR: [6,6] Array index 0 lower than minimum 1 Integer:TInteger?
+// ERROR: [6,6] Array index 0 lower than minimum 1
 
 Test {
  X:Integer[1..5]

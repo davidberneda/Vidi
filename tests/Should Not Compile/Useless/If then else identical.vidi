@@ -13,5 +13,5 @@ Test {
     
 }
 
-// ERROR: [9,2] Then and Else are identical If:TIf?
-// ERROR: [14,1] Then and Else are identical If:TIf?
+// ERROR: [9,2] Then and Else are identical If:if
+// ERROR: [14,1] Then and Else are identical If:if

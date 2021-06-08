@@ -6,6 +6,12 @@
    
   for x::=a to b
       Console.Put(x)
+
+  Console.Put(' ')
+
+  // Inverted order, from big to small:
+  for x::=9 to 6 
+      Console.Put(x)
 }
 
-//OUT: xxxx567
+//OUT: xxxx567 9876

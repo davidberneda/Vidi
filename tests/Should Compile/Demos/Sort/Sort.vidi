@@ -1,35 +1,16 @@
 Comparer is { Lower,Equal,Greater }
 
 Array.Compare(a,b:Integer):Comparer {
-Console.PutLine('entering compare ',a,b)
-
   if a=b
      return Comparer.Equal
   else
-  if Items[a]<Items[b]
+  if Self[a]<Self[b]
      return Comparer.Lower
   else
-  if Items[a]>Items[b]
+  if Self[a]>Self[b]
      return Comparer.Greater
   else
      return Comparer.Equal
-}
-
-Array.Swap(a,b:Integer) {
-
-  Console.PutLine('swap')
-
-  Temp::=Items[a]
-  Console.PutLine('temp: ',Temp)
-
-  Console.PutLine(a)
-  Console.PutLine(b)
-  Console.PutLine(Data(Items[a]))
-
-  Items[a]:=Items[b]
-  Console.PutLine(Data(Items[a]))
-
-  Items[b]:=Temp
 }
 
 Array.Sort(Ascending:Boolean) {
@@ -38,24 +19,17 @@ Array.Sort(Ascending:Boolean) {
 
   DoSort(l,r:Integer)
   {
-  Console.PutLine('dosort l '+l.AsText+' r '+r.AsText)
-
     i::=l
     j::=r
     x:Integer:=(i+j)/2
 
     while i<j
     {
-  Console.PutLine('0 i '+i.AsText+' j '+j.AsText)
-
       while Compare(i,x)=Comp i += 1
       while Compare(x,j)=Comp j -= 1
 
       if i<j
       {
-
-  Console.PutLine('1 i '+i.AsText+' j '+j.AsText)
-
         Swap(i,j)
 
         if i=x

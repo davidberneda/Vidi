@@ -1,0 +1,7 @@
+{
+  Foo:Text
+
+  if Foo
+}
+
+// ERROR: [4,6] Wrong condition, not logical: Variable:Foo

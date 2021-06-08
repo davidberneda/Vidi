@@ -18,3 +18,5 @@ _TestInner(Work:Boolean) {
 {
  TestInner(True)
 }
+
+//OUT: True

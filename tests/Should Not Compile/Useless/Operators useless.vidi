@@ -8,4 +8,4 @@
   Console.Put(b)
 }
 
-// ERROR: [8,3] Expression is always True IsEqual:TIsEqual?
+// ERROR: [8,3] Expression is always True IsEqual:=

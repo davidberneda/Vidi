@@ -1,4 +1,4 @@
-// ERROR: [11,4] Assignment is useless Assignment:TAssignment?
+// ERROR: [11,4] Assignment is useless Assignment:X
 Foo() {
   Console.PutLine('Foo')
 }

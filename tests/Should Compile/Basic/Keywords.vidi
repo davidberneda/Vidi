@@ -79,7 +79,7 @@ Keywords {
     TestProc(Param:SelfTest) { Console.PutLine('TestProc') Param.Foo }
 
     Proc123() { 
-    //  TestProc(Self) 
+    //  TestProc(Self)   // TODO
     }
   }
 
@@ -121,4 +121,4 @@ Keywords {
 //OUT: Around Code^
 //OUT: Foo^
 //OUT: Foo^
-//OUT: True^
+//OUT: Proc123^

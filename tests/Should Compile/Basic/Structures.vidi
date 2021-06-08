@@ -110,7 +110,7 @@ Structures {
   TestParam is ClassWithParam('xyz') {}
 
   w:TestParam
-  w.S.Append("abc")
+  w.S+="abc"
 
   ww:ClassWithParam("asdf")
 
@@ -188,6 +188,8 @@ Structures {
   // variables of type function
 
   s4:FunctionType:=F
+
+  // s5::=F  // <-- infer function type
 
   // Single line functions
 

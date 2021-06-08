@@ -1,0 +1,7 @@
+{
+  Foo:Text
+
+  a:Integer := Foo ? 0 : 1
+}
+
+// ERROR: [4,16] Wrong condition, not logical: Variable:Foo

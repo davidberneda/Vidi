@@ -1,0 +1,12 @@
+Test {
+  Foo() {}
+}
+
+Bar:Integer { 123 }
+
+{
+  Test(Bar).Foo
+  Test(1).Foo
+}
+
+// NOERROR: [6,1] Wrong casting expression

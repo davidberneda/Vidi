@@ -1,0 +1,13 @@
+Test {
+  Value : Integer
+
+  Foo() {
+    Console.Put(Value)
+  }
+}
+
+{
+  Test.Foo
+}
+
+// ERROR: [10,8] Cannot access non-shared data from type: Foo

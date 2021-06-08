@@ -1,0 +1,5 @@
+Test {}
+
+Test.Foo:Integer
+
+// ERROR: [6,1] Extender is not a routine: Variable:Foo

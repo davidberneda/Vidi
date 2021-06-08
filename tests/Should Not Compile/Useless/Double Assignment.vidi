@@ -8,4 +8,4 @@ Test {
   A:=2
 }
 
-// ERROR: [4,4] Assignment is useless Assignment:TAssignment?
+// ERROR: [4,4] Assignment is useless Assignment:A

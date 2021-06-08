@@ -1,7 +1,15 @@
 
 {
   Foo:Text
-  Console.PutLine(Text(Foo))
+ // Console.PutLine(Text(Foo))
+
+  Sub {
+    SubSub {}
+  }
+
+  S:Sub.SubSub
+  Console.PutLine(Sub.SubSub(S))
+
 }
 
-// ERROR: [4,28] Unnecessary casting. [CastingData:TCastingData?]
+// ERROR: [11,32] Unnecessary casting. [CastingData:SubSub]

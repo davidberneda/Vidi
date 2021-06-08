@@ -1,0 +1,28 @@
+Control is Integer {}
+
+Func(C:Control) { Console.Put(C) }
+
+Method is (C:Control) {}
+
+{
+  Foo:Method
+
+  // Using a variable "X"
+  X:Method:= Func
+  Foo:= X
+
+  Foo(123) 
+
+  // Using a type auto-infered variable "Y"
+  //Y::= Func  // TODO
+  //Foo:= Y
+  Foo(789) 
+
+  // Direct assign
+  //Foo:=Func
+
+  Foo(456) 
+
+}
+
+//OUT: 123789456

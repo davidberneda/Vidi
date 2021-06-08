@@ -1,7 +1,9 @@
 Test {
   Foo() {
     for x in 1..2
-       Console.Put(x,' ') //OUT: 1 2 .
+       Console.Put(x,' ')
+
+    for 6..7 Console.Put('.')
   }
 }
 
@@ -10,3 +12,5 @@ Test {
   Test.Foo
   Console.Put('.')
 }
+
+//OUT: 1 2 ...

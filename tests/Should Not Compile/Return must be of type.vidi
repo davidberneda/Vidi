@@ -1,0 +1,5 @@
+Foo:Integer {
+  return
+}
+
+// ERROR: [6,1] Return must be of type: IntegerClass:Integer

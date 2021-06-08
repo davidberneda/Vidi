@@ -9,6 +9,6 @@
 
   Console.PutLine(A[5]) // Correct
 
-  Console.PutLine(A[0]) // ERROR: [12,23] Array index 0 lower than minimum 5 Integer:TInteger?
+  Console.PutLine(A[0]) // ERROR: [12,23] Array index 0 lower than minimum 5
 }
 

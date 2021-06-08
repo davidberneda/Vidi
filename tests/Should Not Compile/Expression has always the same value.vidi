@@ -1,0 +1,6 @@
+{
+  when 123 {
+  }
+}
+
+// ERROR: [2,8] Expression has always the same value Integer:123

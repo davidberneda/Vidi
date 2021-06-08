@@ -1,0 +1,7 @@
+Test {
+  Foo() {
+    Ancestor
+  }
+}
+
+// ERROR: [4,3] Class has no Ancestor ClassType:Test

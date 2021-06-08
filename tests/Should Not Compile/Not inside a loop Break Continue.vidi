@@ -1,0 +1,7 @@
+{
+  Foo() {
+    break
+  }
+}
+
+// ERROR: [4,3] Not inside a loop

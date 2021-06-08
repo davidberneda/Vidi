@@ -1,0 +1,7 @@
+Test {
+  Foo:Integer {
+    return Self[0]
+  }
+}
+
+// ERROR: [3,17] Not an array Self:Self

@@ -1,22 +1,24 @@
 with Sort
 
 {
-  Numbers::=[4,8] //,2,0,1,9,3]
+  Numbers::=[4,8,2,2,0,1,9,3]
+//  Numbers::=['anthony','Anne','zambia','check','0']
+//  Numbers::=[4.1,8.2,2.3,2.1,0.9,1.3,9.1,3.5]
+// ERROR:  Numbers::=[False,True,False,True]
+
 
   Console.PutLine('Numbers: ',Numbers)  // Numbers: ...
-  Console.PutLine(Numbers.Count)  // 7
-  Console.PutLine(Numbers[0])     // 4
-
+  Console.PutLine(Numbers.Count)  // 8
 
   Numbers.Sort  // Ascending
-
   Console.PutLine('Ascending: ',Numbers)  // Ascending: ...
 
   Numbers.Sort(False)  // Descending
-
-  Console.PutLine('Descending: ',Numbers) // Ascending: ...
-
-
+  Console.PutLine('Descending: ',Numbers) // Descending: ...
 }
 
 
+//OUT: Numbers: 4 8 2 2 0 1 9 3^
+//OUT: 8^
+//OUT: Ascending: 0 1 2 2 3 4 8 9^
+//OUT: Descending: 9 8 4 3 2 2 1 0^

@@ -4,4 +4,4 @@
   if x<>x { x:=2 } 
 } 
 
-// ERROR: [4,11] Expression is always False IsNotEqual:TIsNotEqual?
+// ERROR: [4,11] Expression is always False IsNotEqual:<>

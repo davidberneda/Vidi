@@ -1,0 +1,6 @@
+Foo:  {}
+
+Derived is Foo {
+}
+
+// ERROR: [3,1] Error. Empty parsed item ClassType:

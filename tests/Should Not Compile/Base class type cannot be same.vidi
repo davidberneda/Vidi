@@ -1,0 +1,8 @@
+a is a[] {}
+
+{
+  x:a
+  x[ 
+}
+
+// ERROR: [1,10] Base class cannot be the same class ArrayType:a

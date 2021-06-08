@@ -1,4 +1,4 @@
-// ERROR: [4,12] Wrong "in" expression Integer:TInteger?
+// ERROR: [4,12] Wrong "in" expression Integer:123
 
 {
   for x in 123 {}

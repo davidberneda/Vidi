@@ -1,0 +1,8 @@
+Test {
+}
+
+{
+  Test()
+}
+
+// ERROR: [6,1] Wrong number of casting parameters. [ClassType:Test]

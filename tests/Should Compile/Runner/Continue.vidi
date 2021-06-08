@@ -13,6 +13,16 @@
       Console.Put(b)
     }
   }
+
+  Console.PutLine
+
+  for x::= 1 to 10 {
+    
+    if x<8 continue
+
+    Console.Put(x)
+  }
 }
 
-//OUT: 55
+//OUT: 55^
+//OUT: 8910

@@ -8,7 +8,7 @@ Test8 {
 {  
   Test8.Foo() 
 
-// ERROR: [9,13] Cannot access non-shared data from type: DataCall:Foo
+// ERROR: [9,9] Cannot access non-shared data from type: Foo
  
   // CORRECT:
   T:Test8

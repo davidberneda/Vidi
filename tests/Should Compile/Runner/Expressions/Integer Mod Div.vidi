@@ -1,0 +1,9 @@
+{
+  X:Integer
+
+  X:=1/2    // truncate (mod div)
+
+  Console.Put(X)
+}
+
+//OUT: 0

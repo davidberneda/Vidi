@@ -4,5 +4,5 @@
      Console.PutLine('1')
   else
 
-  // ERROR: [8,1] Empty Else block If:TIf?
+  // ERROR: [8,1] Empty Else block If:if
 }

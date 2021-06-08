@@ -5,7 +5,7 @@ foo:Boolean {
 }
 
 {
-  X:integer
+  X:Integer
 
   if foo 
    X:=1

@@ -1,0 +1,7 @@
+Test is Array(Integer) {
+  Foo:Text {
+    return Self[123]
+  }
+}
+
+// ERROR: [4,3] Type not compatible ArrayExpression:Self

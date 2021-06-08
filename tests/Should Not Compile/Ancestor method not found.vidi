@@ -1,0 +1,10 @@
+Base {
+}
+
+Derived is Base {
+  Foo() {
+    Ancestor
+  }
+}
+
+// ERROR: [7,3] Ancestor class Base does not have method Foo

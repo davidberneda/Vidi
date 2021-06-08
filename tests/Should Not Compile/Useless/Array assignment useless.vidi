@@ -17,4 +17,4 @@
  Console.PutLine(X)
 }
 
-// ERROR: [12,8] Assignment is useless Assignment:TAssignment?
+// ERROR: [12,8] Assignment is useless Assignment:X

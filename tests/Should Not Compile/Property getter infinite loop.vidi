@@ -13,7 +13,7 @@ Test {
     return Foo  // <--- infinite loop
   }
 
-// ERROR: [19,3] Infinite loop Return:TReturn?
+// ERROR: [19,3] Infinite loop Return:return
 
   // setter
   Foo(Value:Integer) { 

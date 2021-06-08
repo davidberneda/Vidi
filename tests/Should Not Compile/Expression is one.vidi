@@ -1,0 +1,5 @@
+{
+  Console.Put( 5/5 )
+}
+
+// ERROR: [2,20] Expression is one Division:/

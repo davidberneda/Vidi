@@ -1,0 +1,9 @@
+{
+  P:Integer[]
+  P.Append(1)
+  P.Append(2)
+  P.Append(3)
+  Console.Put(P)
+}
+
+//OUT: 123

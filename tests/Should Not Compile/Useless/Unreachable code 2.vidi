@@ -17,4 +17,4 @@ Test {
   }
 }
 
-// ERROR: [5,3] Unreachable code CallData:TCallData?
+// ERROR: [5,3] Unreachable code CallData:Console.PutLine

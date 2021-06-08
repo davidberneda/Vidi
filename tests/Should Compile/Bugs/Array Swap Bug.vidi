@@ -1,0 +1,11 @@
+{
+  N::=[1,2]
+  Console.PutLine(N)
+
+  N.Swap(0,1)
+  Console.PutLine(N)
+
+  N.Swap(0,1)
+  Console.PutLine(N)
+
+}

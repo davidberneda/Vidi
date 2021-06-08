@@ -1,4 +1,4 @@
-// ERROR: [6,1] "Repeat" loop is infinite Repeat:TRepeat?
+// ERROR: [6,1] "Repeat" loop is infinite Repeat:repeat
 {
  repeat
    Console.Put('a')

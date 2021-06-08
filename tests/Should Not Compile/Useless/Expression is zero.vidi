@@ -6,4 +6,4 @@
   Console.Put(y)
 }
 
-// ERROR: [6,3] Expression is zero Subtraction:TSubtraction?
+// ERROR: [6,3] Expression is zero Subtraction:-

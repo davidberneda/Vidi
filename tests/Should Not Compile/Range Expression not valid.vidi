@@ -1,6 +1,6 @@
 fail:Integer[1+1 .. "a"]
 
-// ERROR: [1,24] Incompatible left and right sides of operand Range:TRange?
+// ERROR: [1,24] Incompatible left and right sides of operand Range:+..a
 
 // Correct examples: 
 /*

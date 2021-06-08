@@ -1,0 +1,10 @@
+Big ::= ['a','b','c','d','e','f','g']
+Small ::= Big[2..4]
+
+{
+  Console.PutLine(Big)
+  Console.PutLine(Small)
+}
+
+//OUT: abcdefg^
+//OUT: cde^

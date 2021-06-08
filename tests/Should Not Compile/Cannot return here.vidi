@@ -1,0 +1,14 @@
+Test {
+ return
+} 
+
+return
+
+Foo
+{
+}
+
+{
+}
+
+// ERROR: [3,1] Cannot return here

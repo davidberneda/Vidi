@@ -1,0 +1,9 @@
+SomeAbstract {
+  Foo() {}
+}
+
+Derived is SomeAbstract {
+  Foo() {}
+}
+
+// ERROR: [10,1] Method must not be empty Routine:Foo

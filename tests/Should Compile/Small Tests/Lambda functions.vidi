@@ -1,6 +1,11 @@
 MyFunction is (Num:Integer):Text {}
 
 Foo(F:MyFunction) {
+  
+  IsPositive : Text := F(-2)
+  
+  Console.PutLine(IsPositive) // False
+
   Console.PutLine(F(-1))
   Console.PutLine(F(0))
   Console.PutLine(F(1))

@@ -1,0 +1,22 @@
+Base {
+  Owner : Base
+
+  Child : Base
+}
+
+Foo(Item:Base) {
+  Child : Base
+
+  Child.Owner := Item
+
+  Item.Child := Child
+}
+
+{
+  Parent : Base
+
+  Foo(Parent)
+  Console.Put('Ok')
+}
+
+//OUT: Ok

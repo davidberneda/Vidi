@@ -1,7 +1,9 @@
-Foo:Integer[3] {}
+// function that returns an array
+Foo:Integer[3] {
+}
 
 {
   Foo[0]:=123
 }
 
-// ERROR: [4,9] Cannot assign: Integer to: ArrayExpression:TArrayExpression?
+// ERROR: [6,9] Cannot assign: Integer to: ArrayExpression:Foo

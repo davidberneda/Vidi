@@ -1,0 +1,3 @@
+Test is { Bar, out Foo }
+
+// ERROR: [4,1] Enumeration item Foo must be final

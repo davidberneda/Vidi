@@ -1,4 +1,4 @@
 fail:Integer[10..1]
 
-// ERROR: [1,19] Inverted order Range:TRange?
+// ERROR: [1,19] Inverted order Range:10..1
 

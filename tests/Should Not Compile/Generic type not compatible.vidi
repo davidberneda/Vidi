@@ -1,0 +1,7 @@
+Test(T:Type) is Data {
+}
+
+Spec is Test() {}
+
+// ERROR: [4,14] Generic Type not compatible: -1
+

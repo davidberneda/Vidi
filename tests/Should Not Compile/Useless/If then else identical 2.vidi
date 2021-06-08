@@ -7,4 +7,4 @@
  else 
     a:=a+b // TODO: a:=b+a  (compare code: support transitive operands)
 }
-// ERROR: [9,1] Then and Else are identical If:TIf?
+// ERROR: [9,1] Then and Else are identical If:if

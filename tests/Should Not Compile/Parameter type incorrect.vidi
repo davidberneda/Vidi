@@ -1,6 +1,6 @@
 // Parameter type incorrect
 
-// ERROR: [7,20] Bad Parameter: Integer:TInteger?
+// ERROR: [7,20] Bad Parameter: Integer:123
  
 Test12 {
   Foo(A:Text) {}

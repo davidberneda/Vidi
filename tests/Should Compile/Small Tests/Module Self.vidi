@@ -1,0 +1,10 @@
+Y:Text:='abc'
+
+{
+  X:Integer:=123
+
+  Console.Put(Self.X)
+  Console.Put(Self.Y)
+}
+
+

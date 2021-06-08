@@ -1,0 +1,6 @@
+Test {
+  hidden Foo() {
+  }
+}
+
+// ERROR: [7,1] Routine is never used Routine:Foo

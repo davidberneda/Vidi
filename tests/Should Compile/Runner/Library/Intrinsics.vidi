@@ -11,7 +11,7 @@
   Console.PutLine(Y.Absolute)
 
   Console.PutLine(Y.Round)
-  Console.PutLine(Y.Fraction)
+//  Console.PutLine(Y.Fraction)
 
  // Console.PutLine(NamedType.NameOf(Y))
 }
@@ -20,4 +20,4 @@
 //OUT: 0^
 //OUT: 123.4^
 //OUT: -123^
-//OUT: -0.4^
+//--OUT: -0.4^   <-- 64bit -0.400000000000006

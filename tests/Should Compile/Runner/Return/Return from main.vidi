@@ -1,0 +1,15 @@
+{
+  a:Integer:=1
+  b:Integer
+
+  Foo:Boolean { a>b }
+
+  Console.Put('Good')
+
+  if Foo 
+     return
+
+  Console.Put('Bad')
+}
+
+//OUT: Good

@@ -1,0 +1,23 @@
+{
+  N::=[1,2]
+  Console.PutLine(N)
+
+/*
+  X::=N[0]
+  N[0]:=N[1]
+  Console.PutLine(N)
+  N[1]:=X
+  Console.PutLine(N)
+*/
+
+  N[0]:=N[1]
+  N[1]:=N[0]
+  N[0]:=N[1]
+  N[0]:=N[0]
+  N[1]:=N[0]
+  Console.PutLine(N)
+
+}
+
+//OUT: 12^
+//OUT: 22^
