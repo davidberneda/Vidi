@@ -1,6 +1,8 @@
 # Lenguaje Vidi. Manual de Referencia
 
-@davidberneda v0.0.14-alpha Abril-2021
+@davidberneda v0.0.16-alpha Junio-2021
+
+https://vidi.dev
 
 https://github.com/davidberneda/Vidi
 
@@ -36,6 +38,8 @@ Los números se pueden expresar de diferentes maneras:
 0xFF    // Hexadecimal base 16
 0b11011 // Binaria base 2
 0c217   // Octal base 8
+
+42_000_000 // Separador de dígitos opcional
 ```
 
 
@@ -118,6 +122,13 @@ Un rango se puede usar también como un tipo de una lista:
 
 ```javascript
 Podiums is 1..3[10] {}  // Una lista de 10 valores enteros, cada uno de 1 a 3
+```
+
+Para obtener una porción (una parte) de una lista:
+
+```javascript
+Mayor ::= ['a','b','c','d','e','f','g']
+Menor ::= Mayor[2..4] // Una parte de los elementos desde el índice 2 al 4: c d e
 ```
 
 
@@ -1070,7 +1081,10 @@ La variable opcional (el contador):
 
 La palabra reservada `in` se usa en bucles con tipos enumerados:
 
-`for c in Colores {}`
+```javascript
+Colores is { Rojo, Azul }
+for c in Colores {}  // bucle para cada color
+```
 
 Y también para iterar los elementos de una lista:
 
@@ -1088,7 +1102,13 @@ for i in [ 6,2,9 ] // el tipo del contador "i" se infiere automáticamente
 Una expresión del tipo texto `Text` es una lista de caracteres que puede ser iterada:
 
 ```javascript
-for c in "abc" {} // para cada caracter 
+for x in "abc" {} // para cada caracter 
+```
+
+Bucles en orden descendiente:
+
+```javascript
+for 10..1 {}  // diez veces, de 10 a 1 (en orden descendiente)
 ```
 
 

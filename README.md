@@ -3,7 +3,7 @@ The Vidi Language
 
 Read in other languages: [Català](README.ca.md) [Español](README.es.md)
 
-[Download compiler, mini-editor IDE and demos](https://github.com/davidberneda/Vidi/releases/tag/v0.0.15-alpha)
+[Download compiler, mini-editor IDE and demos](https://github.com/davidberneda/Vidi/download/Vidi_v0.0.16-alpha.zip)
 
 [Language Reference](documentation/Vidi_Language_Reference.md)
 

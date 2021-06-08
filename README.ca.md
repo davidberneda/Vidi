@@ -1,7 +1,7 @@
 ﻿# Vidi
 El Llenguatge Vidi
 
-[Baixar el compilador, mini-editor i exemples](https://github.com/davidberneda/Vidi/releases/tag/v0.0.15-alpha)
+[Baixar el compilador, mini-editor i exemples](https://github.com/davidberneda/Vidi/download/Vidi_v0.0.16-alpha.zip)
 
 [Manual de referència del llenguatge](documentation/Vidi_Language_Reference.md)
 

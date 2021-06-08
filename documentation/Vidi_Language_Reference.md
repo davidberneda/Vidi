@@ -1,6 +1,8 @@
 # Vidi Language Reference
 
-@davidberneda v0.0.14-alpha April-2021
+@davidberneda v0.0.16-alpha June-2021
+
+https://vidi.dev
 
 https://github.com/davidberneda/Vidi
 
@@ -36,6 +38,8 @@ Numbers can be expressed in several ways:
 0xFF    // Hexadecimal base 16
 0b11011 // Binary base 2
 0c217   // Octal base 8
+
+42_000_000 // Optional digit separator
 ```
 
 
@@ -102,11 +106,15 @@ Winners : Integer[Podium]  // same as: Integer[1..3]
 
 Or to use a range in a `for` loop:
 
-`for Num in 0..1000 { }`
+```javascript
+for Num in 0..1000 { }
+```
 
 Or in function parameters and result types:
 
-`MyFunction( MyParam : 20..1000): 4..10 { }`
+```javascript
+MyFunction( MyParam : 20..1000): 4..10 { }
+```
 
 Ranges can also be returned from functions:
 
@@ -118,6 +126,13 @@ A range can also be used as a type of an array:
 
 ```
 Podiums is 1..3[10] {}  // An array of 10 integer values, each value from 1 to 3
+```
+
+To obtain a portion (an slice) of an array:
+
+```javascript
+Big ::= ['a','b','c','d','e','f','g']
+Small ::= Big[2..4] // An slice with elements from index 2 to index 4: c d e
 ```
 
 
@@ -1067,7 +1082,10 @@ The optional counter variable:
 
 The `in` keyword can loop over an enumerated type:
 
-`for c in Colors {}`
+```javascript
+Colors is { Red, Blue }
+for c in Colors {}   // iterates all Colors
+```
 
 The `in` keyword can also be used to loop an array:
 
@@ -1076,7 +1094,7 @@ Nums: := [ 6,2,9 ]
 for i in Nums { Console.Put(i) }    // iterate an array
 ```
 
-The array can be declared inline, without using a variable:
+The array can also be declared inline, without using a variable:
 
 ```javascript
 for i in [ 6,2,9 ] // the type of "i" is automatically inferred
@@ -1085,7 +1103,13 @@ for i in [ 6,2,9 ] // the type of "i" is automatically inferred
 A `Text` expression is an array of characters so it can also be iterated:
 
 ```javascript
-for c in "abc" {} // for each character
+for x in "abc" {} // for each character in text
+```
+
+Descending order loops:
+
+```javascript
+for 10..1 {}  // ten times from 10 down to 1  (descending)
 ```
 
 
