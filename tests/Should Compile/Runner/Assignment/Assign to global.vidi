@@ -1,0 +1,18 @@
+X:Integer
+
+Test {
+  Foo() { X+=1 }
+}
+
+{
+  Test.Foo
+
+  Console.Put(X)
+
+  Test.Foo
+  Test.Foo
+
+  Console.Put(X)
+}
+
+//OUT: 13

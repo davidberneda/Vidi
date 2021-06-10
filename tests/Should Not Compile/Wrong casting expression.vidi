@@ -1,5 +1,5 @@
 Test {
-  Foo() {}
+  Foo() { Console.Put('foo') }
 }
 
 Bar:Integer { 123 }

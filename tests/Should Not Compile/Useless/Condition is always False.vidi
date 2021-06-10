@@ -1,0 +1,7 @@
+final X:Integer:=5
+
+{
+  if X>10 Console.Put('Yes')
+}
+
+// ERROR: [4,6] Condition is always False IsGreater:>

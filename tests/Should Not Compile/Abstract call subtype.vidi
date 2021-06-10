@@ -1,0 +1,11 @@
+Test {
+  Inner {
+    Foo() {}
+  }
+}
+
+{
+  Test.Inner.Foo
+}
+
+// NOERROR: [9,1] Cannot call abstract routine Routine:Foo

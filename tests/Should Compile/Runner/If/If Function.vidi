@@ -4,7 +4,11 @@ foo:Boolean {
   Y>10 
 }
 
+//bar() { Y:=10 }
+
 {
+ // bar()
+
   X:Integer
 
   if foo 

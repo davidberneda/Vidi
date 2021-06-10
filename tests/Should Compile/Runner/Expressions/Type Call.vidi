@@ -1,7 +1,10 @@
+X:Integer
+
 Test {
   Inner {
     Foo() { 
-      Console.PutLine('Foo') 
+     X+=1
+     Console.PutLine('Foo') 
     }
   }
 }
@@ -11,7 +14,10 @@ Test {
   T.Inner.Foo
 
   Test.Inner.Foo
+
+  Console.PutLine(X)
 }
 
 //OUT: Foo^
 //OUT: Foo^
+//OUT: 2^
