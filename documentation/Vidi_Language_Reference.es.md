@@ -1,6 +1,6 @@
 # Lenguaje Vidi. Manual de Referencia
 
-@davidberneda v0.0.16-alpha Junio-2021
+@davidberneda v0.0.18-alpha Junio-2021
 
 https://vidi.dev
 

@@ -5,18 +5,28 @@ Test {
 
 {
   Console.PutLine('Using shared type Test: ' , Test.A) // 123
-
   Console.PutLine(Test.B) // 456
+
+  Test.A:=789
+  Console.PutLine(Test.A) // 789
 
 
   T:Test
+
+  T.A:=123
   Console.PutLine('Using instance T: ',T.A) // 123
   Console.PutLine(T.B) // 456
 
-//  T.B:=789 // <--- error should not compile because B is final (readonly constant)
+  T.A:=789
+  Console.PutLine(T.A) // 789
+
+
+//  T.B:=789 // <--- should not compile because B is final (readonly constant)
 }
 
 //OUT: Using shared type Test: 123^
 //OUT: 456^
+//OUT: 789^
 //OUT: Using instance T: 123^
 //OUT: 456^
+//OUT: 789^

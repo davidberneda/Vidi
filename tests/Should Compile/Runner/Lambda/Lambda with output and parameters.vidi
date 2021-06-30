@@ -1,0 +1,43 @@
+FunctionType is (A:Boolean):Text {}  // declaration
+
+FooBar(Method:FunctionType):Text {  // usage
+  Method(True)
+}
+
+{
+  // implementation
+  F:FunctionType := (A:Boolean):Text {
+    A ? "abc" : "xyz"
+  }
+
+  // Call samples:
+
+  // syntaxis 1
+  s1::=FooBar(F)
+  Console.PutLine(s1)
+
+  // syntaxis 2, inline
+  s2::=FooBar( 
+        (A:Boolean):Text {
+           if A return 'Yes' else return 'No'
+         }
+  )
+
+  Console.PutLine(s2)
+
+  // syntaxis 3, variables of type function
+
+  s3:FunctionType:=F
+  Console.PutLine(FooBar(s3))
+
+  // syntaxis 4
+
+  s4::=F  // <-- infer function type
+  Console.PutLine(FooBar(s4))
+
+}
+
+//OUT: abc^
+//OUT: Yes^
+//OUT: abc^
+//OUT: abc^

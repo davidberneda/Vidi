@@ -1,6 +1,6 @@
-{
+
   X::= "A"+ 'B'
   Console.Put(X)
-}
+
 
 //OUT: AB

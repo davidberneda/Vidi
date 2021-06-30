@@ -1,0 +1,4 @@
+try 
+  Console.Put('Ok')
+
+// ERROR: [5,1] Catch or finally expected Try:TTry?

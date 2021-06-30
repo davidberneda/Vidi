@@ -1,0 +1,19 @@
+Food is { Plant, Meat, Fish, Fruit }
+
+X::=Food.Plant
+
+Me {
+  MyFood : Food 
+}
+
+John : Me
+
+John.MyFood := Food.Meat
+
+if John.MyFood = Food.Fruit 
+   Console.PutLine('Is Fruit')
+else
+   Console.PutLine('Is NOT Fruit')
+
+//OUT: Is NOT Fruit^
+

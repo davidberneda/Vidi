@@ -1,0 +1,9 @@
+b:Integer
+
+repeat
+  b +=1
+until b>5
+
+Console.Put(b)
+
+//OUT: 6

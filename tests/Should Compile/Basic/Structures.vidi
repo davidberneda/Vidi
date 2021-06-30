@@ -9,7 +9,7 @@ Structures {
     Num : Integer
  
     SimpleMethod() {}
-    SimpleFunction:Text { "abc" }
+    Simple_Function:Text { "abc" }
 
     Overload(N:Integer) { Num:=N }
     Overload() { Overload(123) }
@@ -160,19 +160,24 @@ Structures {
   }
 
   // Lambdas, anonymous methods
-  
+  SimpleFunction is () {}
+
+  FooSimple(Method:SimpleFunction) {
+     Method
+  }
+
+  Simple:SimpleFunction := () {}
+  FooSimple(Simple)
+
   FunctionType is (A:Boolean):Text {}
 
   FooBar(Method:FunctionType):Text {
     Method(True)
   }
 
-  F:FunctionType
-/*
-  TODO   := {
+  F:FunctionType := (A:Boolean):Text {
     A ? "abc" : "xyz"
   }
-*/
 
   s2::=FooBar(F) // syntaxis 1
 
@@ -189,7 +194,7 @@ Structures {
 
   s4:FunctionType:=F
 
-  // s5::=F  // <-- infer function type
+  s5::=F  // <-- infer function type
 
   // Single line functions
 

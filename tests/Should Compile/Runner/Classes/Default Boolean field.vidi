@@ -1,0 +1,9 @@
+Test {
+  B:Boolean
+}
+
+T:Test
+
+Console.Put(T.B)
+
+//OUT: False

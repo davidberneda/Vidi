@@ -1,6 +1,6 @@
-{
+
   T:Text := 'abc'
   Console.Put(T.Length)
-}
+
 
 //OUT: 3

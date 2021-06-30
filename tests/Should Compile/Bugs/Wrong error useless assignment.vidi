@@ -7,3 +7,5 @@
 
   Console.Put(Foo) 
 }
+
+//OUT: False

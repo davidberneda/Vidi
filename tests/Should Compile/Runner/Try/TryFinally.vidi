@@ -1,0 +1,7 @@
+try
+  Console.Put('Ok')
+finally
+  Console.Put('Finally')  // <-- always happens
+
+
+//OUT: OkFinally

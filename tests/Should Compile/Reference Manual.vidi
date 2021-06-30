@@ -314,10 +314,12 @@ MyData : MyBaseClass := MyDerivedData
 MyDerivedClass(MyData).Foo := 789
 
 // 3) Correct access because the "if" does the casting automatically
+/* TODO: Type.Is
 if Type.Is(MyData,MyDerivedClass) {
   // TODO:   MyData.Foo := 123  // No runtime exception will happen
   Console.PutLine
 }
+*/
 
 // Methods
 
@@ -524,9 +526,11 @@ SomeClass8 : Class8
 // Type Discovery and Reflection
 
 // Type checking:
+/* TODO:
 if Type.Is( C1, Class1 ) {
    Console.PutLine('C1 is of type Class1')
 }
+*/
 
 // Obtaining the list of methods of a given type or instance:
 // TODO: Methods:Method[] := Type.Methods( C1 )

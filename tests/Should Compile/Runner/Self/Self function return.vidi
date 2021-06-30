@@ -1,0 +1,30 @@
+Test {
+  A: Integer := 123
+
+  B: Text := "B"
+
+  Bar:Text { Self.B }
+
+  Foo:Test { Self }
+}
+
+{
+  T:Test
+
+  X : Integer := T.Foo.A
+
+  Console.PutLine(X)  // 123
+
+  T.A := 124
+
+  Console.PutLine(T.A) // 124
+
+  Console.PutLine(T.B)  // "B"
+  Console.PutLine(T.Bar)  // "B"
+
+}
+
+//OUT: 123^
+//OUT: 124^
+//OUT: B^
+//OUT: B^

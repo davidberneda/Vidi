@@ -1,0 +1,8 @@
+B::=123 in []
+Console.Put(B) 
+
+// TODO:
+// [1,9] Expression is always False
+
+
+// ERROR: [1,9] Incompatible left and right sides of operand Contains:in

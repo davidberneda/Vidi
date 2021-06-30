@@ -2,4 +2,4 @@ Foo:Integer {
   return
 }
 
-// ERROR: [6,1] Return must be of type: IntegerClass:Integer
+// ERROR: [3,1] Return must be of type: IntegerClass:Integer

@@ -1,0 +1,15 @@
+SimpleFunction is () {}
+
+FooSimple(Method:SimpleFunction) {
+   Method
+}
+
+Simple:SimpleFunction := () {
+     Console.Put('OK')
+  }
+
+{
+  FooSimple(Simple)
+}
+
+//OUT: OK

@@ -44,4 +44,5 @@ List is Control {
 Form is TextControl {
   Close() {}
   Show() {}
+  Modal() {}
 }

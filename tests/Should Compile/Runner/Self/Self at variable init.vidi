@@ -1,0 +1,8 @@
+{
+  X ::= 123
+  Y ::= Self.X
+
+  Console.Put(Y)
+}
+
+//OUT: 123

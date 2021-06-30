@@ -1,0 +1,6 @@
+MyFunctionType is (X:Integer):Integer {}
+
+MyFunction : MyFunctionType  // <-- needs a value, for example: 
+// := (X:Integer):Integer { X*X }
+
+// NOERROR: [7,1] Function type must be initialized Variable:MyFunction

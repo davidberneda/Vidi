@@ -1,0 +1,7 @@
+try
+  Console.Put('Ok')
+catch {
+  Console.Put('Catch')  // <-- never happens
+}
+
+//OUT: Ok

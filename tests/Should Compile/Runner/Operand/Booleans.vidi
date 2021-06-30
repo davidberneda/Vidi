@@ -1,6 +1,9 @@
 {
   X::= False<>True
   Console.Put(X)
+
+  Y::= False=True
+  Console.Put(Y)
 }
 
-//OUT: True
+//OUT: TrueFalse

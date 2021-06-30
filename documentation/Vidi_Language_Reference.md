@@ -1,6 +1,6 @@
 # Vidi Language Reference
 
-@davidberneda v0.0.16-alpha June-2021
+@davidberneda v0.0.18-alpha June-2021
 
 https://vidi.dev
 
@@ -926,21 +926,22 @@ Bar.MyNewMethod()
 A type can be used as a function declaration:
 
 ```javascript
-MyProcType is (A:Text, B:Integer):Float {}
+MyProcType is (A:Text, B:Integer) {}  // two parameters, A and B
 ```
 
 This type can then be used anywhere like normal types:
 
 ```javascript
-Foo(Function: MyProcType) { Function('Hello',123) }
+Foo(Function: MyProcType) {
+    Function('Hello',123) 
+}
 ```
 
 To be compatible with `MyProcType`, functions should be signature-compatible:
 
 ```javascript
-MyFunction(A:Text, B:Integer):Float { 
+MyFunction(A:Text, B:Integer) { 
   Console.PutLine(A, ' ', B.AsText) 
-  return 12.3
 }
 ```
 
@@ -957,7 +958,9 @@ Also called *lambdas* or *callbacks* in other languages, functions can be passed
 ```javascript
 // Same as the above example "MyFunction", but unnamed
 Foo( 
- (A:Text, B:Integer):Float { Console.PutLine(A,' ',B) }
+ (A:Text, B:Integer) { 
+    Console.PutLine(A,' ',B) 
+  }
 )
 ```
 
@@ -965,7 +968,7 @@ Or assigned to variables of the custom function type:
 
 ```javascript
 // Same as above, but using a variable
-MyFunction_Variable : MyProcType := { Console.PutLine(A, ' ', B) }
+MyFunction_Variable : MyProcType := { Console.PutLine(A,' ',B) }
 
 Foo(MyFunction_Variable)
 
