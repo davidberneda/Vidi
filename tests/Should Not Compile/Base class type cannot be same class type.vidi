@@ -1,0 +1,8 @@
+a is a {}
+
+{
+  x:a
+}
+
+// ERROR: [1,8] Base class cannot be the same class ClassType:a
+

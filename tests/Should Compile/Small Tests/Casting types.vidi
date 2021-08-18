@@ -15,3 +15,5 @@ Class2 is Class1 {
 
   Console.PutLine(C2_bis.Hello) // Hello
 }
+
+//OUT: Hello^

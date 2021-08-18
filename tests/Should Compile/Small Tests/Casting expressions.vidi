@@ -1,0 +1,19 @@
+// Casting Expressions
+
+Class1 {}
+
+Class2 is Class1 {
+  Z:Text
+}
+
+C_2 : Class2
+C_1 : Class1 := C_2  // Correct, same hierarchy
+
+//  C2_bis : Class2 := C_1 // <-- Compile-time Error, casting must be explicit
+
+C2_bis : Class2 := Class2(C_1) // <-- Casting is correct
+C2_bis.Z := "Z"
+
+Console.PutLine(C2_bis.Z)
+
+//OUT: Z^

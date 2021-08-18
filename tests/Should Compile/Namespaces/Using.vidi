@@ -8,3 +8,5 @@ with Both
   Console.PutLine(B)
   B.XYZ:=1.23 
 }
+
+//OUT: B^

@@ -1,0 +1,6 @@
+x():Integer {}
+
+for x:=1 to 10 
+  Console.Put(x)
+
+// ERROR: [3,5] Not a variable: DataCall:x

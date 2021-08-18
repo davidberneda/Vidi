@@ -9,5 +9,7 @@ Test {
  // Nothing happens, just a reference
  A:=B
  
- Console.PutLine(A)
+ Console.PutLine(A)   // prints name of variable
 }
+
+//OUT: A^

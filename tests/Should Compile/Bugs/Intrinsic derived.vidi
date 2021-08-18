@@ -2,7 +2,7 @@ MyNum is Float {
   Foo:Float { Self }
 
   Bar(Value:Float) { 
-//   Self:=Value 
+//TODO:   Self:=Value 
   }
 
    Fraction :Float { 0 } // <-- workaround, temporary
@@ -11,9 +11,11 @@ MyNum is Float {
 {
   X:MyNum 
 
-//  X:=1.234
+//TODO:  X:=1.234
 
   Console.Put(X.Foo)
 
   X.Bar(4.56) 
 }
+
+//OUT: 0

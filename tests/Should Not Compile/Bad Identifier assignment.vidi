@@ -1,0 +1,4 @@
+4:=
+
+// ERROR: [1,2] Bad identifier: 4
+

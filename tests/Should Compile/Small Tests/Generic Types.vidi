@@ -84,3 +84,9 @@ Generic_Integer is Generic(Integer) {
   // TODO:
   //Y2:Num5:=123.45
 }
+
+//OUT: 123^
+//OUT: 123^
+//OUT: 456^
+//OUT: 456^
+//OUT: abc^

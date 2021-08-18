@@ -11,7 +11,7 @@ Test {
 
   Y:Integer
 
-  // NOT shared
+  // Moon function is NOT shared because it needs Y
   Moon() { 
     Y:=123
     Console.PutLine(Y)

@@ -1,8 +1,8 @@
 Text.CountOf(C:Character):Integer {
 
-  result:Integer
+  result:Integer // result::=0
 
-  for i in Characters
+  for i in Characters  // TODO
       if i=C 
          result += 1
 
@@ -15,4 +15,9 @@ Text.CountOf(C:Character):Integer {
  N::=S.CountOf('a')
 
  Console.PutLine(N) // 0
+ Console.PutLine(S.CountOf('l')) // 2
+
 }
+
+//OUT: 0^
+//OUT: 2^

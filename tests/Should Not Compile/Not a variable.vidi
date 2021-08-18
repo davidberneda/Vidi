@@ -1,0 +1,5 @@
+f {
+ f:=1
+}  
+
+// ERROR: [2,5] Not a variable: f

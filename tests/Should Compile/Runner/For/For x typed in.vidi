@@ -1,0 +1,4 @@
+for x:Integer in -1..4 
+  Console.Put(x)
+
+//OUT: -101234

@@ -30,10 +30,18 @@ Console.PutLine(f) // 20000000000
 
 
  BBB:Byte
-// BBB:=-1 // Error Underflow 
-// BBB:=256 // Error Overflow 
-
  BBB:=123
  
  Console.PutLine(BBB)
 }
+
+
+//OUT: 20000000000^
+//OUT: 15^
+//OUT: False^
+//OUT: True^
+//OUT: True^
+//OUT: False^
+//OUT: 255^
+//OUT: 254^
+//OUT: 123^

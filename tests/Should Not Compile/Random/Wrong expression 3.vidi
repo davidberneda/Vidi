@@ -1,0 +1,3 @@
+repeat True = -0.403[True]
+
+// ERROR: [1,13] Incompatible left and right sides of operand IsEqual:=

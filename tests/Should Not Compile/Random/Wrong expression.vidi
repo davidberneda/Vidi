@@ -1,0 +1,4 @@
+b : Float := True / -0.008
+-1
+
+// ERROR: [1,19] Incompatible left and right sides of operand Division:/

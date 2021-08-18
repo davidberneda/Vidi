@@ -1,0 +1,8 @@
+Telse { 
+} 
+
+c:Telse
+
+if c=Telse Console.Put('a')
+
+// NOERROR: [6,5] Incompatible types in comparison c=Telse

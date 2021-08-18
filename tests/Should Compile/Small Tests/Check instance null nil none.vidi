@@ -14,6 +14,10 @@ Check(P:Person) {
   P.Name:='Lisa'  
   Check(P)   
 
-//  P:=nil 
+  P:=nil 
   Check(P)   
 }
+
+//OUT: P is nil^
+//OUT: Lisa^
+//OUT: P is nil^

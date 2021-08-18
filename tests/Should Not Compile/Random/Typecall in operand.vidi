@@ -1,0 +1,5 @@
+abc{
+  while 0.429 > abc
+}
+
+// ERROR: [2,15] Incompatible left and right sides of operand IsGreater:>

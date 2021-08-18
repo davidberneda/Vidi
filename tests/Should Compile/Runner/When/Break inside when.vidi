@@ -1,0 +1,16 @@
+//final x::=0
+
+x::=0
+
+while x<10 {
+
+  when x {
+    0 break
+  }
+
+  //x+=1 
+}
+
+Console.Put(x)
+
+//OUT: 0

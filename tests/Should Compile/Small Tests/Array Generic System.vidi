@@ -47,3 +47,8 @@
   R2.Append('A')
   
 }
+
+//OUT: Y^
+//OUT: YY^
+//OUT: 123^
+//OUT: W^

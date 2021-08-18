@@ -9,3 +9,7 @@
   Console.PutLine(N)
 
 }
+
+//OUT: 12^
+//OUT: 21^
+//OUT: 12^

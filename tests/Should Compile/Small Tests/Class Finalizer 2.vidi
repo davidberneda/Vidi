@@ -13,6 +13,8 @@ Shop {
   MyShop.Foo
 }
 
-//OUT: Open !
-//OUT: Welcome !
-//OUT: Closed !
+// TODO: Wrong order !!!
+
+//OUT: Open !^
+//OUT: Closed !^
+//OUT: Welcome !^

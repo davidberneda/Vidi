@@ -1,0 +1,4 @@
+     when 0.389
+0.402
+
+// ERROR: [1,11] Expression has always the same value Float:0.389

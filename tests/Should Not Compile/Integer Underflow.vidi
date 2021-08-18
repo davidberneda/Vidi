@@ -1,0 +1,5 @@
+ B: Byte
+ B:= -1 // Error Underflow 
+
+// ERROR: [2,3] Underflow -1 0
+

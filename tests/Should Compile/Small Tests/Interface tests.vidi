@@ -1,24 +1,30 @@
-// Declaring an interface, it is a simple class:
+// Declaring an interface, it is just a simple class:
 
-// 1) No variables
-// 2) No methods with content
+// 1) With No variables
+// 2) With No methods with content
 // 3) If there is an ancestor, it should also follow 1 and 2.
 
+
+// interface
 Sport {
   Score(Points : Integer) {}
 }
 
-// Declare a class to implement this interface (hard)
+// Declare a class to implement this interface (hard mode)
 
 Basket is Sport {
+
+  // implement 
   Score(Points : Integer) {
     Console.PutLine('New basket: ',Points)
   }
 }
 
-// Declare another class implementing this interface (soft)
+// Declare another class implementing this interface (soft mode)
 
 Football {
+
+  // it simply matches the signature 
   Score(Points : Integer) {
     Console.PutLine('New goal: ',Points)
   }
@@ -30,10 +36,10 @@ DoScore(S:Sport, Amount:Integer) {
   S.Score(Amount)
 }
 
-// Example of use
+// Example of use:
 
 {
-  B : Basket
+  B : Basket  // hard-mode
 
   // Using the interface as a variable
   
@@ -46,10 +52,15 @@ DoScore(S:Sport, Amount:Integer) {
 
   // Using the soft interface
 
-//  F : Football
-
 // TODO: Auto-discover if F is soft-compatible with Sport interface
 
-//  S := F 
-//  DoScore(S,3)
+//F : Football
+
+//S := F 
+//DoScore(S,3)
 }
+
+//OUT: New basket: 123^
+//OUT: New basket 45^
+//OUT: New goal: 3^
+

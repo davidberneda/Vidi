@@ -10,7 +10,7 @@ Array.Compare(a,b:Integer):Integer {
 
 Array.Sort(Ascending:Boolean) {
 
-  Comp::= Ascending ? 2 : 1
+  Comp::= Ascending ? 1 : 2
 
   DoSort(l,r:Integer)
   {
@@ -62,5 +62,11 @@ Array.Sort(Ascending:Boolean) {
   Numbers.Sort(False)
   Console.PutLine('Descending: ',Numbers) // Descending: ...
 }
+
+//OUT: 4825^
+//OUT: Ascending: 2458^
+//OUT: 2458^
+//OUT: Descending: 8542^
+
 
 

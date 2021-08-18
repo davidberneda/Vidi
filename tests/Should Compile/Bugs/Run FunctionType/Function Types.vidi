@@ -36,3 +36,5 @@ CallFunction(Value:FunctionType) {
 {
   CallFunction( (A:Boolean):Text { return A  ? "Yes" : "No" } )
 }
+
+//OUT: Yes^

@@ -1,0 +1,9 @@
+e::=1e   // TODO: missing exponent
+Console.Put(e)
+
+// FPCERROR: [2,14] Identifier not found: e
+
+f::=1e-    // TODO: missing exponent
+Console.Put(f)
+
+// ERROR: [7,14] Identifier not found: f

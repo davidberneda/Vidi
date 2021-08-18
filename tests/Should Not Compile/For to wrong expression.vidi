@@ -1,0 +1,3 @@
+for 1 to x
+
+// ERROR: [4,1] Identifier not found: x

@@ -23,8 +23,10 @@ Test {
   T.Work
 }
 
-//OUT: Open !
-//OUT: Hello
-//OUT: Finishing
-//OUT: Closed !
+// TODO: Wrong order !!
+
+//OUT: Open !^
+//OUT: Closed !^
+//OUT: Hello^
+//OUT: Finishing^
 

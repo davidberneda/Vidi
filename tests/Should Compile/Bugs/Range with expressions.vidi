@@ -4,3 +4,7 @@ Test {
 
 T:Test
 
+Console.PutLine(T.X)
+
+// From 2 to 7
+//OUT: 000000^

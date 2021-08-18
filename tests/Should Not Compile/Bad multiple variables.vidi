@@ -1,0 +1,3 @@
+x, *
+
+// ERROR: [1,4] Error. Empty parsed item

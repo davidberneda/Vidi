@@ -1,0 +1,9 @@
+x::=0
+
+for 34..67     
+  for 41..56
+     x+=1
+
+Console.Put(x)
+
+//OUT: 544

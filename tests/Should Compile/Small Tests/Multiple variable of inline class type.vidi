@@ -2,3 +2,10 @@ a,b,c: {
   Test:Text
 }
 
+a.Test :='a'
+b.Test :='b'
+c.Test :='c'
+
+Console.PutLine(a.Test,b.Test,c.Test)
+
+//OUT: abc^

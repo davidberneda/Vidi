@@ -14,3 +14,10 @@ Colors is { Red, Green, Blue, Yellow }
   Console.PutLine(Names.High)  // 3
   Console.PutLine(Names.Count)  // 4
 }
+
+
+//OUT: Blue^
+//OUT: My Green^
+//OUT: 0^
+//OUT: 3^
+//OUT: 4^

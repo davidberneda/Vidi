@@ -1,6 +1,7 @@
 //abc
 
 {
+  Console.Put('dummy')
 }
 
   /* Multi
@@ -8,3 +9,5 @@ Next
   */
 
 Test {}
+
+//OUT: dummy

@@ -1,4 +1,4 @@
-with syntax // <-- should flag unused module error
+with syntax // <-- TODO: should flag unused module error
 
 OkTest {
 }
@@ -39,7 +39,7 @@ hidden OkHidden {
 
     X:=0
     
-    Console.PutLine(X)
+    Console.PutLine(X) // 0
   }
 
   T:Test 
@@ -49,3 +49,7 @@ hidden OkHidden {
   Console.PutLine(T2)
 //  T2.X:=1  <-- access error (X hidden)
 }
+
+//OUT: Foo^
+//OUT: 0^
+//OUT: T2^

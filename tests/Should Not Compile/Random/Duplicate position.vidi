@@ -1,0 +1,5 @@
+try
+catch
+true + f
+
+// ERROR: [2,1] Error. Empty parsed item NamedType:

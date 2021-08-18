@@ -1,4 +1,12 @@
 {
   x:sys.Integer
   Console.PutLine(x)
+
+  Y:Integer
+  Console.PutLine(Y)
 }
+
+//TODO: x should be 0 !!!
+
+//OUT: x^
+//OUT: 0^

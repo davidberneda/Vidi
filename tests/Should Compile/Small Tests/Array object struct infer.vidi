@@ -43,3 +43,5 @@
 
  Console.PutLine(B)
 }
+
+//OUT: Foo^

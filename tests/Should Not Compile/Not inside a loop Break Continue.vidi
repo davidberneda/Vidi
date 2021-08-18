@@ -2,6 +2,10 @@
   Foo() {
     break
   }
+
+  Bar() {
+    continue
+  }
 }
 
 // ERROR: [4,3] Not inside a loop

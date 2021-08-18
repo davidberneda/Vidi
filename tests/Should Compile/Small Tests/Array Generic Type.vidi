@@ -24,3 +24,5 @@ Array(T:Type) is Data {
   M.X[0]:=123
 
 }
+
+//OUT: 456^

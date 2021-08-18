@@ -18,7 +18,7 @@ with Sort
 }
 
 
-//OUT: Numbers: 4 8 2 2 0 1 9 3^
+//OUT: Numbers: 48220193^
 //OUT: 8^
-//OUT: Ascending: 0 1 2 2 3 4 8 9^
-//OUT: Descending: 9 8 4 3 2 2 1 0^
+//OUT: Ascending: 01223489^
+//OUT: Descending: 98432210^

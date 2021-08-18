@@ -1,0 +1,15 @@
+else { 
+}
+
+indexed {}  // <-- error
+
+Test {
+//  for:Text
+//  for {
+//  }
+}
+
+//if:Boolean {
+//}
+
+// NOERROR: [1,1] Reserved keyword not allowed here

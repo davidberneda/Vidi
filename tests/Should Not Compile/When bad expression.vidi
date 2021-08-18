@@ -1,0 +1,3 @@
+when x
+
+// ERROR: [4,1] Identifier not found: x

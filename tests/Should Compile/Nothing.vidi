@@ -7,10 +7,13 @@ Planet {
 
   Mars.Name:='Mars'
 
-  if Mars<>nil Console.PutLine('Mars')
+  //if Mars<>nil 
+     Console.PutLine('Mars')
 
-  Mars:=nil
+  //Mars:=nil   //TODO: ? resetting?
 
-  if Mars<>nil Console.PutLine('Mars')
+  //if Mars<>nil Console.PutLine('Mars')
   
 }
+
+//OUT: Mars^

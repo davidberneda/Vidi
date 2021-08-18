@@ -17,3 +17,42 @@ with Expressions, Arrays, Flow, Structures, K:=Keywords
  Console.PutLine(k.Hello)
 
 }
+
+//OUT: Expressions^
+//OUT: hello^
+//OUT: 1690.789^
+//OUT: 1693.49046610361^
+//OUT: 125^
+//OUT: 8215383330001^
+//OUT: -123450000^
+//OUT: 9^
+//OUT: True^
+//OUT: True^
+//OUT: True^
+//OUT: True^
+//OUT: True^
+//OUT: True^
+//OUT: False^
+//OUT: True^
+//OUT: True^
+//OUT: b^
+//OUT: 20^
+//OUT: hello^
+//OUT: Arrays^
+//OUT: Test^
+//OUT: 123^
+//OUT: 5^
+//OUT: 0000000009^
+//OUT: 6^
+//OUT: Jane^
+//OUT: Structures^
+//OUT: Derived^
+//OUT: Derived call to sub class variable^
+//OUT: xyz^
+//OUT: Red^
+//OUT: 123^
+//OUT: Keywords^
+//OUT: False^
+//OUT: Hi^
+//OUT: True^
+//OUT: Hello^

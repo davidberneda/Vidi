@@ -1,7 +1,10 @@
-Get:Integer {
-    T:Integer
+Foo {
+}
 
-    if T=nil
+Get:Foo {
+    T:Foo
+
+    if T=nil   // TODO runtime
        return T
     else
     {
@@ -12,6 +15,7 @@ Get:Integer {
     }
 }
 
-{
-  
-}
+//G::=Get
+//Console.PutLine(G)
+
+//OUT:

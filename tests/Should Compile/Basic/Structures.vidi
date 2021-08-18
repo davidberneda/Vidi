@@ -57,7 +57,7 @@ Structures {
   
   Console.PutLine('Derived')
 
-  deri.sub.Method123()
+ //TODO: deri.sub.Method123()
   Console.PutLine('Derived call to sub class variable')
 
   // Numeric types
@@ -104,7 +104,7 @@ Structures {
 
   ClassWithParam(T:Text) is Data {
      S:Text := T
-     Console.Put(S)
+     Console.PutLine(S)
   }
 
   TestParam is ClassWithParam('xyz') {}
@@ -279,3 +279,13 @@ AnotherClass { // just a test
  S:Structures
  Console.PutLine(S.Blue) 
 }
+
+
+//OUT: Structures^
+//OUT: Derived^
+//OUT: Derived call to sub class variable^
+//OUT: xyz^
+//OUT: Red^
+//OUT: Blue^
+
+

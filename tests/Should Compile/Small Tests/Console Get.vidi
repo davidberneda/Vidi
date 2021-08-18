@@ -2,3 +2,5 @@
   S::=Console.Get
   Console.Put(S)
 }
+
+//OUT: 123

@@ -13,3 +13,6 @@ Test {
   Console.PutLine(Test.Foo(2))
   Console.PutLine(Test.Foo(1))
 }
+
+//OUT: False^
+//OUT: True^

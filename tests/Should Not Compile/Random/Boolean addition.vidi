@@ -1,0 +1,3 @@
+g : Boolean := True + True
+
+// ERROR: [1,21] Incompatible left and right sides of operand Addition:+

@@ -4,3 +4,5 @@
 
   Console.Put(Y)   // 2
 }
+
+//OUT: 2

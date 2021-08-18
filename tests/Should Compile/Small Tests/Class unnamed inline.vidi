@@ -17,3 +17,6 @@
 
  Console.PutLine(Planets)
 }
+
+//OUT: Saturn58232^
+//OUT: Mars3389.5Earth6371^

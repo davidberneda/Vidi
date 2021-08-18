@@ -1,0 +1,3 @@
+4 += 2
+
+// ERROR: [1,3] Bad identifier: 4

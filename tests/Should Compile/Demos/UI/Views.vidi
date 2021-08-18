@@ -1,0 +1,23 @@
+with UI
+
+{
+  Form1 : Form
+  Form1.Title := 'Hello World !'
+
+  Button1 : Button
+  Button1.Title := 'Click'
+
+  Form1.Add(Button1,10,60)
+
+  Label1 : Label
+  Form1.Add(Label1,10,10)
+
+  //OnClick(C:Control) { Label1.Text:='Clicked !' C.Size.Width:=20 }
+
+  //X:Control.ClickedMethod := OnClick
+  //Button1.Clicked:= X // OnClick
+
+  Form1.Modal
+}
+
+//OUT:

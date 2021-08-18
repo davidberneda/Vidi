@@ -1,0 +1,4 @@
+B: Byte 
+B:= 256 // Error Overflow 
+
+// ERROR: [2,2] Overflow 256 255

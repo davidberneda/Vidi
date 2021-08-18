@@ -1,0 +1,5 @@
+x:Integer
+for x:=0 to 4
+  Console.Put(x)
+
+//OUT: 01234

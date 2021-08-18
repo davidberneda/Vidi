@@ -1,0 +1,3 @@
+d : Boolean := True ? abc 
+
+// ERROR: [4,1] Identifier not found: abc

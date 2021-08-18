@@ -1,0 +1,3 @@
+j : Boolean := True ? True : dfjhdf[dfjhdf[True]] <> d
+
+// ERROR: [1,36] Identifier not found: dfjhdf
