@@ -1,0 +1,2 @@
+sys rcdata ..\..\..\source\sys.vidi
+vididemo rcdata "..\..\..\tests\should compile\demos\ui\Views.vidi"

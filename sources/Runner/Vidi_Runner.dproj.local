@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/08/05 12:23:53.000.282,C:\Users\david\Documents\Embarcadero\Studio\Projects\Project32.dproj=C:\David\Projects\Vidi\Delphi\Runner\Vidi_Runner.dproj</Transaction>
+    <Transaction>2020/08/05 12:24:20.000.306,=C:\David\Projects\Vidi\Delphi\Runner\Unit1.pas</Transaction>
+    <Transaction>2020/08/05 12:24:26.000.836,C:\David\Projects\Vidi\Delphi\Runner\Unit1.pas=C:\David\Projects\Vidi\Delphi\Runner\Runner.pas</Transaction>
+    <Transaction>2020/08/05 12:33:02.000.738,=C:\David\Projects\Vidi\Delphi\Runner\Unit1.pas</Transaction>
+    <Transaction>2020/08/05 12:33:23.000.583,C:\David\Projects\Vidi\Delphi\Runner\Unit1.pas=C:\David\Projects\Vidi\Delphi\Core\Constants.pas</Transaction>
+  </Transactions>
+</BorlandProject>
