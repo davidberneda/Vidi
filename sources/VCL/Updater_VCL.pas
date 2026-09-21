@@ -380,10 +380,58 @@ begin
 end;
 
 class function TUpdater.CheckUpdate(out ALatest:String):Boolean;
+
+  // parse v1.2.3-xxx  into:  1*100 + 2*10 + 3 = 123
+  function TryGetNum(s:String):Integer;
+  var Factor, i : Integer;
+  begin
+    result:=0;
+
+    Factor:=100;
+
+    s:=Trim(s);
+
+    if UpperCase(Copy(s,1,1))='V' then
+    begin
+      Delete(s,1,1);
+
+      while s<>'' do
+      begin
+        i:=Pos('.',s);
+
+        if i>0 then
+        begin
+          result:=result+Factor*StrToIntDef(Copy(s,1,i-1),0);
+          Delete(s,1,i);
+          Factor:=Factor div 10;
+        end
+        else
+        begin
+          i:=Pos('-',s);
+
+          if i>0 then
+          begin
+            result:=result+Factor*StrToIntDef(Copy(s,1,i-1),0);
+            Delete(s,1,i);
+            Factor:=Factor div 10;
+          end
+          else
+            break;
+        end;
+      end;
+    end;
+  end;
+
+  // Is the remote Latests version better than ours ?
+  function IsBetterVersion:Boolean;
+  begin
+    result:=TryGetNum(ALatest)>TryGetNum(TVidiConstants.Vidi_Version);
+  end;
+
 begin
   ALatest:=LatestRelease;
 
-  result:=(ALatest<>'') and (InternalAlwaysUpdate or (ALatest<>TVidiConstants.Vidi_Version));
+  result:=(ALatest<>'') and (InternalAlwaysUpdate or IsBetterVersion);
 end;
 
 class function TUpdater.WantsToUpdate(const AOwner:TComponent; const ALatest:String; out AFile:String):Boolean;
