@@ -19,7 +19,6 @@ object FormVidi: TFormVidi
   OnDestroy = FormDestroy
   OnResize = FormResize
   OnShow = FormShow
-  PixelsPerInch = 96
   TextHeight = 13
   object Splitter1: TSplitter
     Left = 0
@@ -42,7 +41,7 @@ object FormVidi: TFormVidi
     Top = 0
     Width = 361
     Height = 470
-    ActivePage = TabModules
+    ActivePage = TabTypes
     Align = alLeft
     TabOrder = 0
     OnChange = PageLeftChange

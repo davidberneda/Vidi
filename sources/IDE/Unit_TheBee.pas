@@ -1649,7 +1649,7 @@ begin
 
   FormToolBar.Toolbar.Parent:=Self;
   FormToolBar.Toolbar.Align:=TAlign.alTop;
-  FormToolBar.Toolbar.Height:=42;
+  FormToolBar.Toolbar.Height:=ScaleMonitor(42);
 end;
 
 procedure TFormVidi.CreateRunner;

@@ -23,6 +23,8 @@ function CreateTree(const AOwner:TComponent; const AParent:TWinControl):TTreeVie
 
 procedure LoadPNG(const AImage:TImage; const AName:String);
 
+function ScaleMonitor(const ASize:Integer):Integer;
+
 function TextWidth(const AControl:TWinControl; const AText:String):Integer;
 
 type
@@ -75,6 +77,23 @@ begin
   AForm.BorderIcons:=[];
 end;
 
+function GetCurrentMonitorScalePercentage: Integer;
+var DPI: UINT;
+begin
+  if Assigned(Screen.ActiveForm) then
+     DPI := Screen.ActiveForm.CurrentPPI
+  else
+     DPI := Screen.PrimaryMonitor.PixelsPerInch;
+
+  Result := MulDiv(DPI, 100, 96);
+end;
+
+// Returns pixels scaled to % Windows font text size (ie: 150%)
+function ScaleMonitor(const ASize:Integer):Integer;
+begin
+  result:=Round(ASize*GetCurrentMonitorScalePercentage*0.01);
+end;
+
 procedure AddTitlePanel(const AParent:TWinControl; const ACaption:String);
 var tmp : TPanel;
     tmpL : TLabel;
@@ -82,7 +101,7 @@ begin
   tmp:=TPanel.Create(AParent.Owner);
   tmp.Align:=TAlign.alTop;
   tmp.Caption:='';
-  tmp.Height:=24;
+  tmp.Height:=ScaleMonitor(24);
 
   tmp.BevelInner:=TBevelCut.bvNone;
   tmp.BevelOuter:=TBevelCut.bvNone;
