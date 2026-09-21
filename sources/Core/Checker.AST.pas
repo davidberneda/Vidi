@@ -1080,7 +1080,9 @@ begin
         tmp:=TSpecializedType(tmpType).TheType.Parameters.IndexOf(ANode);
 
     result:=nil;
-  end;
+  end
+  else
+    result:=nil;
 end;
 
 class function TChecker.GetSpecialGenerics(const AParent:TNode;
