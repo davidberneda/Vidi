@@ -53,7 +53,7 @@ implementation
 uses
   TheBee_VCL, Emit, Emit.Pascal, Module,
 
-  TheBee_Test_Expressions,
+  //TheBee_Test_Expressions,
 
   Evaluator, Editor_VCL, RichEmit;
 
@@ -138,12 +138,14 @@ end;
 
 procedure TFormTests.Button4Click(Sender: TObject);
 begin
+{
   with TFormTestExpressions.Create(Self) do
   try
     ShowModal;
   finally
     Free;
   end;
+}
 end;
 
 procedure TFormTests.Button6Click(Sender: TObject);
